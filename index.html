@@ -5,17 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>متجر تطبيقاتي</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #121212; color: white; text-align: center; padding: 20px; }
-        h1 { color: #ff9900; }
-        .app-card { background: #1e1e1e; border: 2px solid #333; border-radius: 12px; padding: 15px; margin: 15px auto; max-width: 400px; }
-        .app-btn { display: inline-block; background: #ff9900; color: black; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 6px; margin-top: 10px; }
-        .app-btn:focus, .app-btn:hover { background: #ffffff; color: black; outline: 4px solid #ff9900; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('barca.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+            margin: 0;
+        }
+        h1 { color: #ff9900; text-shadow: 2px 2px 4px #000; }
+        p { text-shadow: 1px 1px 3px #000; }
+        .app-card { 
+            background: rgba(30, 30, 30, 0.85); 
+            border: 2px solid #333; 
+            border-radius: 12px; 
+            padding: 15px; 
+            margin: 15px auto; 
+            max-width: 400px; 
+            backdrop-filter: blur(5px);
+        }
+        .app-btn { 
+            display: inline-block; 
+            background: #ff9900; 
+            color: black; 
+            padding: 12px 25px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 6px; 
+            margin-top: 10px; 
+        }
+        .telegram-btn { 
+            display: inline-block; 
+            background: #0088cc; 
+            color: white; 
+            padding: 12px 25px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 6px; 
+            margin-top: 10px; 
+        }
+        .app-btn:focus, .app-btn:hover, .telegram-btn:focus, .telegram-btn:hover { 
+            background: #ffffff; 
+            color: black; 
+            outline: 4px solid #ff9900; 
+        }
     </style>
 </head>
 <body>
 
     <h1>🚀 متجر التطبيقات الخاص بي</h1>
     <p>اختر التطبيق واضغط على زر التحميل المباشر</p>
+
+    <!-- زر التليجرام -->
+    <div class="app-card" style="border-color: #0088cc;">
+        <h3>📢 قناتنا على التليجرام</h3>
+        <p>اشترك للمزيد من التحديثات والتطبيقات</p>
+        <a class="telegram-btn" href="https://t.me/X_9_KK" target="_blank">الانضمام للقناة</a>
+    </div>
 
     <!-- التطبيق الأول -->
     <div class="app-card">
@@ -31,7 +78,7 @@
         <a class="app-btn" href="Yacine%20TV%20Gold.apk">تنزيل التطبيق</a>
     </div>
 
-    <!-- التطبيق الثالث (ميديافاير) -->
+    <!-- التطبيق الثالث -->
     <div class="app-card">
         <h3>Alwan Sports</h3>
         <p>الإصدار: APK (MediaFire)</p>
