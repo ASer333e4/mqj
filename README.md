@@ -1,1 +1,27 @@
-# mqj
+# mqj<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر تطبيقاتي</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #121212; color: white; text-align: center; padding: 20px; }
+        h1 { color: #ff9900; }
+        .app-card { background: #1e1e1e; border: 2px solid #333; border-radius: 12px; padding: 15px; margin: 15px auto; max-width: 400px; }
+        .app-btn { display: inline-block; background: #ff9900; color: black; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 6px; margin-top: 10px; }
+        .app-btn:focus, .app-btn:hover { background: #ffffff; color: black; outline: 4px solid #ff9900; }
+    </style>
+</head>
+<body>
+
+    <h1>🚀 متجر التطبيقات الخاص بي</h1>
+    <p>اختر التطبيق واضغط على زر التحميل المباشر</p>
+
+    <div class="app-card">
+        <h3>تطبيق الباشا تي في</h3>
+        <p>الإصدار: 6.0.1 | APK</p>
+        <a class="app-btn" href="ALBASHA_TV_6.0.1.apk">تنزيل التطبيق</a>
+    </div>
+
+</body>
+</html>
