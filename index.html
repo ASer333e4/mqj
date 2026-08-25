@@ -173,6 +173,7 @@
             display: inline-block;
             margin-top: 0.2rem;
             border: 1px solid transparent;
+            width: 100%;
         }
 
         .btn-download:hover {
@@ -202,6 +203,134 @@
             background: #6d28d9;
         }
 
+        .btn-download.player {
+            background: #334155;
+        }
+        .btn-download.player:hover {
+            background: #1e293b;
+        }
+
+        /* --- المودال (النافذة المنبثقة) --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(6px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .modal-box {
+            background: #ffffff;
+            max-width: 440px;
+            width: 90%;
+            padding: 2rem 1.8rem;
+            border-radius: 32px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            animation: scaleUp 0.3s ease-out;
+            position: relative;
+        }
+
+        @keyframes scaleUp {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-box .modal-icon {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-box h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        .modal-box p {
+            color: #475569;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .modal-box .channel-name {
+            background: #eef2f7;
+            padding: 0.6rem 1rem;
+            border-radius: 60px;
+            font-weight: 700;
+            color: #0088cc;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin: 0.5rem auto 1.2rem;
+            direction: ltr;
+        }
+
+        .modal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        .modal-actions .btn-modal {
+            padding: 0.7rem 2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            min-width: 120px;
+        }
+
+        .btn-modal.subscribe {
+            background: #0088cc;
+            color: #fff;
+        }
+        .btn-modal.subscribe:hover {
+            background: #006699;
+            transform: scale(1.03);
+        }
+
+        .btn-modal.later {
+            background: #e9edf4;
+            color: #1a1e2b;
+        }
+        .btn-modal.later:hover {
+            background: #d1d8e0;
+            transform: scale(1.03);
+        }
+
+        .btn-modal.close-modal {
+            background: transparent;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            padding: 0.4rem 1rem;
+            min-width: auto;
+        }
+        .btn-modal.close-modal:hover {
+            color: #475569;
+        }
+
         /* --- الفوتر --- */
         .footer {
             margin-top: 2.5rem;
@@ -225,6 +354,9 @@
             .logo-area h1 { font-size: 1.4rem; }
             .telegram-badge { font-size: 0.75rem; padding: 0.3rem 1rem; }
             .apps-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+            .modal-box { padding: 1.5rem; }
+            .modal-box h2 { font-size: 1.3rem; }
+            .modal-actions .btn-modal { min-width: 100px; padding: 0.6rem 1.2rem; }
         }
     </style>
 </head>
@@ -244,179 +376,9 @@
     </header>
 
     <!-- شبكة التطبيقات -->
-    <div class="apps-grid">
-
-        <!-- King Cinema -->
-        <div class="app-card">
-            <div class="app-title">🎬 King Cinema</div>
-            <div class="app-desc">أفلام، مسلسلات، بث مباشر للمباريات</div>
-            <div class="app-meta">📦 APK</div>
-            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- سينمانا (ايرثلنك) -->
-        <div class="app-card">
-            <div class="app-title">📡 سينمانا</div>
-            <div class="app-desc">للمشتركين ايرثلنك و الوطني FTTH</div>
-            <div class="app-meta">📦 APK</div>
-            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- تطبيق سي (C) -->
-        <div class="app-card">
-            <div class="app-title">📡 تطبيق سي (C)</div>
-            <div class="app-desc">سينمانا لجميع مزودي الإنترنت في العراق</div>
-            <div class="app-meta">📦 APK</div>
-            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- FAST -->
-        <div class="app-card">
-            <div class="app-title">⚡ FAST</div>
-            <div class="app-desc">قياس سرعة الإنترنت في الشاشة</div>
-            <div class="app-meta">📦 APK</div>
-            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- تطبيق الأنمي -->
-        <div class="app-card">
-            <div class="app-title">🎌 تطبيق الأنمي</div>
-            <div class="app-desc">انقل حسابك من Anime Reeft إلى الشاشة</div>
-            <div class="app-meta">📦 APK</div>
-            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- Nado TV -->
-        <div class="app-card">
-            <div class="app-title">📺 Nado TV</div>
-            <div class="app-desc">لجميع أنواع الإنترنت</div>
-            <div class="app-meta">🔑 <span class="key">22455</span> 📦 APK</div>
-            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- Plasma 4K -->
-        <div class="app-card">
-            <div class="app-title">🖥️ Plasma 4K</div>
-            <div class="app-desc">جودة عالية</div>
-            <div class="app-meta">📦 APK</div>
-            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- ريزن -->
-        <div class="app-card">
-            <div class="app-title">🧩 ريزن</div>
-            <div class="app-desc">نسخة MediaFire</div>
-            <div class="app-meta">📦 APK (MediaFire)</div>
-            <a href="#" class="btn-download mediafire">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- كايدن TV -->
-        <div class="app-card">
-            <div class="app-title">📺 كايدن TV</div>
-            <div class="app-desc">نسخة MediaFire</div>
-            <div class="app-meta">🔑 <span class="key">19</span> 📦 APK (MediaFire)</div>
-            <a href="#" class="btn-download mediafire">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- Oscar TV -->
-        <div class="app-card">
-            <div class="app-title">🏆 Oscar TV</div>
-            <div class="app-desc">نسخة TV | APK</div>
-            <div class="app-meta">📦 TV | APK</div>
-            <a href="#" class="btn-download tv">⬇️ تنزيل التطبيق</a>
-            <a href="#" class="btn-download" style="margin-top:0.4rem; background:#334155;">▶️ تحميل المشغل (بدون إعلانات)</a>
-        </div>
-
-        <!-- KT PLUS -->
-        <div class="app-card">
-            <div class="app-title">📱 KT PLUS</div>
-            <div class="app-desc">نسخة APK</div>
-            <div class="app-meta">🔑 <span class="key">6666</span> 📦 APK</div>
-            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- VPNify -->
-        <div class="app-card">
-            <div class="app-title">🛡️ VPNify</div>
-            <div class="app-desc">لتجاوز مشاكل فتح التطبيقات</div>
-            <div class="app-meta">📦 VPN</div>
-            <a href="#" class="btn-download vpn">⬇️ تنزيل الـ VPN</a>
-        </div>
-
-        <!-- Original TV -->
-        <div class="app-card">
-            <div class="app-title">📺 Original TV</div>
-            <div class="app-desc">نسخة MediaFire</div>
-            <div class="app-meta">📦 APK (MediaFire)</div>
-            <a href="#" class="btn-download mediafire">⬇️ تنزيل التطبيق</a>
-            <a href="#" class="btn-download" style="margin-top:0.4rem; background:#334155;">▶️ تنزيل مشغل أورجينال</a>
-        </div>
-
-        <!-- GENRAL TV -->
-        <div class="app-card">
-            <div class="app-title">📡 GENRAL TV</div>
-            <div class="app-desc">لا يحتاج مشغل ولا كود</div>
-            <div class="app-meta">📦 APK</div>
-            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- Nova TV -->
-        <div class="app-card">
-            <div class="app-title">📺 Nova TV</div>
-            <div class="app-desc">نسخة TV | APK</div>
-            <div class="app-meta">📦 TV | APK</div>
-            <a href="#" class="btn-download tv">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- كوديا سبورت -->
-        <div class="app-card">
-            <div class="app-title">⚽ كوديا سبورت</div>
-            <div class="app-desc">للإنترنت الضعيف والمتوسط | جودة HD</div>
-            <div class="app-meta">📦 APK</div>
-            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- Prom -->
-        <div class="app-card">
-            <div class="app-title">🎞️ Prom</div>
-            <div class="app-desc">نسخة MediaFire</div>
-            <div class="app-meta">📦 APK (MediaFire)</div>
-            <a href="#" class="btn-download mediafire">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- LIVE STREAM PREMIUM -->
-        <div class="app-card">
-            <div class="app-title">📺 LIVE STREAM PREMIUM</div>
-            <div class="app-desc">نسخة Premium</div>
-            <div class="app-meta">🔑 <span class="key">2027</span> 📦 Premium | APK</div>
-            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- الباشا تي في -->
-        <div class="app-card">
-            <div class="app-title">👑 الباشا تي في</div>
-            <div class="app-desc">أفضل تطبيق بالشرق الأوسط، يعمل على جميع الأنواع SD/HD/UHD 4K</div>
-            <div class="app-meta">📦 APK</div>
-            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- Yacine TV Gold -->
-        <div class="app-card">
-            <div class="app-title">🥇 Yacine TV Gold</div>
-            <div class="app-desc">نسخة TV | APK</div>
-            <div class="app-meta">📦 TV | APK</div>
-            <a href="#" class="btn-download tv">⬇️ تنزيل التطبيق</a>
-        </div>
-
-        <!-- Alwan Sports -->
-        <div class="app-card">
-            <div class="app-title">🌈 Alwan Sports</div>
-            <div class="app-desc">نسخة MediaFire</div>
-            <div class="app-meta">📦 APK (MediaFire)</div>
-            <a href="#" class="btn-download mediafire">⬇️ تنزيل التطبيق</a>
-        </div>
-
-    </div> <!-- نهاية الشبكة -->
+    <div class="apps-grid" id="appsGrid">
+        <!-- جميع البطاقات تم إنشاؤها عبر JavaScript للحفاظ على نظافة الكود وتسهيل التحديث -->
+    </div>
 
     <!-- الفوتر -->
     <footer class="footer">
@@ -425,7 +387,192 @@
         <a href="https://t.me/X_9_KK" target="_blank" rel="noopener">@X_9_KK</a>
     </footer>
 
-</div> <!-- نهاية الحاوية -->
+</div>
+
+<!-- --- المودال (النافذة المنبثقة) --- -->
+<div class="modal-overlay" id="subscribeModal">
+    <div class="modal-box">
+        <div class="modal-icon">📢</div>
+        <h2>هل تريد الاشتراك بالقناة؟</h2>
+        <p>احصل على أحدث التطبيقات والتحديثات أولاً بأول</p>
+        <div class="channel-name">@X_9_KK</div>
+        <div class="modal-actions">
+            <button class="btn-modal subscribe" id="modalSubscribe">✅ اشتراك</button>
+            <button class="btn-modal later" id="modalLater">⏳ لاحقًا</button>
+        </div>
+        <div style="margin-top: 1rem;">
+            <button class="btn-modal close-modal" id="modalClose">إلغاء</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        'use strict';
+
+        // --- بيانات التطبيقات (كل تطبيق مع رابط التحميل الخاص به) ---
+        const appsData = [
+            { title: '🎬 King Cinema', desc: 'أفلام، مسلسلات، بث مباشر للمباريات', meta: '📦 APK', link: '#', class: '' },
+            { title: '📡 سينمانا', desc: 'للمشتركين ايرثلنك و الوطني FTTH', meta: '📦 APK', link: '#', class: '' },
+            { title: '📡 تطبيق سي (C)', desc: 'سينمانا لجميع مزودي الإنترنت في العراق', meta: '📦 APK', link: '#', class: '' },
+            { title: '⚡ FAST', desc: 'قياس سرعة الإنترنت في الشاشة', meta: '📦 APK', link: '#', class: '' },
+            { title: '🎌 تطبيق الأنمي', desc: 'انقل حسابك من Anime Reeft إلى الشاشة', meta: '📦 APK', link: '#', class: '' },
+            { title: '📺 Nado TV', desc: 'لجميع أنواع الإنترنت', meta: '🔑 22455  📦 APK', link: '#', class: '' },
+            { title: '🖥️ Plasma 4K', desc: 'جودة عالية', meta: '📦 APK', link: '#', class: '' },
+            { title: '🧩 ريزن', desc: 'نسخة MediaFire', meta: '📦 APK (MediaFire)', link: '#', class: 'mediafire' },
+            { title: '📺 كايدن TV', desc: 'نسخة MediaFire', meta: '🔑 19  📦 APK (MediaFire)', link: '#', class: 'mediafire' },
+            { title: '🏆 Oscar TV', desc: 'نسخة TV | APK', meta: '📦 TV | APK', link: '#', class: 'tv' },
+            { title: '📱 KT PLUS', desc: 'نسخة APK', meta: '🔑 6666  📦 APK', link: '#', class: '' },
+            { title: '🛡️ VPNify', desc: 'لتجاوز مشاكل فتح التطبيقات', meta: '📦 VPN', link: '#', class: 'vpn' },
+            { title: '📺 Original TV', desc: 'نسخة MediaFire', meta: '📦 APK (MediaFire)', link: '#', class: 'mediafire' },
+            { title: '📡 GENRAL TV', desc: 'لا يحتاج مشغل ولا كود', meta: '📦 APK', link: '#', class: '' },
+            { title: '📺 Nova TV', desc: 'نسخة TV | APK', meta: '📦 TV | APK', link: '#', class: 'tv' },
+            { title: '⚽ كوديا سبورت', desc: 'للإنترنت الضعيف والمتوسط | جودة HD', meta: '📦 APK', link: '#', class: '' },
+            { title: '🎞️ Prom', desc: 'نسخة MediaFire', meta: '📦 APK (MediaFire)', link: '#', class: 'mediafire' },
+            { title: '📺 LIVE STREAM PREMIUM', desc: 'نسخة Premium', meta: '🔑 2027  📦 Premium | APK', link: '#', class: '' },
+            { title: '👑 الباشا تي في', desc: 'أفضل تطبيق بالشرق الأوسط، SD/HD/UHD 4K', meta: '📦 APK', link: '#', class: '' },
+            { title: '🥇 Yacine TV Gold', desc: 'نسخة TV | APK', meta: '📦 TV | APK', link: '#', class: 'tv' },
+            { title: '🌈 Alwan Sports', desc: 'نسخة MediaFire', meta: '📦 APK (MediaFire)', link: '#', class: 'mediafire' }
+        ];
+
+        // --- بيانات إضافية للتطبيقات التي لها أزرار إضافية (مثل المشغل) ---
+        // سيتم التعامل معها يدوياً في بناء البطاقات
+
+        // --- عناصر المودال ---
+        const modalOverlay = document.getElementById('subscribeModal');
+        const modalSubscribeBtn = document.getElementById('modalSubscribe');
+        const modalLaterBtn = document.getElementById('modalLater');
+        const modalCloseBtn = document.getElementById('modalClose');
+        let pendingDownloadLink = '#';  // يحفظ رابط التحميل المعلق
+
+        // --- وظائف المودال ---
+        function openModal(link) {
+            pendingDownloadLink = link;
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // منع تمرير الخلفية
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function startDownload() {
+            if (pendingDownloadLink && pendingDownloadLink !== '#') {
+                window.open(pendingDownloadLink, '_blank');
+            } else {
+                // إذا كان الرابط "#" نعرض رسالة تجريبية أو ننبه المستخدم
+                alert('⚠️ رابط التحميل سيتم إضافته قريباً.');
+            }
+            closeModal();
+        }
+
+        // --- أحداث المودال ---
+        modalSubscribeBtn.addEventListener('click', function() {
+            // توجيه المستخدم إلى القناة
+            window.open('https://t.me/X_9_KK', '_blank');
+            // ثم نبدأ التحميل
+            startDownload();
+        });
+
+        modalLaterBtn.addEventListener('click', function() {
+            // يبدأ التحميل فوراً دون اشتراك
+            startDownload();
+        });
+
+        modalCloseBtn.addEventListener('click', closeModal);
+
+        // إغلاق المودال عند النقر خارج النافذة
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        // إغلاق المودال بالضغط على Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // --- بناء بطاقات التطبيقات ديناميكياً ---
+        const grid = document.getElementById('appsGrid');
+        grid.innerHTML = ''; // تفريغ الشبكة
+
+        appsData.forEach((app, index) => {
+            const card = document.createElement('div');
+            card.className = 'app-card';
+
+            // العنوان
+            const titleEl = document.createElement('div');
+            titleEl.className = 'app-title';
+            titleEl.textContent = app.title;
+            card.appendChild(titleEl);
+
+            // الوصف
+            const descEl = document.createElement('div');
+            descEl.className = 'app-desc';
+            descEl.textContent = app.desc;
+            card.appendChild(descEl);
+
+            // الميتا (المعلومات الإضافية)
+            const metaEl = document.createElement('div');
+            metaEl.className = 'app-meta';
+            // معالجة النص لعرض الأكواد بشكل مميز
+            let metaText = app.meta;
+            // إذا كان هناك كود تفعيل، نستخرجه ونضيف له وسماً
+            const keyMatch = metaText.match(/🔑\s*(\d+)/);
+            if (keyMatch) {
+                const key = keyMatch[1];
+                metaText = metaText.replace(/🔑\s*\d+/, '🔑 <span class="key">' + key + '</span>');
+            }
+            metaEl.innerHTML = metaText;
+            card.appendChild(metaEl);
+
+            // زر التحميل الرئيسي
+            const btn = document.createElement('button');
+            btn.className = 'btn-download' + (app.class ? ' ' + app.class : '');
+            btn.textContent = '⬇️ تنزيل التطبيق';
+            // نستخدم حدث النقر لفتح المودال
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // نمرر رابط التحميل إلى المودال
+                openModal(app.link);
+            });
+            card.appendChild(btn);
+
+            // --- أزرار إضافية لبعض التطبيقات (مثل مشغل Oscar TV و Original TV) ---
+            if (app.title.includes('Oscar TV')) {
+                const playerBtn = document.createElement('button');
+                playerBtn.className = 'btn-download player';
+                playerBtn.textContent = '▶️ تحميل المشغل (بدون إعلانات)';
+                playerBtn.style.marginTop = '0.4rem';
+                playerBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openModal('#'); // يمكنك تغيير الرابط لرابط المشغل
+                });
+                card.appendChild(playerBtn);
+            }
+
+            if (app.title.includes('Original TV')) {
+                const playerBtn = document.createElement('button');
+                playerBtn.className = 'btn-download player';
+                playerBtn.textContent = '▶️ تنزيل مشغل أورجينال';
+                playerBtn.style.marginTop = '0.4rem';
+                playerBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openModal('#'); // يمكنك تغيير الرابط لرابط المشغل
+                });
+                card.appendChild(playerBtn);
+            }
+
+            grid.appendChild(card);
+        });
+
+        console.log('[الخبز] تم تحميل المتجر بالكامل مع مودال الاشتراك الذكي.');
+    })();
+</script>
 
 </body>
-    </html>
+    </html> 
