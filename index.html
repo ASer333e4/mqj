@@ -2,494 +2,218 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b16">
-<meta name="description" content="متجر تطبيقات مجانية - MQJ Store">
-<title>MQJ Store | متجر التطبيقات</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="متجر تطبيقات مجانية للشاشات الذكية والكمبيوتر والموبايل والآيباد">
+<title>🚀 MQJ Store — متجر التطبيقات</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#070a12;--panel:#0d1220;--panel2:#111827;--line:rgba(255,255,255,.08);
-  --text:#f7f9ff;--muted:#98a3b7;--purple:#7c4dff;--cyan:#20d9ff;
-  --green:#19c98b;--orange:#ff9d2e;--red:#ff5c75;--shadow:0 24px 70px rgba(0,0,0,.42);
-  --radius:24px
+  --bg:#05070d;--surface:#0b1020;--surface2:#10172a;--line:rgba(255,255,255,.10);
+  --text:#f8fbff;--muted:#98a5bb;--primary:#7c5cff;--primary2:#5d39ef;
+  --cyan:#20d9ff;--green:#27df9a;--gold:#ffc857;--danger:#ff5f7a;--r:24px;
+  --shadow:0 24px 80px rgba(0,0,0,.45);
 }
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  min-height:100vh;background:
-  radial-gradient(circle at 10% 0%,rgba(124,77,255,.18),transparent 30%),
-  radial-gradient(circle at 90% 10%,rgba(32,217,255,.10),transparent 28%),
-  linear-gradient(180deg,#070a12,#090d17 55%,#060810);
-  color:var(--text);font-family:Tajawal,Arial,sans-serif;overflow-x:hidden
-}
-a{text-decoration:none;color:inherit}
-button,input{font:inherit}
-button{cursor:pointer}
-
-.topbar{
-  position:sticky;top:0;z-index:100;background:rgba(7,10,18,.78);
-  backdrop-filter:blur(22px);border-bottom:1px solid var(--line)
-}
-.nav{
-  max-width:1400px;margin:auto;padding:14px 22px;display:flex;align-items:center;
-  justify-content:space-between;gap:16px
-}
-.brand{display:flex;align-items:center;gap:12px}
-.brand-mark{
-  width:48px;height:48px;border-radius:16px;display:grid;place-items:center;
-  background:linear-gradient(135deg,var(--purple),var(--cyan));font-size:22px;
-  box-shadow:0 12px 32px rgba(124,77,255,.3)
-}
-.brand h1{font-size:1.35rem;font-weight:900}
-.brand small{display:block;color:var(--muted);font-size:.72rem;margin-top:1px}
-.nav-actions{display:flex;gap:9px;align-items:center}
-.live{
-  display:flex;align-items:center;gap:8px;padding:9px 13px;border-radius:50px;
-  background:rgba(25,201,139,.08);border:1px solid rgba(25,201,139,.2);
-  color:#5be4b0;font-size:.8rem;font-weight:800
-}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(25,201,139,.08);animation:pulse 1.7s infinite}
-@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(25,201,139,0)}}
-.telegram{
-  padding:10px 15px;border-radius:50px;background:#168dcc;color:#fff;font-weight:800;
-  font-size:.82rem;display:flex;gap:7px;align-items:center
-}
-
-.shell{max-width:1400px;margin:auto;padding:28px 22px 50px}
-.hero{
-  min-height:300px;border:1px solid var(--line);border-radius:32px;padding:38px;
+  font-family:Tajawal,Arial,sans-serif;color:var(--text);min-height:100vh;
   background:
-    linear-gradient(120deg,rgba(124,77,255,.15),rgba(32,217,255,.05)),
-    rgba(255,255,255,.025);box-shadow:var(--shadow);position:relative;overflow:hidden
+    radial-gradient(900px 500px at 5% -10%,rgba(124,92,255,.25),transparent 65%),
+    radial-gradient(800px 500px at 100% 10%,rgba(32,217,255,.14),transparent 62%),
+    linear-gradient(180deg,#05070d,#070b14 45%,#05070d);
 }
-.hero:before,.hero:after{
-  content:"";position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none
-}
-.hero:before{width:280px;height:280px;background:rgba(124,77,255,.12);left:-90px;top:-100px}
-.hero:after{width:220px;height:220px;background:rgba(32,217,255,.08);right:-60px;bottom:-100px}
-.hero-content{position:relative;z-index:1;max-width:850px}
-.kicker{display:inline-flex;gap:8px;align-items:center;color:#bdaaff;background:rgba(124,77,255,.10);
-  border:1px solid rgba(124,77,255,.2);padding:7px 12px;border-radius:50px;font-size:.8rem;font-weight:800}
-.hero h2{font-size:clamp(2rem,5vw,4rem);line-height:1.1;margin:18px 0 12px;font-weight:900}
-.hero h2 span{background:linear-gradient(90deg,#fff,#bcaeff,#55e7ff);-webkit-background-clip:text;color:transparent}
-.hero p{color:var(--muted);max-width:700px;line-height:1.9;font-size:1rem}
-.hero-stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
-.stat{padding:10px 14px;border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:15px}
-.stat b{display:block;font-size:1.1rem}.stat span{color:var(--muted);font-size:.7rem}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.28;
+ background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+ background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}
+a{text-decoration:none;color:inherit}button,input{font:inherit}
+.wrap{width:min(1480px,calc(100% - 28px));margin:auto;position:relative;z-index:1}
 
-.toolbar{
-  margin-top:20px;padding:16px;border:1px solid var(--line);border-radius:24px;
-  background:rgba(13,18,32,.72);backdrop-filter:blur(18px);position:sticky;top:78px;z-index:50
+.top{padding:16px 0 8px}
+.nav{
+ display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 14px;
+ position:sticky;top:10px;z-index:50;border:1px solid var(--line);border-radius:22px;
+ background:rgba(8,12,23,.72);backdrop-filter:blur(22px);box-shadow:0 18px 60px rgba(0,0,0,.28)
 }
-.search{position:relative}
-.search input{
-  width:100%;height:52px;border-radius:16px;border:1px solid var(--line);
-  background:#080c15;color:var(--text);outline:none;padding:0 48px 0 16px
-}
-.search input:focus{border-color:rgba(124,77,255,.65);box-shadow:0 0 0 4px rgba(124,77,255,.09)}
-.search i{position:absolute;right:18px;top:50%;transform:translateY(-50%);color:#6f7a90}
-.filters{display:flex;gap:8px;overflow:auto;padding-top:12px;scrollbar-width:none}
-.filters::-webkit-scrollbar{display:none}
-.filter{
-  white-space:nowrap;border:1px solid var(--line);background:rgba(255,255,255,.035);
-  color:var(--muted);padding:9px 14px;border-radius:50px;font-weight:800;font-size:.78rem
-}
-.filter.active{color:#fff;border-color:transparent;background:linear-gradient(135deg,var(--purple),#5431c9);box-shadow:0 8px 22px rgba(124,77,255,.2)}
-.counter{color:var(--muted);font-size:.8rem;margin-top:10px}.counter b{color:var(--cyan)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}.brand-icon{
+ width:52px;height:52px;border-radius:17px;display:grid;place-items:center;font-size:25px;
+ background:linear-gradient(135deg,var(--primary),var(--cyan));box-shadow:0 12px 35px rgba(124,92,255,.3)
+}.brand h1{font-size:clamp(1.15rem,2.6vw,1.65rem);font-weight:900}.brand small{display:block;color:var(--muted);font-size:.7rem}
+.nav-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.live,.tg{border-radius:999px;padding:9px 13px;font-weight:800;font-size:.8rem}
+.live{background:rgba(39,223,154,.08);border:1px solid rgba(39,223,154,.2);color:#55edb3}
+.dot{display:inline-block;width:8px;height:8px;background:var(--green);border-radius:50%;margin-left:6px;box-shadow:0 0 0 6px rgba(39,223,154,.08)}
+.tg{background:#168dcc;color:#fff;box-shadow:0 8px 25px rgba(22,141,204,.25)}
 
-.grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:20px
+.hero{padding:34px 0 22px;display:grid;grid-template-columns:1.25fr .75fr;gap:18px}
+.hero-main,.hero-side{
+ border:1px solid var(--line);border-radius:32px;background:linear-gradient(145deg,rgba(17,24,43,.92),rgba(7,11,21,.92));
+ box-shadow:var(--shadow);overflow:hidden
 }
-.card{
-  position:relative;overflow:hidden;min-height:330px;padding:18px;border:1px solid var(--line);
-  border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));
-  display:flex;flex-direction:column;transition:.28s ease
-}
-.card:hover{transform:translateY(-7px);border-color:rgba(124,77,255,.35);box-shadow:0 22px 45px rgba(0,0,0,.3)}
-.card.featured{border-color:rgba(255,157,46,.55);background:linear-gradient(180deg,rgba(255,157,46,.10),rgba(255,255,255,.02))}
-.ribbon{
-  position:absolute;top:14px;left:14px;background:linear-gradient(135deg,#ffb12e,#f27a00);
-  color:#201000;padding:5px 9px;border-radius:8px;font-size:.65rem;font-weight:900
-}
-.app-head{display:flex;gap:13px;align-items:center;margin-bottom:14px}
-.app-image{
-  width:72px;height:72px;flex:0 0 72px;border-radius:20px;overflow:hidden;
-  background:linear-gradient(135deg,#172033,#0b1020);border:1px solid rgba(255,255,255,.08);
-  display:grid;place-items:center;box-shadow:0 10px 25px rgba(0,0,0,.2)
-}
-.app-image img{width:100%;height:100%;object-fit:cover;display:block}
-.fallback{font-size:31px}
-.app-title{font-size:1.06rem;font-weight:900;line-height:1.35}
-.app-type{font-size:.7rem;color:#7f8ba1;margin-top:4px}
-.desc{color:var(--muted);font-size:.82rem;line-height:1.75;flex:1;margin-bottom:12px}
-.meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:13px}
-.tag{padding:5px 8px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:#b4bfd0;font-size:.68rem}
-.code{color:#fff;background:rgba(124,77,255,.18);border-color:rgba(124,77,255,.3);cursor:pointer}
-.actions{display:grid;grid-template-columns:1fr auto;gap:8px}
-.download,.player{
-  min-height:43px;border:0;border-radius:13px;display:flex;align-items:center;justify-content:center;gap:7px;
-  font-weight:900;font-size:.8rem
-}
-.download{background:linear-gradient(135deg,var(--purple),#4f2ac4);color:#fff}
-.download.mediafire{background:linear-gradient(135deg,#ff6338,#d33a18)}
-.download.vpn{background:linear-gradient(135deg,#19c98b,#079a69)}
-.download.tv{background:linear-gradient(135deg,#7250ff,#5430cc)}
-.download.featured{background:linear-gradient(135deg,#ffad24,#db7000)}
-.player{padding:0 13px;background:rgba(255,255,255,.055);border:1px solid var(--line);color:#c5ccda}
-.player:hover,.download:hover{filter:brightness(1.12)}
-.no-results{grid-column:1/-1;text-align:center;padding:70px 20px;border:1px dashed var(--line);border-radius:24px;color:var(--muted)}
-.no-results i{font-size:40px;margin-bottom:12px;opacity:.5}
+.hero-main{padding:clamp(28px,5vw,58px);position:relative}
+.hero-main:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-90px;top:-100px;
+ background:radial-gradient(circle,rgba(32,217,255,.16),transparent 70%)}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;color:#b8c4dc;border:1px solid var(--line);background:#fff5;padding:7px 11px;border-radius:999px;font-size:.78rem;font-weight:800;margin-bottom:18px}
+.hero h2{font-size:clamp(2.2rem,6vw,5.4rem);line-height:1.02;letter-spacing:-1px;margin-bottom:18px}
+.hero h2 span{background:linear-gradient(90deg,var(--cyan),#a58cff,var(--gold));-webkit-background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:1rem;line-height:1.9;max-width:720px}
+.hero-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.hero-btn{padding:12px 17px;border-radius:14px;font-weight:900;border:1px solid var(--line);background:#fff6}
+.hero-btn.primary{background:linear-gradient(135deg,var(--primary),var(--primary2));border:0;box-shadow:0 12px 30px rgba(124,92,255,.24)}
+.hero-side{padding:18px}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;height:100%}
+.stat{border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.035);padding:22px;display:flex;flex-direction:column;justify-content:center;min-height:130px}
+.stat b{font-size:2rem}.stat span{color:var(--muted);font-size:.82rem;margin-top:3px}
 
-.modal{
-  position:fixed;inset:0;background:rgba(0,0,0,.76);backdrop-filter:blur(16px);
-  display:none;place-items:center;padding:20px;z-index:500
-}
-.modal.show{display:grid}
-.modal-box{max-width:480px;width:100%;border:1px solid var(--line);border-radius:28px;padding:28px;background:#0d1220;box-shadow:0 35px 100px rgba(0,0,0,.6);text-align:center}
-.modal-icon{width:78px;height:78px;margin:0 auto 13px;border-radius:24px;display:grid;place-items:center;font-size:35px;background:linear-gradient(135deg,rgba(124,77,255,.2),rgba(32,217,255,.08))}
-.modal h3{font-size:1.45rem}.modal p{color:var(--muted);line-height:1.8;margin:8px 0 15px}
-.channel{display:inline-block;padding:8px 16px;border-radius:50px;background:rgba(32,217,255,.07);border:1px solid rgba(32,217,255,.18);color:var(--cyan);font-weight:900;direction:ltr}
-.modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:20px}
-.modal-actions a,.modal-actions button{min-height:46px;border-radius:14px;border:1px solid var(--line);font-weight:900}
-.subscribe{background:#168dcc;color:#fff}.direct{background:rgba(255,255,255,.05);color:#fff}
-.close-modal{margin-top:12px;border:0;background:none;color:#778399}
+.controls{margin:8px 0 24px}.search{position:relative}
+.search input{width:100%;background:rgba(11,16,32,.9);border:1px solid var(--line);outline:none;color:#fff;border-radius:18px;padding:17px 54px 17px 18px;font-size:1rem}
+.search input:focus{border-color:rgba(124,92,255,.8);box-shadow:0 0 0 4px rgba(124,92,255,.12)}
+.search i{position:absolute;right:20px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.filters{display:flex;gap:8px;overflow:auto;padding:13px 0 4px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}
+.filter{white-space:nowrap;border:1px solid var(--line);background:#fff6;color:var(--muted);padding:9px 14px;border-radius:999px;cursor:pointer;font-weight:800}
+.filter.active,.filter:hover{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;border-color:transparent}
+.count{color:var(--muted);font-size:.82rem;margin-top:8px}.count b{color:var(--cyan)}
 
-.toast{
-  position:fixed;left:50%;bottom:25px;transform:translate(-50%,30px);opacity:0;pointer-events:none;
-  z-index:700;padding:11px 16px;border-radius:50px;background:#151c2c;border:1px solid var(--line);box-shadow:var(--shadow);font-weight:800;font-size:.8rem;transition:.25s
-}
-.toast.show{opacity:1;transform:translate(-50%,0)}
-footer{margin-top:35px;padding:25px 10px;text-align:center;color:#6f7a90;font-size:.78rem;border-top:1px solid var(--line)}
-footer a{color:var(--cyan);font-weight:800}
-.top{
-  position:fixed;bottom:22px;left:20px;width:45px;height:45px;border-radius:50%;border:1px solid var(--line);
-  background:#111827;color:#fff;display:none;z-index:100
-}.top.show{display:grid;place-items:center}
+.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.card{background:linear-gradient(160deg,rgba(17,24,42,.96),rgba(8,12,22,.96));border:1px solid var(--line);
+ border-radius:23px;padding:13px;display:flex;flex-direction:column;min-width:0;position:relative;overflow:hidden;
+ transition:.28s;animation:up .45s both;box-shadow:0 12px 40px rgba(0,0,0,.16)}
+.card:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.035),transparent 35%)}
+.card:hover{transform:translateY(-7px);border-color:rgba(124,92,255,.55);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.card.featured{border-color:rgba(255,200,87,.42)}
+@keyframes up{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.cover{height:155px;border-radius:17px;background:radial-gradient(circle at 30% 20%,rgba(124,92,255,.28),transparent 45%),linear-gradient(135deg,#171f3a,#090d19);
+ display:grid;place-items:center;overflow:hidden;margin-bottom:13px;position:relative}
+.cover:after{content:"";position:absolute;inset:auto -20% -45% -20%;height:90px;background:radial-gradient(circle,rgba(32,217,255,.12),transparent 65%)}
+.cover img{width:100%;height:100%;object-fit:cover}.emoji{font-size:4rem;filter:drop-shadow(0 12px 22px rgba(0,0,0,.4));z-index:1}
+.badge{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.12);padding:6px 9px;border-radius:999px;font-size:.68rem;font-weight:900;z-index:2}
+.title{font-size:1.05rem;font-weight:900;margin-bottom:6px}.desc{color:var(--muted);font-size:.8rem;line-height:1.7;min-height:54px}
+.meta{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0}.chip{font-size:.67rem;padding:5px 8px;border-radius:999px;background:#fff6;border:1px solid var(--line);color:#c7d0df}
+.key{background:rgba(124,92,255,.18);color:#d9d1ff;border:1px solid rgba(124,92,255,.25);cursor:pointer}
+.actions{margin-top:auto;display:grid;gap:7px}.download,.player{border:0;border-radius:13px;padding:11px;text-align:center;cursor:pointer;font-weight:900;color:#fff;background:linear-gradient(135deg,var(--primary),var(--primary2))}
+.player{background:#fff8;border:1px solid var(--line);color:#dfe6f2}.mediafire{background:linear-gradient(135deg,#ff6b4a,#c73a25)}
+.vpn{background:linear-gradient(135deg,#27df9a,#078a60)}.tv{background:linear-gradient(135deg,#8c6cff,#542fe0)}.orange{background:linear-gradient(135deg,#ffc857,#d87800)}
+.empty{grid-column:1/-1;text-align:center;padding:60px;color:var(--muted);border:1px dashed var(--line);border-radius:22px}
+footer{padding:42px 0;text-align:center;color:var(--muted);font-size:.82rem}footer a{color:var(--cyan)}
 
-@media(max-width:700px){
-  .nav{padding:11px 13px}.brand h1{font-size:1.05rem}.brand small{display:none}.brand-mark{width:42px;height:42px;border-radius:13px}
-  .live{padding:8px 10px}.live .live-label{display:none}.telegram{padding:9px 11px}
-  .shell{padding:14px 12px 35px}.hero{padding:25px 20px;border-radius:25px;min-height:270px}
-  .hero h2{font-size:2.1rem}.toolbar{top:67px;border-radius:18px;padding:12px}.grid{grid-template-columns:1fr;gap:13px}
-  .card{min-height:300px}.app-image{width:64px;height:64px;flex-basis:64px}.actions{grid-template-columns:1fr}
-  .player{min-height:40px}.modal-actions{grid-template-columns:1fr}
-}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:18px;z-index:100}
+.modal.show{display:flex}.modal-box{width:min(500px,100%);background:#0d1424;border:1px solid var(--line);border-radius:28px;padding:30px;text-align:center;box-shadow:0 35px 100px #000}
+.modal-icon{font-size:3rem}.modal h3{font-size:1.45rem;margin:10px 0}.modal p{color:var(--muted);line-height:1.8}
+.channel{display:inline-block;margin:16px 0;background:rgba(32,217,255,.08);border:1px solid rgba(32,217,255,.2);color:var(--cyan);padding:8px 17px;border-radius:999px;font-weight:900;direction:ltr}
+.modal-actions{display:flex;gap:9px;flex-wrap:wrap}.modal-actions>*{flex:1}.close{background:#fff8!important;border:1px solid var(--line)!important}
+.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,100px);opacity:0;background:#151e31;border:1px solid var(--line);padding:12px 18px;border-radius:999px;z-index:120;transition:.3s}.toast.show{transform:translate(-50%,0);opacity:1}
+.topbtn{position:fixed;bottom:22px;left:20px;width:46px;height:46px;border:0;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--cyan));color:#fff;z-index:80;cursor:pointer;display:none;box-shadow:0 12px 30px rgba(0,0,0,.35)}.topbtn.show{display:block}
 
-/* ===== UNIVERSAL DEVICE / SMART TV MODE ===== */
-:root{--focus:#55e7ff}
-.card:focus,.filter:focus,.download:focus,.player:focus,.telegram:focus,.brand:focus,.top:focus,
-.search input:focus{outline:3px solid var(--focus);outline-offset:3px}
-@media (min-width:1100px){
-  .grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
-  .card{min-height:345px}
+@media(max-width:1250px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:680px){
+ .wrap{width:min(100% - 14px,1480px)}.nav{top:5px;align-items:flex-start}.nav-actions{width:100%;justify-content:flex-end}
+ .hero{padding-top:22px}.hero-main{padding:26px 19px}.hero-side{padding:12px}.stats{grid-template-columns:repeat(4,1fr)}
+ .stat{padding:12px;min-height:100px}.stat b{font-size:1.3rem}.stat span{font-size:.68rem}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{padding:9px;border-radius:17px}.cover{height:112px}
+ .emoji{font-size:3rem}.title{font-size:.88rem}.desc{font-size:.7rem;min-height:62px}
+ .download,.player{font-size:.7rem;padding:10px 4px}.meta{gap:3px}.chip{font-size:.59rem;padding:4px 5px}
 }
-@media (min-width:1600px){
-  .shell,.nav{max-width:1600px}
-  .grid{grid-template-columns:repeat(5,1fr)}
-  .hero{min-height:330px}
-  .card{min-height:360px}
-}
-@media (min-width:700px) and (max-width:1100px){
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media (min-width:900px) and (max-width:1300px){
-  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-
-/* Touch devices: larger hit areas */
-@media (pointer:coarse){
-  .filter{padding:11px 16px;min-height:42px}
-  .download,.player{min-height:48px}
-  .search input{height:56px}
-  .card{padding:20px}
-}
-
-/* Android TV / Smart TV and keyboard/remote navigation */
-@media (min-width:1200px) and (pointer:coarse){
-  body.tv-mode .shell,.tv-mode .shell{max-width:1800px}
-  body.tv-mode .nav,.tv-mode .nav{max-width:1800px;padding:20px 34px}
-  body.tv-mode .brand h1,.tv-mode .brand h1{font-size:1.8rem}
-  body.tv-mode .brand-mark,.tv-mode .brand-mark{width:60px;height:60px;font-size:28px}
-  body.tv-mode .hero,.tv-mode .hero{padding:48px;min-height:360px}
-  body.tv-mode .grid,.tv-mode .grid{grid-template-columns:repeat(4,1fr);gap:26px}
-  body.tv-mode .card,.tv-mode .card{min-height:390px;padding:24px}
-  body.tv-mode .app-image,.tv-mode .app-image{width:92px;height:92px;flex-basis:92px;border-radius:24px}
-  body.tv-mode .app-title,.tv-mode .app-title{font-size:1.25rem}
-  body.tv-mode .desc,.tv-mode .desc{font-size:.95rem}
-  body.tv-mode .download,.tv-mode .player{min-height:54px;font-size:.9rem}
-  body.tv-mode .filter,.tv-mode .filter{font-size:.9rem;padding:12px 20px}
-}
-
-/* Keyboard focus mode: cards become proper remote targets */
-.card.tv-focus{
-  transform:translateY(-8px) scale(1.025);
-  border-color:var(--focus);
-  box-shadow:0 0 0 4px rgba(85,231,255,.14),0 25px 55px rgba(0,0,0,.45);
-}
-.card.tv-focus .app-image{box-shadow:0 0 0 3px rgba(85,231,255,.18)}
-.tv-hint{
-  display:none;position:fixed;right:18px;bottom:18px;z-index:250;
-  padding:10px 14px;border-radius:12px;background:rgba(10,15,27,.94);
-  border:1px solid rgba(85,231,255,.25);color:#d9faff;font-size:.72rem;font-weight:800
-}
-body.tv-mode .tv-hint{display:block}
-
+@media(max-width:390px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.nav{flex-direction:column}.nav-actions{justify-content:space-between}}
+@media(min-width:1700px){.grid{grid-template-columns:repeat(6,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
 </head>
-
-<body aria-label="MQJ Store - متجر التطبيقات">
-
-<header class="topbar">
-  <div class="nav">
-    <a class="brand" href="#">
-      <div class="brand-mark">🚀</div>
-      <div><h1>MQJ Store</h1><small>متجر التطبيقات المجانية</small></div>
-    </a>
-    <div class="nav-actions">
-      <div class="live"><span class="dot"></span><span class="live-label">متصل الآن:</span><b id="liveUsersCount">1</b></div>
-      <a class="telegram" href="https://t.me/X_9_KK" target="_blank" rel="noopener"><i class="fab fa-telegram-plane"></i> القناة</a>
-    </div>
-  </div>
+<body>
+<div class="wrap">
+<header class="top">
+<nav class="nav">
+<div class="brand"><div class="brand-icon">🚀</div><div><h1>MQJ Store</h1><small>متجر التطبيقات المجانية</small></div></div>
+<div class="nav-actions"><div class="live"><span class="dot"></span>المتواجدون الآن: <b id="liveUsersCount">1</b></div><a class="tg" href="https://t.me/X_9_KK" target="_blank" rel="noopener"><i class="fab fa-telegram-plane"></i> انضم للقناة</a></div>
+</nav>
 </header>
 
-<main class="shell">
-  <section class="hero">
-    <div class="hero-content">
-      <span class="kicker"><i class="fas fa-bolt"></i> إصدار جديد للمتجر</span>
-      <h2>كل تطبيقاتك في <span>مكان واحد</span></h2>
-      <p>واجهة جديدة بالكامل لمتجر MQJ Store مع بحث سريع، تصنيفات، صور التطبيقات، نسخ الأكواد بضغطة واحدة وروابط التحميل الأصلية الموجودة في بيانات المتجر.</p>
-      <div class="hero-stats">
-        <div class="stat"><b id="totalApps">0</b><span>تطبيق</span></div>
-        <div class="stat"><b>APK</b><span>صيغة التحميل</span></div>
-        <div class="stat"><b>24/7</b><span>متجر متاح</span></div>
-      </div>
-    </div>
-  </section>
+<section class="hero">
+<div class="hero-main"><div class="eyebrow"><i class="fas fa-crown"></i> الإصدار الفاخر • MQJ Store</div><h2>كل تطبيقاتك في <span>مكان واحد</span></h2><p>واجهة متجر فائقة السرعة ومتجاوبة مع Android وiPhone وiPad والكمبيوتر وجميع مقاسات الشاشات الذكية. بحث فوري، تصنيفات ذكية، بطاقات فاخرة وتجربة تحميل واضحة.</p><div class="hero-buttons"><a class="hero-btn primary" href="#apps"><i class="fas fa-th-large"></i> تصفح التطبيقات</a><a class="hero-btn" href="https://t.me/X_9_KK" target="_blank"><i class="fab fa-telegram"></i> قناة التليجرام</a></div></div>
+<div class="hero-side"><div class="stats"><div class="stat"><b id="totalApps">0</b><span>تطبيق</span></div><div class="stat"><b>5+</b><span>فئات أجهزة</span></div><div class="stat"><b>∞</b><span>تحديثات</span></div><div class="stat"><b>24/7</b><span>متاح</span></div></div></div>
+</section>
 
-  <section class="toolbar">
-    <div class="search">
-      <i class="fas fa-search"></i>
-      <input id="searchInput" type="search" autocomplete="off" placeholder="ابحث باسم التطبيق أو الوصف...">
-    </div>
-    <div class="filters" id="filters">
-      <button class="filter active" data-filter="all">الكل</button>
-      <button class="filter" data-filter="tv">📺 TV</button>
-      <button class="filter" data-filter="mediafire">📦 MediaFire</button>
-      <button class="filter" data-filter="vpn">🛡️ VPN</button>
-      <button class="filter" data-filter="sport">⚽ رياضة</button>
-      <button class="filter" data-filter="cinema">🎬 سينما</button>
-      <button class="filter" data-filter="local">📁 ملف محلي</button>
-    </div>
-    <div class="counter">عرض <b id="resultsCount">0</b> من <b id="totalCount">0</b> تطبيق</div>
-  </section>
+<section id="apps" class="controls">
+<div class="search"><i class="fas fa-search"></i><input id="searchInput" placeholder="ابحث باسم التطبيق أو كلمة من الوصف..." autocomplete="off"></div>
+<div class="filters" id="filters">
+<button class="filter active" data-filter="all">الكل</button><button class="filter" data-filter="tv">📺 TV</button><button class="filter" data-filter="mediafire">📦 MediaFire</button><button class="filter" data-filter="vpn">🛡️ VPN</button><button class="filter" data-filter="sport">⚽ رياضية</button><button class="filter" data-filter="cinema">🎬 سينما</button>
+</div><div class="count">عرض <b id="resultsCount">0</b> تطبيق</div>
+</section>
+<main class="grid" id="appsGrid"></main>
 
-  <section class="grid" id="appsGrid"></section>
-
-  <footer>
-    <div>🚀 MQJ Store <span style="margin:0 7px">•</span> <a href="https://t.me/X_9_KK" target="_blank">@X_9_KK</a></div>
-    <div style="margin-top:7px">جميع الحقوق محفوظة © 2026</div>
-  </footer>
-</main>
-
-<div class="modal" id="downloadModal">
-  <div class="modal-box">
-    <div class="modal-icon">📢</div>
-    <h3>الانتقال إلى التحميل</h3>
-    <p>يمكنك الانضمام إلى قناة المتجر لمتابعة آخر التطبيقات والتحديثات، أو المتابعة مباشرة إلى رابط التطبيق.</p>
-    <div class="channel">@X_9_KK</div>
-    <div class="modal-actions">
-      <a class="subscribe" id="modalSubscribe" href="https://t.me/X_9_KK" target="_blank" rel="noopener"><i class="fas fa-paper-plane"></i> انضم للقناة</a>
-      <button class="direct" id="modalDirect"><i class="fas fa-download"></i> تحميل مباشرة</button>
-    </div>
-    <button class="close-modal" id="closeModal">إغلاق</button>
-  </div>
+<footer><i class="fas fa-rocket"></i> متجر تطبيقات مجانية • <a href="https://t.me/X_9_KK" target="_blank">@X_9_KK</a> • جميع الحقوق محفوظة © 2026</footer>
 </div>
 
-<div class="toast" id="toast"><i class="fas fa-check-circle"></i> تم نسخ الكود</div>
-<button class="top" id="backTop" title="للأعلى"><i class="fas fa-arrow-up"></i></button>
+<div class="modal" id="downloadModal"><div class="modal-box"><div class="modal-icon">📢</div><h3>هل تريد الاشتراك بالقناة؟</h3><p>انضم إلينا للحصول على أحدث التطبيقات والتحديثات.</p><div class="channel">@X_9_KK</div><div class="modal-actions"><a id="modalSubscribeBtn" class="download" href="https://t.me/X_9_KK" target="_blank"><i class="fas fa-check-circle"></i> اشتراك</a><button id="modalDirectDownloadBtn" class="download"><i class="fas fa-download"></i> تحميل التطبيق</button><button id="modalCloseBtn" class="download close">إغلاق</button></div></div></div>
+<div class="toast" id="toast">✅ تم نسخ الكود بنجاح!</div>
+<button class="topbtn" id="backToTop" title="العودة للأعلى"><i class="fas fa-arrow-up"></i></button>
 
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-
 <script>
 (function(){
 'use strict';
 
-const firebaseConfig={
-  apiKey:"AIzaSyBx7gqI2AFtLF3UEWiHOvZDXQyAZPMApm4",
-  authDomain:"my-store-6ce96.firebaseapp.com",
-  databaseURL:"https://my-store-6ce96-default-rtdb.firebaseio.com",
-  projectId:"my-store-6ce96",
-  storageBucket:"my-store-6ce96.firebasestorage.app",
-  messagingSenderId:"1059623236982",
-  appId:"1:1059623236982:web:f457e405b040083044b657",
-  measurementId:"G-LRG9V8GQSR"
-};
-
-try{
-  firebase.initializeApp(firebaseConfig);
-  const db=firebase.database();
-  const connection=db.ref('online_users').push();
-  const connected=db.ref('.info/connected');
-  const live=document.getElementById('liveUsersCount');
-
-  connected.on('value',snap=>{
-    if(snap.val()===true){
-      connection.onDisconnect().remove();
-      connection.set(true);
-    }
-  });
-  db.ref('online_users').on('value',snap=>{
-    if(live) live.textContent=Math.max(1,snap.numChildren());
-  });
-}catch(e){console.warn('Firebase unavailable:',e)}
+const firebaseConfig={apiKey:"AIzaSyBx7GqI2AFtLF3UEWiHOvZDXQyAZPMApm4",authDomain:"my-store-6ce96.firebaseapp.com",databaseURL:"https://my-store-6ce96-default-rtdb.firebaseio.com",projectId:"my-store-6ce96",storageBucket:"my-store-6ce96.firebasestorage.app",messagingSenderId:"1059623236982",appId:"1:1059623236982:web:f457e405b040083044b657",measurementId:"G-LRG9V8GQSR"};
+try{firebase.initializeApp(firebaseConfig);const db=firebase.database(),ref=db.ref('online_users').push(),conn=db.ref('.info/connected');conn.on('value',s=>{if(s.val()===true){ref.onDisconnect().remove();ref.set(true)}});db.ref('online_users').on('value',s=>document.getElementById('liveUsersCount').textContent=s.numChildren()>0?s.numChildren():1)}catch(e){console.warn('Firebase:',e)}
 
 const appsData=[
- {title:'المتجر الرسمي (MQJ Store)',desc:'حمل تطبيقنا الرسمي الآن! نسخة أندرويد محدثة وسريعة لتصفح وتحميل التطبيقات بسهولة.',meta:['📦 APK','MediaFire'],link:'https://www.mediafire.com/file/sz5sqieahqfxkle/MQJStore_.apk/file',class:'mediafire',icon:'🏪',tags:['mediafire'],featured:true},
- {title:'تطبيق الريان (Rayan TV)',desc:'تطبيق الريان للقنوات والبث المباشر.',meta:['🔑 R1..R7','📦 APK','MediaFire'],link:'https://www.mediafire.com/file/qm95stpeny89s7w/Rayan_TV.apk/file',class:'mediafire',icon:'📺',image:'https://www.softonic.com/images/rayan-tv',tags:['tv','mediafire']},
- {title:'تطبيق بغداد (Baghdad TV)',desc:'كود من B1 إلى B6، والأكواد الجديدة B7 وB8 وB9 وB10. يمكن تغيير صيغة البث إلى m3u8 أو ts من إعدادات Live Stream.',meta:['🔑 B1..B10','📦 APK','MediaFire'],link:'https://www.mediafire.com/file/1yeoxsppzsxgk0u/1_Baghdad.apk/file',class:'mediafire',icon:'🕌',tags:['tv','mediafire']},
- {title:'تطبيق المنافس',desc:'المنافس - آخر تحديث.',meta:['🔑 2020','📦 APK'],link:'AL_Monafos.9.3.0_2.apk',class:'tv',icon:'🏆',tags:['tv','sport','local']},
- {title:'King Cinema',desc:'لعشاق السينما والأفلام والمسلسلات والبث المباشر للمباريات.',meta:['📦 APK','MediaFire'],link:'https://www.mediafire.com/file/nrgxvl75bzk6mw0/King_Cinema_1.1.65.apk/file',class:'mediafire',icon:'🎬',image:'https://king-cinema.en.softonic.com/images',tags:['cinema','sport','mediafire']},
- {title:'تطبيق سينمانا',desc:'النسخة الموجودة في المتجر للمشتركين في ايرثلنك والوطني FTTH.',meta:['📦 APK','MediaFire'],link:'https://www.mediafire.com/file/rdbkddtp0trhhmq/سينمانا.apk/file',class:'mediafire',icon:'📡',tags:['cinema','mediafire']},
- {title:'تطبيق سي (C)',desc:'سينمانا لجميع مزودي خدمة الإنترنت في العراق.',meta:['📦 APK'],link:'سي.apk',class:'',icon:'📡',tags:['cinema','local']},
- {title:'تطبيق FAST',desc:'لقياس سرعة الإنترنت على الشاشة.',meta:['📦 APK'],link:'FAST.apk',class:'',icon:'⚡',tags:['local']},
- {title:'تطبيق الأنمي',desc:'لعشاق الأنمي. يمكنك نقل حسابك من Anime Reeft من الجهاز إلى الشاشة.',meta:['📦 APK','MediaFire'],link:'https://www.mediafire.com/file/x258r3eb9m192xb/app-release-3.13.13.apk/file',class:'mediafire',icon:'🎌',tags:['cinema','mediafire']},
- {title:'تطبيق Nado TV',desc:'يعمل مع جميع أنواع الإنترنت.',meta:['🔑 22455','📦 APK','MediaFire'],link:'https://www.mediafire.com/file/uorfc7x6qlwrv0j/Nado+TV.apk/file',class:'mediafire',icon:'📺',image:'https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2f/99/b7/2f99b75f-d9b5-211f-3e73-959d5246aee5/Simulator_Screenshot_-_iPhone_17_Pro_-_2026-04-22_at_01.17.39.png/471x1024.jpeg',tags:['tv','mediafire']},
- {title:'تطبيق Plasma 4K',desc:'نسخة TV بصيغة APK.',meta:['📦 APK'],link:'Plasma%204K.apk',class:'tv',icon:'🖥️',tags:['tv','local']},
- {title:'تطبيق ريزن',desc:'الإصدار المتوفر بصيغة APK عبر MediaFire.',meta:['📦 APK','MediaFire'],link:'https://www.mediafire.com/file/0ngejur5ktnmlbn/ریزن+(1).apk/file',class:'mediafire',icon:'🧩',tags:['mediafire']},
- {title:'تطبيق كايدن TV',desc:'تطبيق TV مع كود تفعيل.',meta:['🔑 19','📦 APK','MediaFire'],link:'https://www.mediafire.com/file/q6tupipn0c3niop/كايدن+TV.apk/file',class:'mediafire',icon:'📺',image:'https://3mory.com/wp-content/uploads/2025/11/5-9.png',tags:['tv','mediafire','sport']},
- {title:'تطبيق Oscar TV',desc:'إصدار TV بصيغة APK.',meta:['📦 TV','APK'],link:'Oscar%20TV%20%281%29.apk',class:'tv',icon:'🏆',tags:['tv','local'],hasPlayer:true,playerLink:'https://www.mediafire.com/file/iwoforev9tlspxq/TDM+(1).apk/file',playerLabel:'تحميل المشغل بدون إعلانات'},
- {title:'تطبيق KT PLUS',desc:'تطبيق TV مع كود 6666.',meta:['🔑 6666','📦 APK'],link:'KT%20PLUS.apk',class:'',icon:'📱',tags:['local']},
- {title:'تطبيق vpnify',desc:'إذا واجهت مشكلة في فتح التطبيقات، جرّب هذا الـ VPN.',meta:['📦 VPN','MediaFire'],link:'https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file',class:'vpn',icon:'🛡️',image:'https://dl.memuplay.com/new_market/img/com.vpn.free.hotspot.secure.vpnify.icon.2023-01-28-21-28-29.png',tags:['vpn','mediafire']},
- {title:'تطبيق Original TV',desc:'الإصدار المتوفر عبر MediaFire.',meta:['📦 APK','MediaFire'],link:'https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file',class:'mediafire',icon:'📺',tags:['tv','mediafire'],hasPlayer:true,playerLink:'Original%20Player%20%281%29.apk',playerLabel:'تحميل مشغل أورجينال'},
- {title:'تطبيق GENRAL TV',desc:'لا يحتاج مشغل ولا كود.',meta:['📦 APK','MediaFire'],link:'https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file',class:'mediafire',icon:'📡',tags:['tv','mediafire']},
- {title:'تطبيق Nova TV',desc:'إصدار TV بصيغة APK.',meta:['📦 TV','APK'],link:'Nova%20tv%20%281%29.apk',class:'tv',icon:'📺',tags:['tv','local']},
- {title:'تطبيق كوديا سبورت',desc:'للإنترنت الضعيف والمتوسط مع جودة HD.',meta:['📦 APK','MediaFire'],link:'https://www.mediafire.com/file/jn1myb8xii72vk0/كوديا+سبورت.apk/file',class:'mediafire',icon:'⚽',tags:['sport','mediafire']},
- {title:'تطبيق Prom',desc:'الإصدار المتوفر بصيغة APK عبر MediaFire.',meta:['📦 APK','MediaFire'],link:'https://www.mediafire.com/file/aq5yf391mzct2lx/Prom.apk/file',class:'mediafire',icon:'🎞️',tags:['mediafire']},
- {title:'LIVE STREAM PREMIUM',desc:'إصدار Premium بصيغة APK.',meta:['🔑 2027','📦 Premium','MediaFire'],link:'https://www.mediafire.com/file/ihy63nqkju3561o/LIVE_STREAM_PREMIUM.apk/file',class:'mediafire',icon:'⚡',tags:['tv','sport','mediafire']},
- {title:'تطبيق الباشا TV',desc:'تطبيق يعمل على أنواع متعددة من الإنترنت، مع جودة SD وHD وUHD و4K حسب النسخة والخدمة.',meta:['📦 APK'],link:'ALBASHA_TV_6.0.1.apk',class:'featured',icon:'👑',tags:['tv','sport','local']},
- {title:'Yacine TV Gold',desc:'إصدار TV بصيغة APK.',meta:['📦 TV','APK'],link:'Yacine%20TV%20Gold.apk',class:'tv',icon:'⚽',tags:['tv','sport','local']},
- {title:'Alwan Sports',desc:'تطبيق رياضي بصيغة APK عبر MediaFire.',meta:['📦 APK','MediaFire'],link:'https://www.mediafire.com/file/vyejtivz1mu8g8f/Alwan+Sports.apk/file',class:'mediafire',icon:'⚽',tags:['sport','mediafire']}
+{title:'المتجر الرسمي (MQJ Store)',desc:'حمل تطبيقنا الرسمي الآن! تطبيق أندرويد محدث وسريع لتصفح وتحميل التطبيقات بسهولة.',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/sz5sqieahqfxkle/MQJStore_.apk/file',class:'mediafire',icon:'🏪',tags:['mediafire'],featured:true},
+{title:'تطبيق الريان (Rayan TV)',desc:'تطبيق الريان للقنوات والبث المباشر.',meta:'🔑 R1..R7  📦 APK (MediaFire)',link:'https://www.mediafire.com/file/qm95stpeny89s7w/Rayan_TV.apk/file',class:'mediafire',icon:'📺',tags:['tv','mediafire']},
+{title:'تطبيق بغداد (Baghdad TV)',desc:'💎 كود من B1 إلى B6 | الأكواد الجديدة: B7✅ B8✅ B9✅ B10✅. ملاحظة: تغيير صيغة البث m3u8 أو ts من إعدادات Live Stream.',meta:'🔑 B1..B10  📦 APK (MediaFire)',link:'https://www.mediafire.com/file/1yeoxsppzsxgk0u/1_Baghdad.apk/file',class:'mediafire',icon:'🕌',tags:['tv','mediafire']},
+{title:'تطبيق المنافس',desc:'المنافس آخر تحديث.',meta:'🔑 2020  📦 APK',link:'AL_Monafos.9.3.0_2.apk',class:'tv',icon:'🏆',tags:['tv','sport']},
+{title:'King Cinema',desc:'لعشاق السينما والأفلام والمسلسلات والبث المباشر للمباريات.',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/nrgxvl75bzk6mw0/King_Cinema_1.1.65.apk/file',class:'mediafire',icon:'🎬',tags:['cinema','sport']},
+{title:'تطبيق سينمانا',desc:'فقط للمشتركين ايرثلنك والوطني FTTH.',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/rdbkddtp0trhhmq/سينمانا.apk/file',class:'mediafire',icon:'📡',tags:['cinema','mediafire']},
+{title:'تطبيق سي (C)',desc:'سينمانا لجميع مزودي خدمة الإنترنت في العراق.',meta:'📦 APK',link:'سي.apk',class:'',icon:'📡',tags:['cinema']},
+{title:'تطبيق FAST',desc:'لقياس سرعة الإنترنت في الشاشة.',meta:'📦 APK',link:'FAST.apk',class:'',icon:'⚡',tags:[]},
+{title:'تطبيق الأنمي',desc:'لعشاق الأنمي: انقل حسابك من Anime Reeft من الجهاز إلى الشاشة.',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/x258r3eb9m192xb/app-release-3.13.13.apk/file',class:'mediafire',icon:'🎌',tags:['cinema']},
+{title:'تطبيق Nado TV',desc:'لجميع أنواع الإنترنت.',meta:'🔑 22455  📦 APK (MediaFire)',link:'https://www.mediafire.com/file/uorfc7x6qlwrv0j/Nado+TV.apk/file',class:'mediafire',icon:'📺',tags:['tv']},
+{title:'تطبيق Plasma 4K',desc:'الإصدار: APK.',meta:'📦 APK',link:'Plasma%204K.apk',class:'tv',icon:'🖥️',tags:['tv']},
+{title:'تطبيق ريزن',desc:'الإصدار: APK (MediaFire).',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/0ngejur5ktnmlbn/ریزن+(1).apk/file',class:'mediafire',icon:'🧩',tags:['mediafire']},
+{title:'تطبيق كايدن TV',desc:'الإصدار: APK (MediaFire).',meta:'🔑 19  📦 APK (MediaFire)',link:'https://www.mediafire.com/file/q6tupipn0c3niop/كايدن+TV.apk/file',class:'mediafire',icon:'📺',tags:['tv','mediafire']},
+{title:'تطبيق Oscar TV',desc:'الإصدار: TV | APK.',meta:'📦 TV | APK',link:'Oscar%20TV%20%281%29.apk',class:'tv',icon:'🏆',tags:['tv'],playerLink:'https://www.mediafire.com/file/iwoforev9tlspxq/TDM+(1).apk/file',playerLabel:'تحميل المشغل بدون إعلانات مزعجة'},
+{title:'تطبيق KT PLUS',desc:'الإصدار: APK.',meta:'🔑 6666  📦 APK',link:'KT%20PLUS.apk',class:'',icon:'📱',tags:[]},
+{title:'تطبيق vpnify',desc:'إذا تواجه مشكلة بفتح التطبيقات حمل هذا الـ VPN.',meta:'📦 VPN (MediaFire)',link:'https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file',class:'vpn',icon:'🛡️',tags:['vpn']},
+{title:'تطبيق Original TV',desc:'الإصدار: APK (MediaFire).',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file',class:'mediafire',icon:'📺',tags:['tv','mediafire'],playerLink:'Original%20Player%20%281%29.apk',playerLabel:'تحميل مشغل تطبيق أورجينال'},
+{title:'تطبيق GENRAL TV',desc:'لا يحتاج مشغل ولا كود | APK.',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file',class:'mediafire',icon:'📡',tags:['tv']},
+{title:'تطبيق Nova TV',desc:'الإصدار: TV | APK.',meta:'📦 TV | APK',link:'Nova%20tv%20%281%29.apk',class:'tv',icon:'📺',tags:['tv']},
+{title:'تطبيق كوديا سبورت',desc:'للإنترنت الضعيف والمتوسط | جودة HD.',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/jn1myb8xii72vk0/كوديا+سبورت.apk/file',class:'mediafire',icon:'⚽',tags:['sport']},
+{title:'تطبيق Prom',desc:'الإصدار: APK (MediaFire).',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/aq5yf391mzct2lx/Prom.apk/file',class:'mediafire',icon:'🎞️',tags:['mediafire']},
+{title:'LIVE STREAM PREMIUM',desc:'الإصدار: Premium | APK.',meta:'🔑 2027  📦 Premium | APK (MediaFire)',link:'https://www.mediafire.com/file/ihy63nqkju3561o/LIVE_STREAM_PREMIUM.apk/file',class:'mediafire',icon:'⚡',tags:['tv','sport','mediafire']},
+{title:'تطبيق الباشا تي في',desc:'يعمل على جميع أنواع الإنترنت Sim وFTTH والأبراج، بجودات SD وHD وUHD 4K.',meta:'📦 APK',link:'ALBASHA_TV_6.0.1.apk',class:'orange',icon:'👑',tags:['tv','sport']},
+{title:'Yacine TV Gold',desc:'الإصدار: TV | APK.',meta:'📦 TV | APK',link:'Yacine%20TV%20Gold.apk',class:'tv',icon:'⚽',tags:['tv','sport']},
+{title:'Alwan Sports',desc:'الإصدار: APK (MediaFire).',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/vyejtivz1mu8g8f/Alwan+Sports.apk/file',class:'mediafire',icon:'⚽',tags:['sport','mediafire']}
 ];
 
-const grid=document.getElementById('appsGrid');
-const search=document.getElementById('searchInput');
-const results=document.getElementById('resultsCount');
-const total=document.getElementById('totalCount');
-const totalApps=document.getElementById('totalApps');
-const modal=document.getElementById('downloadModal');
-const direct=document.getElementById('modalDirect');
-const closeModal=document.getElementById('closeModal');
-const toast=document.getElementById('toast');
-let currentFilter='all',pending='';
+document.getElementById('totalApps').textContent=appsData.length;
+const grid=document.getElementById('appsGrid'),search=document.getElementById('searchInput'),count=document.getElementById('resultsCount'),modal=document.getElementById('downloadModal'),direct=document.getElementById('modalDirectDownloadBtn'),close=document.getElementById('modalCloseBtn'),sub=document.getElementById('modalSubscribeBtn'),toast=document.getElementById('toast'),top=document.getElementById('backToTop');
+let filter='all',pending='';
 
-total.textContent=appsData.length;
-totalApps.textContent=appsData.length;
-
-function normalize(s){
- return String(s||'').toLowerCase()
-  .replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي')
-  .replace(/[ًٌٍَُِّْـ]/g,'').trim();
-}
-function escapeHTML(s){
- return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
-}
-function safeUrl(url){
- try{
-   if(url.startsWith('http://')||url.startsWith('https://')) return url;
-   return url;
- }catch{return '#'}
-}
+function norm(s){return String(s).toLowerCase().replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/[ؤ]/g,'و').replace(/[ئ]/g,'ي').trim()}
 function render(items){
- grid.innerHTML='';
- results.textContent=items.length;
- if(!items.length){
-   grid.innerHTML='<div class="no-results"><i class="fas fa-box-open"></i><div>لم يتم العثور على تطبيق مطابق</div><small>جرّب كلمة أخرى أو غيّر التصنيف</small></div>';
-   return;
- }
+ grid.innerHTML='';count.textContent=items.length;
+ if(!items.length){grid.innerHTML='<div class="empty"><i class="fas fa-search-minus fa-2x"></i><p>عذراً، لم يتم العثور على تطبيق مطابق.</p></div>';return}
  items.forEach((app,i)=>{
-   const card=document.createElement('article');
-   card.className='card'+(app.featured?' featured':'');
-   const image=app.image
-    ? `<img src="${escapeHTML(app.image)}" alt="${escapeHTML(app.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove();this.parentElement.querySelector('.fallback').style.display='grid'">`
-    : '';
-   const meta=app.meta.map(x=>{
-     const isCode=x.includes('🔑');
-     if(isCode){
-       const code=x.replace('🔑','').trim();
-       return `<button class="tag code copy-code" data-code="${escapeHTML(code)}"><i class="fas fa-key"></i> ${escapeHTML(code)}</button>`;
-     }
-     return `<span class="tag">${escapeHTML(x)}</span>`;
-   }).join('');
-   const player=app.hasPlayer
-    ? `<a class="player" href="${safeUrl(app.playerLink)}" target="_blank" rel="noopener"><i class="fas fa-play-circle"></i> المشغل</a>`
-    : '';
-   card.innerHTML=`
-     ${app.featured?'<span class="ribbon">مميز</span>':''}
-     <div class="app-head">
-       <div class="app-image">${image}<span class="fallback">${app.icon}</span></div>
-       <div><div class="app-title">${escapeHTML(app.title)}</div><div class="app-type">${app.meta.join(' • ')}</div></div>
-     </div>
-     <p class="desc">${app.desc}</p>
-     <div class="meta">${meta}</div>
-     <div class="actions">
-       <button class="download ${escapeHTML(app.class||'')} ${app.featured?'featured':''} trigger" data-link="${escapeHTML(app.link)}"><i class="fas fa-download"></i> تحميل التطبيق</button>
-       ${player}
-     </div>`;
-   grid.appendChild(card);
-   card.querySelectorAll('.fallback').forEach(el=>el.style.display=app.image?'none':'grid');
-   card.querySelector('.trigger').addEventListener('click',()=>{
-     pending=app.link;modal.classList.add('show');
-   });
+  const c=document.createElement('article');c.className='card '+(app.featured?'featured':'');c.style.animationDelay=(i*.025)+'s';
+  const parts=(app.meta||'').split('  ');
+  const chips=parts.map(x=>x.includes('🔑')?`<button class="chip key" data-code="${x.replace('🔑','').trim()}"><i class="fas fa-key"></i> ${x.replace('🔑','').trim()}</button>`:`<span class="chip">${x}</span>`).join('');
+  const kind=app.tags.includes('vpn')?'VPN':app.tags.includes('tv')?'TV':'APK';
+  c.innerHTML=`<div class="cover"><div class="emoji">${app.icon}</div><span class="badge">${kind}</span></div><h3 class="title">${app.title}</h3><p class="desc">${app.desc}</p><div class="meta">${chips}</div><div class="actions"><button class="download ${app.class}" data-link="${app.link}"><i class="fas fa-download"></i> تحميل التطبيق</button>${app.playerLink?`<a class="player" href="${app.playerLink}" target="_blank" rel="noopener"><i class="fas fa-play-circle"></i> ${app.playerLabel}</a>`:''}</div>`;
+  grid.appendChild(c);
  });
- document.querySelectorAll('.copy-code').forEach(btn=>{
-   btn.addEventListener('click',async()=>{
-     try{await navigator.clipboard.writeText(btn.dataset.code);showToast()}
-     catch{showToast('تعذر النسخ')}
-   });
- });
+ grid.querySelectorAll('.key').forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.writeText(b.dataset.code);showToast()}catch(e){showToast('تعذر النسخ') }});
+ grid.querySelectorAll('.download').forEach(b=>b.onclick=()=>{pending=b.dataset.link;modal.classList.add('show')});
 }
-function filter(){
- const q=normalize(search.value);
- const items=appsData.filter(app=>{
-   const text=normalize([app.title,app.desc,...app.meta].join(' '));
-   const okText=!q||text.includes(q);
-   const okFilter=currentFilter==='all'||app.tags.includes(currentFilter);
-   return okText&&okFilter;
- });
- render(items);
-}
-function showToast(text='تم نسخ الكود'){
- toast.innerHTML='<i class="fas fa-check-circle"></i> '+text;
- toast.classList.add('show');
- setTimeout(()=>toast.classList.remove('show'),1800);
-}
-search.addEventListener('input',filter);
-document.querySelectorAll('.filter').forEach(btn=>{
- btn.addEventListener('click',()=>{
-  document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');currentFilter=btn.dataset.filter;filter();
- });
-});
-direct.addEventListener('click',()=>{
- if(pending){window.open(pending,'_blank','noopener');pending='';}
- modal.classList.remove('show');
-});
-closeModal.addEventListener('click',()=>modal.classList.remove('show'));
-modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('show')});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('show')});
-const top=document.getElementById('backTop');
-window.addEventListener('scroll',()=>top.classList.toggle('show',scrollY>500));
-top.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
-
+function filterApps(){const q=norm(search.value);render(appsData.filter(a=>(filter==='all'||a.tags.includes(filter))&&(norm(a.title).includes(q)||norm(a.desc).includes(q)||norm(a.meta).includes(q))))}
+document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');filter=b.dataset.filter;filterApps()});
+search.oninput=filterApps;
+direct.onclick=()=>{if(pending)window.open(pending,'_blank');modal.classList.remove('show');pending=''};
+sub.onclick=()=>{modal.classList.remove('show');if(pending)setTimeout(()=>{window.open(pending,'_blank');pending=''},450)};
+close.onclick=()=>modal.classList.remove('show');modal.onclick=e=>{if(e.target===modal)modal.classList.remove('show')};window.onkeydown=e=>{if(e.key==='Escape')modal.classList.remove('show')};
+function showToast(t='✅ تم نسخ الكود بنجاح!'){toast.textContent=t;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200)}
+window.onscroll=()=>top.classList.toggle('show',scrollY>400);top.onclick=()=>scrollTo({top:0,behavior:'smooth'});
 render(appsData);
 })();
 </script>
 </body>
-</html>
+  </html>
