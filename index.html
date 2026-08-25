@@ -514,6 +514,7 @@
             justify-content: center;
             gap: 0.5rem;
             font-family: 'Tajawal', sans-serif;
+            text-decoration: none;
         }
 
         .btn-modal.subscribe {
@@ -534,18 +535,6 @@
         .btn-modal.later:hover {
             background: rgba(255, 255, 255, 0.12);
             transform: scale(1.05);
-        }
-
-        .btn-modal.close-modal {
-            background: transparent;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            padding: 0.5rem 1rem;
-            min-width: auto;
-            margin-top: 0.8rem;
-        }
-        .btn-modal.close-modal:hover {
-            color: #fff;
         }
 
         .toast {
@@ -686,23 +675,19 @@
         </footer>
     </div>
 
-    <div class="modal-overlay" id="subscribeModal">
+    <!-- نافذة الاشتراك المنبثقة عند الضغط على التحميل -->
+    <div class="modal-overlay" id="downloadModal">
         <div class="modal-box">
             <div class="modal-icon">📢</div>
             <h2>هل تريد الاشتراك بالقناة؟</h2>
-            <p>احصل على أحدث التطبيقات والتحديثات أولاً بأول</p>
+            <p>انضم إلينا للحصول على أحدث التطبيقات والتحديثات</p>
             <div class="channel-name">@X_9_KK</div>
             <div class="modal-actions">
-                <button class="btn-modal subscribe" id="modalSubscribe">
+                <a href="https://t.me/X_9_KK" target="_blank" rel="noopener" class="btn-modal subscribe" id="modalSubscribeBtn">
                     <i class="fas fa-check-circle"></i> اشتراك
-                </button>
-                <button class="btn-modal later" id="modalLater">
+                </a>
+                <button class="btn-modal later" id="modalLaterBtn">
                     <i class="fas fa-clock"></i> لاحقًا
-                </button>
-            </div>
-            <div>
-                <button class="btn-modal close-modal" id="modalClose">
-                    <i class="fas fa-times"></i> إلغاء
                 </button>
             </div>
         </div>
@@ -721,7 +706,6 @@
         (function() {
             'use strict';
 
-            // --- بيانات التطبيقات الشاملة والكاملة ---
             const appsData = [
                 {
                     title: 'King Cinema',
@@ -946,13 +930,12 @@
             const resultsCount = document.getElementById('resultsCount');
             const filterBtns = document.querySelectorAll('.filter-btn');
             const backToTop = document.getElementById('backToTop');
-            const modal = document.getElementById('subscribeModal');
-            const modalSubscribe = document.getElementById('modalSubscribe');
-            const modalLater = document.getElementById('modalLater');
-            const modalClose = document.getElementById('modalClose');
+            const downloadModal = document.getElementById('downloadModal');
+            const modalLaterBtn = document.getElementById('modalLaterBtn');
             const toast = document.getElementById('toast');
 
             let currentFilter = 'all';
+            let pendingDownloadUrl = '';
 
             function renderApps(items) {
                 grid.innerHTML = '';
@@ -998,16 +981,16 @@
                         <h3 class="app-title">${app.title}</h3>
                         <p class="app-desc">${app.desc}</p>
                         ${metaHtml}
-                        <a href="${app.link}" target="_blank" rel="noopener" class="btn-download ${app.class} ${app.featured ? 'featured-btn' : ''}">
+                        <button type="button" class="btn-download ${app.class} ${app.featured ? 'featured-btn' : ''} trigger-download" data-link="${app.link}">
                             <i class="fas fa-download"></i> تنزيل التطبيق
-                        </a>
+                        </button>
                         ${playerBtnHtml}
                     `;
 
                     grid.appendChild(card);
                 });
 
-                // ربط نسخ الأكواد عند الضغط عليها
+                // نسخ الأكواد
                 document.querySelectorAll('.app-meta .key').forEach(keyEl => {
                     keyEl.addEventListener('click', function(e) {
                         e.stopPropagation();
@@ -1017,7 +1000,31 @@
                         });
                     });
                 });
+
+                // تفعيل حدث الضغط على زر التحميل لإظهار نافذة التليجرام
+                document.querySelectorAll('.trigger-download').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        pendingDownloadUrl = this.getAttribute('data-link');
+                        downloadModal.classList.add('active');
+                    });
+                });
             }
+
+            // عند الضغط على زر "لاحقًا"
+            modalLaterBtn.addEventListener('click', () => {
+                downloadModal.classList.remove('active');
+                if (pendingDownloadUrl) {
+                    window.open(pendingDownloadUrl, '_blank');
+                    pendingDownloadUrl = '';
+                }
+            });
+
+            // إغلاق النافذة إذا ضغط المستخدم خارج الصندوق
+            downloadModal.addEventListener('click', (e) => {
+                if (e.target === downloadModal) {
+                    downloadModal.classList.remove('active');
+                }
+            });
 
             function filterApps() {
                 const query = searchInput.value.trim().toLowerCase();
@@ -1040,7 +1047,6 @@
                 });
             });
 
-            // إشعار نسخ الكود
             function showToast() {
                 toast.classList.add('show');
                 setTimeout(() => {
@@ -1048,7 +1054,6 @@
                 }, 2500);
             }
 
-            // زر العودة للأعلى
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 300) {
                     backToTop.classList.add('visible');
@@ -1061,31 +1066,6 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // نافذة منبثقة للاشتراك بعد وقت قصير (إذا لم يزرها مسبقاً)
-            if (!localStorage.getItem('subscribed_prompt')) {
-                setTimeout(() => {
-                    modal.classList.add('active');
-                }, 4000);
-            }
-
-            function closeModalFunc() {
-                modal.classList.remove('active');
-                localStorage.setItem('subscribed_prompt', 'true');
-            }
-
-            modalSubscribe.addEventListener('click', () => {
-                window.open('https://t.me/X_9_KK', '_blank');
-                closeModalFunc();
-            });
-
-            modalLater.addEventListener('click', closeModalFunc);
-            modalClose.addEventListener('click', closeModalFunc);
-
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) closeModalFunc();
-            });
-
-            // التشغيل الأولي
             renderApps(appsData);
         })();
     </script>
