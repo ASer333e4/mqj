@@ -2204,61 +2204,34 @@ body::after{
 
 const firebaseConfig = null;
 
-const appsData = [
+const appsData=[
 {title:'المتجر الرسمي (MQJ Store)',desc:'حمل تطبيقنا الرسمي الآن! تطبيق أندرويد محدث وسريع لتصفح وتحميل التطبيقات بسهولة.',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/sz5sqieahqfxkle/MQJStore_.apk/file',class:'mediafire',icon:'🏪',tags:['mediafire'],featured:true},
-
 {title:'تطبيق Screenify+',desc:'تطبيق Screenify+.',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/k4zhg31erzj1lq6/Screenify%2B.apk/file',class:'mediafire',icon:'📱',tags:['mediafire']},
-
 {title:'تطبيق الريان (Rayan TV)',desc:'تطبيق الريان للقنوات والبث المباشر.',meta:'🔑 R1..R7  📦 APK (MediaFire)',link:'https://www.mediafire.com/file/qm95stpeny89s7w/Rayan_TV.apk/file',class:'mediafire',icon:'📺',tags:['tv','mediafire']},
-
 {title:'تطبيق بغداد (Baghdad TV)',desc:'💎 كود من B1 إلى B6 | الأكواد الجديدة: B7✅ B8✅ B9✅ B10✅. ملاحظة: تغيير صيغة البث m3u8 أو ts من إعدادات Live Stream.',meta:'🔑 B1..B10  📦 APK (MediaFire)',link:'https://www.mediafire.com/file/1yeoxsppzsxgk0u/1_Baghdad.apk/file',class:'mediafire',icon:'🕌',tags:['tv','mediafire']},
-
 {title:'تطبيق المنافس',desc:'المنافس آخر تحديث.',meta:'🔑 2020  📦 APK',link:'AL_Monafos.9.3.0_2.apk',class:'tv',icon:'🏆',tags:['tv','sport']},
-
 {title:'King Cinema',desc:'لعشاق السينما والأفلام والمسلسلات والبث المباشر للمباريات.',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/nrgxvl75bzk6mw0/King_Cinema_1.1.65.apk/file',class:'mediafire',icon:'🎬',tags:['cinema','sport']},
-
 {title:'تطبيق سينمانا',desc:'فقط للمشتركين ايرثلنك والوطني FTTH.',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/rdbkddtp0trhhmq/سينمانا.apk/file',class:'mediafire',icon:'📡',tags:['cinema','mediafire']},
-
 {title:'تطبيق سي (C)',desc:'سينمانا لجميع مزودي خدمة الإنترنت في العراق.',meta:'📦 APK',link:'سي.apk',class:'',icon:'📡',tags:['cinema']},
-
 {title:'تطبيق FAST',desc:'لقياس سرعة الإنترنت في الشاشة.',meta:'📦 APK',link:'FAST.apk',class:'',icon:'⚡',tags:[]},
-
 {title:'تطبيق الأنمي',desc:'لعشاق الأنمي: انقل حسابك من Anime Reeft من الجهاز إلى الشاشة.',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/x258r3eb9m192xb/app-release-3.13.13.apk/file',class:'mediafire',icon:'🎌',tags:['cinema']},
-
 {title:'تطبيق Nado TV',desc:'لجميع أنواع الإنترنت.',meta:'🔑 22455  📦 APK (MediaFire)',link:'https://www.mediafire.com/file/uorfc7x6qlwrv0j/Nado+TV.apk/file',class:'mediafire',icon:'📺',tags:['tv']},
-
 {title:'تطبيق Plasma 4K',desc:'الإصدار: APK.',meta:'📦 APK',link:'Plasma%204K.apk',class:'tv',icon:'🖥️',tags:['tv']},
-
 {title:'تطبيق ريزن',desc:'الإصدار: APK (MediaFire).',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/0ngejur5ktnmlbn/ریزن+(1).apk/file',class:'mediafire',icon:'🧩',tags:['mediafire']},
-
 {title:'تطبيق كايدن TV',desc:'الإصدار: APK (MediaFire).',meta:'🔑 19  📦 APK (MediaFire)',link:'https://www.mediafire.com/file/q6tupipn0c3niop/كايدن+TV.apk/file',class:'mediafire',icon:'📺',tags:['tv','mediafire']},
-
 {title:'تطبيق Oscar TV',desc:'الإصدار: TV | APK.',meta:'📦 TV | APK',link:'Oscar%20TV%20%281%29.apk',class:'tv',icon:'🏆',tags:['tv'],playerLink:'https://www.mediafire.com/file/iwoforev9tlspxq/TDM+(1).apk/file',playerLabel:'تحميل المشغل بدون إعلانات مزعجة'},
-
 {title:'تطبيق KT PLUS',desc:'الإصدار: APK.',meta:'🔑 6666  📦 APK',link:'KT%20PLUS.apk',class:'',icon:'📱',tags:[]},
-
 {title:'تطبيق vpnify',desc:'إذا تواجه مشكلة بفتح التطبيقات حمل هذا الـ VPN.',meta:'📦 VPN (MediaFire)',link:'https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file',class:'vpn',icon:'🛡️',tags:['vpn']},
-
 {title:'تطبيق Original TV',desc:'الإصدار: APK (MediaFire).',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file',class:'mediafire',icon:'📺',tags:['tv','mediafire'],playerLink:'Original%20Player%20%281%29.apk',playerLabel:'تحميل مشغل تطبيق أورجينال'},
-
 {title:'تطبيق GENRAL TV',desc:'لا يحتاج مشغل ولا كود | APK.',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file',class:'mediafire',icon:'📡',tags:['tv']},
-
 {title:'تطبيق Nova TV',desc:'الإصدار: TV | APK.',meta:'📦 TV | APK',link:'Nova%20tv%20%281%29.apk',class:'tv',icon:'📺',tags:['tv']},
-
 {title:'تطبيق كوديا سبورت',desc:'للإنترنت الضعيف والمتوسط | جودة HD.',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/jn1myb8xii72vk0/كوديا+سبورت.apk/file',class:'mediafire',icon:'⚽',tags:['sport']},
-
 {title:'تطبيق Prom',desc:'الإصدار: APK (MediaFire).',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/aq5yf391mzct2lx/Prom.apk/file',class:'mediafire',icon:'🎞️',tags:['mediafire']},
-
 {title:'LIVE STREAM PREMIUM',desc:'الإصدار: Premium | APK.',meta:'🔑 2027  📦 Premium | APK (MediaFire)',link:'https://www.mediafire.com/file/ihy63nqkju3561o/LIVE_STREAM_PREMIUM.apk/file',class:'mediafire',icon:'⚡',tags:['tv','sport','mediafire']},
-
 {title:'تطبيق الباشا تي في',desc:'يعمل على جميع أنواع الإنترنت Sim وFTTH والأبراج، بجودات SD وHD وUHD 4K.',meta:'📦 APK',link:'ALBASHA_TV_6.0.1.apk',class:'orange',icon:'👑',tags:['tv','sport']},
-
 {title:'Yacine TV Gold',desc:'الإصدار: TV | APK.',meta:'📦 TV | APK',link:'Yacine%20TV%20Gold.apk',class:'tv',icon:'⚽',tags:['tv','sport']},
-
 {title:'Alwan Sports',desc:'الإصدار: APK (MediaFire).',meta:'📦 APK (MediaFire)',link:'https://www.mediafire.com/file/vyejtivz1mu8g8f/Alwan+Sports.apk/file',class:'mediafire',icon:'⚽',tags:['sport','mediafire']}
 ];
-
-
 
 /* =========================================================
    022 — APPLICATION STATE
