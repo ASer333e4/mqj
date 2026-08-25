@@ -350,6 +350,7 @@
             position: relative;
             z-index: 1;
             font-family: 'Tajawal', sans-serif;
+            text-decoration: none;
         }
 
         .btn-download:hover {
@@ -720,12 +721,12 @@
         (function() {
             'use strict';
 
-            // --- بيانات التطبيقات المصححة (تم إزالة التكرارات والبيانات الفاسدة) ---
+            // --- بيانات التطبيقات الشاملة والكاملة ---
             const appsData = [
                 {
                     title: 'King Cinema',
-                    desc: 'أفلام، مسلسلات، بث مباشر للمباريات',
-                    meta: '📦 APK',
+                    desc: 'لعشاق السينما و الافلام والمسلسلات و البث المباشر للمباريات مع king cinema',
+                    meta: '📦 APK (MediaFire)',
                     link: 'https://www.mediafire.com/file/nrgxvl75bzk6mw0/King_Cinema_1.1.65.apk/file',
                     class: 'mediafire',
                     icon: '🎬',
@@ -733,8 +734,8 @@
                     featured: false
                 },
                 {
-                    title: 'سينمانا',
-                    desc: 'للمشتركين ايرثلنك و الوطني FTTH',
+                    title: 'تطبيق سينمانا',
+                    desc: 'فقط للمشتركين ايرثلنك و الوطني FTTH',
                     meta: '📦 APK',
                     link: 'سينماكا.apk',
                     class: '',
@@ -744,7 +745,7 @@
                 },
                 {
                     title: 'تطبيق سي (C)',
-                    desc: 'سينمانا لجميع مزودي الإنترنت في العراق',
+                    desc: 'سينمانا لجميع مزودين خدمة الانترنت في العراق',
                     meta: '📦 APK',
                     link: 'سي.apk',
                     class: '',
@@ -753,8 +754,8 @@
                     featured: false
                 },
                 {
-                    title: 'FAST',
-                    desc: 'قياس سرعة الإنترنت في الشاشة',
+                    title: 'تطبيق FAST',
+                    desc: 'لقياس سرعة الانترنت في الشاشة',
                     meta: '📦 APK',
                     link: 'FAST.apk',
                     class: '',
@@ -764,8 +765,8 @@
                 },
                 {
                     title: 'تطبيق الأنمي',
-                    desc: 'انقل حسابك من Anime Reeft إلى الشاشة',
-                    meta: '📦 APK',
+                    desc: 'لعشاق الانمي ما عليك سوى نقل حسابك من Anime Reeft من الجهاز الى الشاشة',
+                    meta: '📦 APK (MediaFire)',
                     link: 'https://www.mediafire.com/file/x258r3eb9m192xb/app-release-3.13.13.apk/file',
                     class: 'mediafire',
                     icon: '🎌',
@@ -773,9 +774,9 @@
                     featured: false
                 },
                 {
-                    title: 'Nado TV',
-                    desc: 'لجميع أنواع الإنترنت',
-                    meta: '🔑 22455  📦 APK',
+                    title: 'تطبيق Nado TV',
+                    desc: 'لجميع انواع الانترنت',
+                    meta: '🔑 22455  📦 APK (MediaFire)',
                     link: 'https://www.mediafire.com/file/uorfc7x6qlwrv0j/Nado+TV.apk/file',
                     class: 'mediafire',
                     icon: '📺',
@@ -783,8 +784,8 @@
                     featured: false
                 },
                 {
-                    title: 'Plasma 4K',
-                    desc: 'جودة عالية',
+                    title: 'تطبيق Plasma 4K',
+                    desc: 'الإصدار: APK',
                     meta: '📦 APK',
                     link: 'Plasma%204K.apk',
                     class: '',
@@ -793,8 +794,8 @@
                     featured: false
                 },
                 {
-                    title: 'ريزن',
-                    desc: 'نسخة MediaFire',
+                    title: 'تطبيق ريزن',
+                    desc: 'الإصدار: APK (MediaFire)',
                     meta: '📦 APK (MediaFire)',
                     link: 'https://www.mediafire.com/file/0ngejur5ktnmlbn/ریزن+(1).apk/file',
                     class: 'mediafire',
@@ -803,8 +804,8 @@
                     featured: false
                 },
                 {
-                    title: 'كايدن TV',
-                    desc: 'نسخة MediaFire',
+                    title: 'تطبيق كايدن TV',
+                    desc: 'الإصدار: APK (MediaFire)',
                     meta: '🔑 19  📦 APK (MediaFire)',
                     link: 'https://www.mediafire.com/file/q6tupipn0c3niop/كايدن+TV.apk/file',
                     class: 'mediafire',
@@ -813,8 +814,8 @@
                     featured: false
                 },
                 {
-                    title: 'Oscar TV',
-                    desc: 'نسخة TV | APK',
+                    title: 'تطبيق Oscar TV',
+                    desc: 'الإصدار: TV | APK',
                     meta: '📦 TV | APK',
                     link: 'Oscar%20TV%20%281%29.apk',
                     class: 'tv',
@@ -826,8 +827,8 @@
                     playerLabel: 'تحميل المشغل بدون إعلانات مزعجة'
                 },
                 {
-                    title: 'KT PLUS',
-                    desc: 'نسخة APK',
+                    title: 'تطبيق KT PLUS',
+                    desc: 'الإصدار: APK',
                     meta: '🔑 6666  📦 APK',
                     link: 'KT%20PLUS.apk',
                     class: '',
@@ -836,9 +837,9 @@
                     featured: false
                 },
                 {
-                    title: 'VPNify',
-                    desc: 'لتجاوز مشاكل فتح التطبيقات',
-                    meta: '📦 VPN',
+                    title: 'تطبيق vpnify',
+                    desc: 'إذا تواجه مشكلة بفتح التطبيقات حمل هذا الـ VPN',
+                    meta: '📦 VPN (MediaFire)',
                     link: 'https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file',
                     class: 'vpn',
                     icon: '🛡️',
@@ -846,8 +847,8 @@
                     featured: false
                 },
                 {
-                    title: 'Original TV',
-                    desc: 'نسخة MediaFire',
+                    title: 'تطبيق Original TV',
+                    desc: 'الإصدار: APK (MediaFire)',
                     meta: '📦 APK (MediaFire)',
                     link: 'https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file',
                     class: 'mediafire',
@@ -859,9 +860,9 @@
                     playerLabel: 'تنزيل مشغل تطبيق أورجينال'
                 },
                 {
-                    title: 'GENRAL TV',
-                    desc: 'لا يحتاج مشغل ولا كود',
-                    meta: '📦 APK',
+                    title: 'تطبيق GENRAL TV',
+                    desc: 'لا يحتاج مشغل ولا كود | APK',
+                    meta: '📦 APK (MediaFire)',
                     link: 'https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file',
                     class: 'mediafire',
                     icon: '📡',
@@ -869,8 +870,8 @@
                     featured: false
                 },
                 {
-                    title: 'Nova TV',
-                    desc: 'نسخة TV | APK',
+                    title: 'تطبيق Nova TV',
+                    desc: 'الإصدار: TV | APK',
                     meta: '📦 TV | APK',
                     link: 'Nova%20tv%20%281%29.apk',
                     class: 'tv',
@@ -879,9 +880,9 @@
                     featured: false
                 },
                 {
-                    title: 'كوديا سبورت',
+                    title: 'تطبيق كوديا سبورت',
                     desc: 'للإنترنت الضعيف والمتوسط | جودة HD',
-                    meta: '📦 APK',
+                    meta: '📦 APK (MediaFire)',
                     link: 'https://www.mediafire.com/file/jn1myb8xii72vk0/كوديا+سبورت.apk/file',
                     class: 'mediafire',
                     icon: '⚽',
@@ -889,8 +890,8 @@
                     featured: false
                 },
                 {
-                    title: 'Prom',
-                    desc: 'نسخة MediaFire',
+                    title: 'تطبيق Prom',
+                    desc: 'الإصدار: APK (MediaFire)',
                     meta: '📦 APK (MediaFire)',
                     link: 'https://www.mediafire.com/file/aq5yf391mzct2lx/Prom.apk/file',
                     class: 'mediafire',
@@ -900,6 +901,193 @@
                 },
                 {
                     title: 'LIVE STREAM PREMIUM',
-                    desc: 'نسخة Premium',
-                    meta: '🔑 2027  📦 Premium | APK',
-                    link: ' 
+                    desc: 'الإصدار: Premium | APK',
+                    meta: '🔑 2027  📦 Premium | APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/ihy63nqkju3561o/LIVE_STREAM_PREMIUM.apk/file',
+                    class: 'mediafire',
+                    icon: '⚡',
+                    tags: ['tv', 'sport', 'mediafire'],
+                    featured: false
+                },
+                {
+                    title: 'تطبيق الباشا تي في',
+                    desc: 'أفضل تطبيق بالشرق الأوسط حاليآ يعمل على جميع انواع الانترنت Sim. FTTH. ابراج بجميع الجودات SD. HD. UHD 4K حقيقي',
+                    meta: '📦 APK',
+                    link: 'ALBASHA_TV_6.0.1.apk',
+                    class: 'featured-btn',
+                    icon: '👑',
+                    tags: ['tv', 'sport'],
+                    featured: true
+                },
+                {
+                    title: 'Yacine TV Gold',
+                    desc: 'الإصدار: TV | APK',
+                    meta: '📦 TV | APK',
+                    link: 'Yacine%20TV%20Gold.apk',
+                    class: 'tv',
+                    icon: '⚽',
+                    tags: ['tv', 'sport'],
+                    featured: false
+                },
+                {
+                    title: 'Alwan Sports',
+                    desc: 'الإصدار: APK (MediaFire)',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/vyejtivz1mu8g8f/Alwan+Sports.apk/file',
+                    class: 'mediafire',
+                    icon: '⚽',
+                    tags: ['sport', 'mediafire'],
+                    featured: false
+                }
+            ];
+
+            const grid = document.getElementById('appsGrid');
+            const searchInput = document.getElementById('searchInput');
+            const resultsCount = document.getElementById('resultsCount');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const backToTop = document.getElementById('backToTop');
+            const modal = document.getElementById('subscribeModal');
+            const modalSubscribe = document.getElementById('modalSubscribe');
+            const modalLater = document.getElementById('modalLater');
+            const modalClose = document.getElementById('modalClose');
+            const toast = document.getElementById('toast');
+
+            let currentFilter = 'all';
+
+            function renderApps(items) {
+                grid.innerHTML = '';
+                resultsCount.textContent = items.length;
+
+                if (items.length === 0) {
+                    grid.innerHTML = `
+                        <div class="no-results">
+                            <i class="fas fa-search-minus"></i>
+                            <p>عذراً، لم نتمكن من العثور على التطبيق المطلوب</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                items.forEach((app, index) => {
+                    const card = document.createElement('div');
+                    card.className = `app-card ${app.featured ? 'featured' : ''}`;
+                    card.style.animation = `fadeSlide 0.5s ease-out ${index * 0.04}s`;
+
+                    let metaHtml = '';
+                    if (app.meta) {
+                        const parts = app.meta.split('  ');
+                        metaHtml = `<div class="app-meta">`;
+                        parts.forEach(part => {
+                            if (part.includes('🔑')) {
+                                const code = part.replace('🔑', '').trim();
+                                metaHtml += `<span class="key" title="اضغط لنسخ الكود" data-code="${code}"><i class="fas fa-key"></i> ${code}</span>`;
+                            } else {
+                                metaHtml += `<span>${part}</span>`;
+                            }
+                        });
+                        metaHtml += `</div>`;
+                    }
+
+                    let playerBtnHtml = '';
+                    if (app.hasPlayer) {
+                        playerBtnHtml = `<a href="${app.playerLink}" target="_blank" rel="noopener" class="btn-download player"><i class="fas fa-play-circle"></i> ${app.playerLabel}</a>`;
+                    }
+
+                    card.innerHTML = `
+                        <div class="app-icon">${app.icon}</div>
+                        <h3 class="app-title">${app.title}</h3>
+                        <p class="app-desc">${app.desc}</p>
+                        ${metaHtml}
+                        <a href="${app.link}" target="_blank" rel="noopener" class="btn-download ${app.class} ${app.featured ? 'featured-btn' : ''}">
+                            <i class="fas fa-download"></i> تنزيل التطبيق
+                        </a>
+                        ${playerBtnHtml}
+                    `;
+
+                    grid.appendChild(card);
+                });
+
+                // ربط نسخ الأكواد عند الضغط عليها
+                document.querySelectorAll('.app-meta .key').forEach(keyEl => {
+                    keyEl.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const code = this.getAttribute('data-code');
+                        navigator.clipboard.writeText(code).then(() => {
+                            showToast();
+                        });
+                    });
+                });
+            }
+
+            function filterApps() {
+                const query = searchInput.value.trim().toLowerCase();
+                const filtered = appsData.filter(app => {
+                    const matchesSearch = app.title.toLowerCase().includes(query) || app.desc.toLowerCase().includes(query);
+                    const matchesFilter = currentFilter === 'all' || app.tags.includes(currentFilter);
+                    return matchesSearch && matchesFilter;
+                });
+                renderApps(filtered);
+            }
+
+            searchInput.addEventListener('input', filterApps);
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.getAttribute('data-filter');
+                    filterApps();
+                });
+            });
+
+            // إشعار نسخ الكود
+            function showToast() {
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2500);
+            }
+
+            // زر العودة للأعلى
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // نافذة منبثقة للاشتراك بعد وقت قصير (إذا لم يزرها مسبقاً)
+            if (!localStorage.getItem('subscribed_prompt')) {
+                setTimeout(() => {
+                    modal.classList.add('active');
+                }, 4000);
+            }
+
+            function closeModalFunc() {
+                modal.classList.remove('active');
+                localStorage.setItem('subscribed_prompt', 'true');
+            }
+
+            modalSubscribe.addEventListener('click', () => {
+                window.open('https://t.me/X_9_KK', '_blank');
+                closeModalFunc();
+            });
+
+            modalLater.addEventListener('click', closeModalFunc);
+            modalClose.addEventListener('click', closeModalFunc);
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModalFunc();
+            });
+
+            // التشغيل الأولي
+            renderApps(appsData);
+        })();
+    </script>
+</body>
+</html>
