@@ -1,257 +1,431 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر تطبيقات قناة تطبيقات مجانية</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <meta name="description" content="متجر تطبيقات مجانية - قناة تطبيقات مجانية على تليجرام" />
+    <title>🚀 متجر تطبيقات مجانية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('barca.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white; 
-            text-align: center; 
-            padding: 20px; 
+        /* --- إعادة الضبط --- */
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1 { color: #ff9900; text-shadow: 2px 2px 4px #000; }
-        p { text-shadow: 1px 1px 3px #000; }
-        .app-card { 
-            background: rgba(30, 30, 30, 0.85); 
-            border: 2px solid #333; 
-            border-radius: 12px; 
-            padding: 15px; 
-            margin: 15px auto; 
-            max-width: 400px; 
-            backdrop-filter: blur(5px);
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: #f4f7fc;
+            color: #1a1e2b;
+            padding: 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .featured-card {
-            background: rgba(40, 20, 0, 0.9);
-            border: 2px solid #ff9900;
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+            animation: fadeSlide 0.6s ease-out;
         }
-        .app-btn { 
-            display: inline-block; 
-            background: #ff9900; 
-            color: black; 
-            padding: 12px 25px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 6px; 
-            margin-top: 10px; 
+
+        @keyframes fadeSlide {
+            0% { opacity: 0; transform: translateY(25px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
-        .player-btn { 
-            display: inline-block; 
-            background: #28a745; 
-            color: white; 
-            padding: 10px 20px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 6px; 
-            margin-top: 8px; 
+
+        /* --- الهيدر --- */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #eef2f7;
         }
-        .vpn-btn {
-            display: inline-block; 
-            background: #6f42c1; 
-            color: white; 
-            padding: 12px 25px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 6px; 
-            margin-top: 10px; 
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .telegram-btn { 
-            display: inline-block; 
-            background: #0088cc; 
-            color: white; 
-            padding: 12px 25px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 6px; 
-            margin-top: 10px; 
+
+        .logo-area h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(145deg, #0f172a, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
         }
-        .code-box {
-            background: #2a2a2a;
-            border: 1px dashed #ff9900;
-            color: #ff9900;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-weight: bold;
-            margin-top: 10px;
+
+        .logo-area span {
+            font-size: 2.2rem;
+        }
+
+        .telegram-badge {
+            background: #0088cc;
+            color: #fff;
+            padding: 0.5rem 1.4rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: 0.25s;
+            box-shadow: 0 4px 12px rgba(0, 136, 204, 0.25);
+        }
+
+        .telegram-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 136, 204, 0.35);
+        }
+
+        /* --- الشبكة (Grid) --- */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0 1.5rem;
+        }
+
+        /* --- بطاقة التطبيق --- */
+        .app-card {
+            background: #f9faff;
+            border-radius: 24px;
+            padding: 1.5rem 1.2rem 1.2rem;
+            border: 1px solid #e9edf4;
+            transition: 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .app-card:hover {
+            transform: translateY(-6px);
+            border-color: #b3c9ff;
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.08);
+            background: #ffffff;
+        }
+
+        .app-card .app-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+            color: #0f172a;
+        }
+
+        .app-card .app-desc {
+            font-size: 0.85rem;
+            color: #475569;
+            margin-bottom: 0.6rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .app-card .app-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem 0.8rem;
+            margin: 0.5rem 0 0.9rem;
+            font-size: 0.8rem;
+            background: #eef2f7;
+            padding: 0.4rem 0.8rem;
+            border-radius: 40px;
+            color: #1e293b;
+        }
+
+        .app-card .app-meta .key {
+            background: #3b82f6;
+            color: #fff;
+            padding: 0.1rem 0.7rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        .btn-download {
+            background: #0f172a;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: center;
+            text-decoration: none;
             display: inline-block;
+            margin-top: 0.2rem;
+            border: 1px solid transparent;
         }
-        .app-btn:focus, .app-btn:hover, .player-btn:focus, .player-btn:hover, .vpn-btn:focus, .vpn-btn:hover, .telegram-btn:focus, .telegram-btn:hover { 
-            background: #ffffff; 
-            color: black; 
-            outline: 4px solid #ff9900; 
+
+        .btn-download:hover {
+            background: #1e293b;
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.15);
+        }
+
+        .btn-download.mediafire {
+            background: #e54b2b;
+        }
+        .btn-download.mediafire:hover {
+            background: #c73d1f;
+        }
+
+        .btn-download.vpn {
+            background: #10b981;
+        }
+        .btn-download.vpn:hover {
+            background: #059669;
+        }
+
+        .btn-download.tv {
+            background: #7c3aed;
+        }
+        .btn-download.tv:hover {
+            background: #6d28d9;
+        }
+
+        /* --- الفوتر --- */
+        .footer {
+            margin-top: 2.5rem;
+            padding-top: 1.2rem;
+            border-top: 2px solid #eef2f7;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .footer a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* --- استجابة للشاشات الصغيرة --- */
+        @media (max-width: 600px) {
+            body { padding: 0.8rem; }
+            .container { padding: 1.2rem; border-radius: 24px; }
+            .logo-area h1 { font-size: 1.4rem; }
+            .telegram-badge { font-size: 0.75rem; padding: 0.3rem 1rem; }
+            .apps-grid { grid-template-columns: 1fr; gap: 1.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <h1>🚀 متجر تطبيقات قناة تطبيقات مجانية</h1>
-    <p>اختر التطبيق واضغط على زر التحميل المباشر</p>
+<div class="container">
 
-    <!-- زر التليجرام -->
-    <div class="app-card" style="border-color: #0088cc;">
-        <h3>📢 حصري قناة التليجرام</h3>
-        <p>X_9_KK</p>
-        <a class="telegram-btn" href="https://t.me/X_9_KK" target="_blank">الانضمام للقناة</a>
-    </div>
+    <!-- الهيدر -->
+    <header class="header">
+        <div class="logo-area">
+            <span>🚀</span>
+            <h1>متجر تطبيقات مجانية</h1>
+        </div>
+        <a href="https://t.me/X_9_KK" target="_blank" rel="noopener" class="telegram-badge">
+            📢 انضم للقناة
+        </a>
+    </header>
 
-    <!-- تطبيق King Cinema الجديد -->
-    <div class="app-card">
-        <h3>تطبيق King Cinema</h3>
-        <p>لعشاق السينما و الافلام والمسلسلات و البث المباشر للمباريات مع king cinema</p>
-        <a class="app-btn" href="https://www.mediafire.com/file/nrgxvl75bzk6mw0/King_Cinema_1.1.65.apk/file">تنزيل التطبيق</a>
-    </div>
+    <!-- شبكة التطبيقات -->
+    <div class="apps-grid">
 
-    <!-- تطبيق سينمانا -->
-    <div class="app-card">
-        <h3>تطبيق سينمانا</h3>
-        <p>فقط للمشتركين ايرثلنك و الوطني FTTH</p>
-        <a class="app-btn" href="سينماكا.apk">تنزيل التطبيق</a>
-    </div>
+        <!-- King Cinema -->
+        <div class="app-card">
+            <div class="app-title">🎬 King Cinema</div>
+            <div class="app-desc">أفلام، مسلسلات، بث مباشر للمباريات</div>
+            <div class="app-meta">📦 APK</div>
+            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- تطبيق سي -->
-    <div class="app-card">
-        <h3>تطبيق سي (C)</h3>
-        <p>سينمانا لجميع مزودين خدمة الانترنت في العراق</p>
-        <a class="app-btn" href="سي.apk">تنزيل التطبيق</a>
-    </div>
+        <!-- سينمانا (ايرثلنك) -->
+        <div class="app-card">
+            <div class="app-title">📡 سينمانا</div>
+            <div class="app-desc">للمشتركين ايرثلنك و الوطني FTTH</div>
+            <div class="app-meta">📦 APK</div>
+            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- تطبيق FAST لقياس السرعة -->
-    <div class="app-card">
-        <h3>تطبيق FAST</h3>
-        <p>لقياس سرعة الانترنت في الشاشة</p>
-        <a class="app-btn" href="FAST.apk">تنزيل التطبيق</a>
-    </div>
+        <!-- تطبيق سي (C) -->
+        <div class="app-card">
+            <div class="app-title">📡 تطبيق سي (C)</div>
+            <div class="app-desc">سينمانا لجميع مزودي الإنترنت في العراق</div>
+            <div class="app-meta">📦 APK</div>
+            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- تطبيق الأنمي -->
-    <div class="app-card">
-        <h3>تطبيق الأنمي</h3>
-        <p>لعشاق الانمي ما عليك سوى نقل حسابك من Anime Reeft من الجهاز الى الشاشة</p>
-        <a class="app-btn" href="https://www.mediafire.com/file/x258r3eb9m192xb/app-release-3.13.13.apk/file">تنزيل التطبيق</a>
-    </div>
+        <!-- FAST -->
+        <div class="app-card">
+            <div class="app-title">⚡ FAST</div>
+            <div class="app-desc">قياس سرعة الإنترنت في الشاشة</div>
+            <div class="app-meta">📦 APK</div>
+            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- تطبيق Nado TV -->
-    <div class="app-card">
-        <h3>تطبيق Nado TV</h3>
-        <p>لجميع انواع الانترنت | APK</p>
-        <div class="code-box">🔑 كود التفعيل: 22455</div><br>
-        <a class="app-btn" href="https://www.mediafire.com/file/uorfc7x6qlwrv0j/Nado+TV.apk/file">تنزيل التطبيق</a>
-    </div>
+        <!-- تطبيق الأنمي -->
+        <div class="app-card">
+            <div class="app-title">🎌 تطبيق الأنمي</div>
+            <div class="app-desc">انقل حسابك من Anime Reeft إلى الشاشة</div>
+            <div class="app-meta">📦 APK</div>
+            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- تطبيق Plasma 4K -->
-    <div class="app-card">
-        <h3>تطبيق Plasma 4K</h3>
-        <p>الإصدار: APK</p>
-        <a class="app-btn" href="Plasma%204K.apk">تنزيل التطبيق</a>
-    </div>
+        <!-- Nado TV -->
+        <div class="app-card">
+            <div class="app-title">📺 Nado TV</div>
+            <div class="app-desc">لجميع أنواع الإنترنت</div>
+            <div class="app-meta">🔑 <span class="key">22455</span> 📦 APK</div>
+            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- تطبيق ريزن -->
-    <div class="app-card">
-        <h3>تطبيق ريزن</h3>
-        <p>الإصدار: APK (MediaFire)</p>
-        <a class="app-btn" href="https://www.mediafire.com/file/0ngejur5ktnmlbn/ریزن+(1).apk/file">تنزيل التطبيق</a>
-    </div>
+        <!-- Plasma 4K -->
+        <div class="app-card">
+            <div class="app-title">🖥️ Plasma 4K</div>
+            <div class="app-desc">جودة عالية</div>
+            <div class="app-meta">📦 APK</div>
+            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- تطبيق كايدن TV -->
-    <div class="app-card">
-        <h3>تطبيق كايدن TV</h3>
-        <p>الإصدار: APK (MediaFire)</p>
-        <div class="code-box">🔑 كود التفعيل: 19</div><br>
-        <a class="app-btn" href="https://www.mediafire.com/file/q6tupipn0c3niop/كايدن+TV.apk/file">تنزيل التطبيق</a>
-    </div>
+        <!-- ريزن -->
+        <div class="app-card">
+            <div class="app-title">🧩 ريزن</div>
+            <div class="app-desc">نسخة MediaFire</div>
+            <div class="app-meta">📦 APK (MediaFire)</div>
+            <a href="#" class="btn-download mediafire">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- تطبيق Oscar TV + المشغل -->
-    <div class="app-card">
-        <h3>تطبيق Oscar TV</h3>
-        <p>الإصدار: TV | APK</p>
-        <a class="app-btn" href="Oscar%20TV%20%281%29.apk">تنزيل التطبيق</a>
-        <br>
-        <a class="player-btn" href="https://www.mediafire.com/file/iwoforev9tlspxq/TDM+(1).apk/file">تحميل المشغل بدون إعلانات مزعجة</a>
-    </div>
+        <!-- كايدن TV -->
+        <div class="app-card">
+            <div class="app-title">📺 كايدن TV</div>
+            <div class="app-desc">نسخة MediaFire</div>
+            <div class="app-meta">🔑 <span class="key">19</span> 📦 APK (MediaFire)</div>
+            <a href="#" class="btn-download mediafire">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- تطبيق KT PLUS -->
-    <div class="app-card">
-        <h3>تطبيق KT PLUS</h3>
-        <p>الإصدار: APK</p>
-        <div class="code-box">🔑 كود التفعيل: 6666</div><br>
-        <a class="app-btn" href="KT%20PLUS.apk">تنزيل التطبيق</a>
-    </div>
+        <!-- Oscar TV -->
+        <div class="app-card">
+            <div class="app-title">🏆 Oscar TV</div>
+            <div class="app-desc">نسخة TV | APK</div>
+            <div class="app-meta">📦 TV | APK</div>
+            <a href="#" class="btn-download tv">⬇️ تنزيل التطبيق</a>
+            <a href="#" class="btn-download" style="margin-top:0.4rem; background:#334155;">▶️ تحميل المشغل (بدون إعلانات)</a>
+        </div>
 
-    <!-- تطبيق vpnify -->
-    <div class="app-card" style="border-color: #6f42c1;">
-        <h3>🛡️ تطبيق vpnify</h3>
-        <p>إذا تواجه مشكلة بفتح التطبيقات حمل هذا الـ VPN</p>
-        <a class="vpn-btn" href="https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file">تنزيل الـ VPN</a>
-    </div>
+        <!-- KT PLUS -->
+        <div class="app-card">
+            <div class="app-title">📱 KT PLUS</div>
+            <div class="app-desc">نسخة APK</div>
+            <div class="app-meta">🔑 <span class="key">6666</span> 📦 APK</div>
+            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- تطبيق Original TV + المشغل -->
-    <div class="app-card">
-        <h3>تطبيق Original TV</h3>
-        <p>الإصدار: APK (MediaFire)</p>
-        <a class="app-btn" href="https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file">تنزيل التطبيق</a>
-        <br>
-        <a class="player-btn" href="Original%20Player%20%281%29.apk">تنزيل مشغل تطبيق أورجينال</a>
-    </div>
+        <!-- VPNify -->
+        <div class="app-card">
+            <div class="app-title">🛡️ VPNify</div>
+            <div class="app-desc">لتجاوز مشاكل فتح التطبيقات</div>
+            <div class="app-meta">📦 VPN</div>
+            <a href="#" class="btn-download vpn">⬇️ تنزيل الـ VPN</a>
+        </div>
 
-    <!-- تطبيق GENRAL TV -->
-    <div class="app-card">
-        <h3>تطبيق GENRAL TV</h3>
-        <p>لا يحتاج مشغل ولا كود | APK</p>
-        <a class="app-btn" href="https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file">تنزيل التطبيق</a>
-    </div>
+        <!-- Original TV -->
+        <div class="app-card">
+            <div class="app-title">📺 Original TV</div>
+            <div class="app-desc">نسخة MediaFire</div>
+            <div class="app-meta">📦 APK (MediaFire)</div>
+            <a href="#" class="btn-download mediafire">⬇️ تنزيل التطبيق</a>
+            <a href="#" class="btn-download" style="margin-top:0.4rem; background:#334155;">▶️ تنزيل مشغل أورجينال</a>
+        </div>
 
-    <!-- تطبيق Nova TV -->
-    <div class="app-card">
-        <h3>تطبيق Nova TV</h3>
-        <p>الإصدار: TV | APK</p>
-        <a class="app-btn" href="Nova%20tv%20%281%29.apk">تنزيل التطبيق</a>
-    </div>
+        <!-- GENRAL TV -->
+        <div class="app-card">
+            <div class="app-title">📡 GENRAL TV</div>
+            <div class="app-desc">لا يحتاج مشغل ولا كود</div>
+            <div class="app-meta">📦 APK</div>
+            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- تطبيق كوديا سبورت -->
-    <div class="app-card">
-        <h3>تطبيق كوديا سبورت</h3>
-        <p>للإنترنت الضعيف والمتوسط | جودة HD</p>
-        <a class="app-btn" href="https://www.mediafire.com/file/jn1myb8xii72vk0/كوديا+سبورت.apk/file">تنزيل التطبيق</a>
-    </div>
+        <!-- Nova TV -->
+        <div class="app-card">
+            <div class="app-title">📺 Nova TV</div>
+            <div class="app-desc">نسخة TV | APK</div>
+            <div class="app-meta">📦 TV | APK</div>
+            <a href="#" class="btn-download tv">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- تطبيق Prom -->
-    <div class="app-card">
-        <h3>تطبيق Prom</h3>
-        <p>الإصدار: APK (MediaFire)</p>
-        <a class="app-btn" href="https://www.mediafire.com/file/aq5yf391mzct2lx/Prom.apk/file">تنزيل التطبيق</a>
-    </div>
+        <!-- كوديا سبورت -->
+        <div class="app-card">
+            <div class="app-title">⚽ كوديا سبورت</div>
+            <div class="app-desc">للإنترنت الضعيف والمتوسط | جودة HD</div>
+            <div class="app-meta">📦 APK</div>
+            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- تطبيق LIVE STREAM PREMIUM -->
-    <div class="app-card">
-        <h3>LIVE STREAM PREMIUM</h3>
-        <p>الإصدار: Premium | APK</p>
-        <div class="code-box">🔑 كود التفعيل: 2027</div><br>
-        <a class="app-btn" href="https://www.mediafire.com/file/ihy63nqkju3561o/LIVE_STREAM_PREMIUM.apk/file">تنزيل التطبيق</a>
-    </div>
+        <!-- Prom -->
+        <div class="app-card">
+            <div class="app-title">🎞️ Prom</div>
+            <div class="app-desc">نسخة MediaFire</div>
+            <div class="app-meta">📦 APK (MediaFire)</div>
+            <a href="#" class="btn-download mediafire">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- تطبيق الباشا تي في (المميز) -->
-    <div class="app-card featured-card">
-        <h3>تطبيق الباشا تي في</h3>
-        <p style="color: #ff9900; font-weight: bold;">أفضل تطبيق بالشرق الأوسط حاليآ يعمل على جميع انواع الانترنت Sim. FTTH. ابراج بجميع الجودات SD. HD. UHD 4K حقيقي</p>
-        <a class="app-btn" href="ALBASHA_TV_6.0.1.apk">تنزيل التطبيق</a>
-    </div>
+        <!-- LIVE STREAM PREMIUM -->
+        <div class="app-card">
+            <div class="app-title">📺 LIVE STREAM PREMIUM</div>
+            <div class="app-desc">نسخة Premium</div>
+            <div class="app-meta">🔑 <span class="key">2027</span> 📦 Premium | APK</div>
+            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <!-- التطبيقات الأخرى -->
-    <div class="app-card">
-        <h3>Yacine TV Gold</h3>
-        <p>الإصدار: TV | APK</p>
-        <a class="app-btn" href="Yacine%20TV%20Gold.apk">تنزيل التطبيق</a>
-    </div>
+        <!-- الباشا تي في -->
+        <div class="app-card">
+            <div class="app-title">👑 الباشا تي في</div>
+            <div class="app-desc">أفضل تطبيق بالشرق الأوسط، يعمل على جميع الأنواع SD/HD/UHD 4K</div>
+            <div class="app-meta">📦 APK</div>
+            <a href="#" class="btn-download">⬇️ تنزيل التطبيق</a>
+        </div>
 
-    <div class="app-card">
-        <h3>Alwan Sports</h3>
-        <p>الإصدار: APK (MediaFire)</p>
-        <a class="app-btn" href="https://www.mediafire.com/file/vyejtivz1mu8g8f/Alwan+Sports.apk/file">تنزيل التطبيق</a>
-    </div>
+        <!-- Yacine TV Gold -->
+        <div class="app-card">
+            <div class="app-title">🥇 Yacine TV Gold</div>
+            <div class="app-desc">نسخة TV | APK</div>
+            <div class="app-meta">📦 TV | APK</div>
+            <a href="#" class="btn-download tv">⬇️ تنزيل التطبيق</a>
+        </div>
+
+        <!-- Alwan Sports -->
+        <div class="app-card">
+            <div class="app-title">🌈 Alwan Sports</div>
+            <div class="app-desc">نسخة MediaFire</div>
+            <div class="app-meta">📦 APK (MediaFire)</div>
+            <a href="#" class="btn-download mediafire">⬇️ تنزيل التطبيق</a>
+        </div>
+
+    </div> <!-- نهاية الشبكة -->
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        🚀 متجر تطبيقات مجانية - جميع الحقوق محفوظة © 2026
+        <br />
+        <a href="https://t.me/X_9_KK" target="_blank" rel="noopener">@X_9_KK</a>
+    </footer>
+
+</div> <!-- نهاية الحاوية -->
 
 </body>
-</html>
- 
+    </html>
