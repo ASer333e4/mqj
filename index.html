@@ -99,7 +99,6 @@
             animation: fcbSlowWhiteGlow 6s infinite ease-in-out;
         }
 
-        /* موجة الضوء الأبيض النقية القادمة ببطء من الأعلى إلى الأسفل */
         .fcb-wrapper::after {
             content: '';
             position: absolute;
@@ -119,26 +118,13 @@
             animation: fcbSlowWaveDown 6s infinite ease-in-out;
         }
 
-        /* تحريك الموجة الضوئية البيضاء ببطء */
         @keyframes fcbSlowWaveDown {
-            0% {
-                top: -120%;
-                opacity: 0;
-            }
-            12% {
-                opacity: 1;
-            }
-            45% {
-                top: 140%;
-                opacity: 0;
-            }
-            100% {
-                top: 140%;
-                opacity: 0;
-            }
+            0% { top: -120%; opacity: 0; }
+            12% { opacity: 1; }
+            45% { top: 140%; opacity: 0; }
+            100% { top: 140%; opacity: 0; }
         }
 
-        /* وميض أبيض ناصع يبرز الألوان الطبيعية الباهية للشعار */
         @keyframes fcbSlowWhiteGlow {
             0%, 35% {
                 opacity: 0.15;
@@ -154,8 +140,7 @@
             }
             70% {
                 opacity: 0.35;
-                filter: brightness(1.25)
-                        drop-shadow(0 0 25px rgba(255, 255, 255, 0.5));
+                filter: brightness(1.25) drop-shadow(0 0 25px rgba(255, 255, 255, 0.5));
                 transform: scale(1.01);
             }
             88%, 100% {
@@ -799,7 +784,7 @@
                     title: 'تطبيق Cast X Plus',
                     desc: 'تطبيق Cast X Plus الحديث للبث والمشاهدة الشاملة على الشاشات والهواتف الذكية.',
                     meta: '🔑 2222  📦 APK',
-                    link: 'https://github.com/Mqj20/Mqj20/raw/refs/heads/main/Cast%20X%20Plus.apk',
+                    link: 'Cast%20X%20Plus.apk',
                     image: '',
                     btnClass: '',
                     faIcon: 'fa-solid fa-tv',
@@ -879,7 +864,7 @@
                 },
                 {
                     title: 'تطبيق FAST',
-                    desc: 'أداة قياس واختبار سرعة الإنترنت المخصصة للشاشات.',
+                    desc: 'أداة قياس وااختبار سرعة الإنترنت المخصصة للشاشات.',
                     meta: '📦 APK',
                     link: 'FAST.apk',
                     image: 'https://i.imgur.com/FASTAPP.png',
@@ -1082,7 +1067,6 @@
                     const card = document.createElement('article');
                     card.className = `app-card ${app.featured ? 'featured' : ''}`;
 
-                    // تحضير وإظهار الصورة المخصصة أو الأيقونة المتجهة الفاخرة
                     const iconHTML = app.image ? 
                         `<div class="app-icon-frame"><img src="${app.image}" alt="${app.title}" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><i class="${app.faIcon || 'fa-solid fa-mobile-screen'}" style="display:none;"></i></div>` :
                         `<div class="app-icon-frame"><i class="${app.faIcon || 'fa-solid fa-mobile-screen'}"></i></div>`;
