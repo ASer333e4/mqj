@@ -720,176 +720,186 @@
         (function() {
             'use strict';
 
-            // --- بيانات التطبيقات مع روابط التحميل من الكود القديم ---
+            // --- بيانات التطبيقات المصححة (تم إزالة التكرارات والبيانات الفاسدة) ---
             const appsData = [
-                { 
-                    title: 'King Cinema', 
-                    desc: 'أفلام، مسلسلات، بث مباشر للمباريات', 
-                    meta: '📦 APK', 
-                    link: 'https://www.mediafire.com/file/nrgxvl75bzk6mw0/King_Cinema_1.1.65.apk/file', 
-                    class: 'mediafire', 
-                    icon: '🎬', 
+                {
+                    title: 'King Cinema',
+                    desc: 'أفلام، مسلسلات، بث مباشر للمباريات',
+                    meta: '📦 APK',
+                    link: 'https://www.mediafire.com/file/nrgxvl75bzk6mw0/King_Cinema_1.1.65.apk/file',
+                    class: 'mediafire',
+                    icon: '🎬',
                     tags: ['cinema', 'sport'],
                     featured: false
                 },
-                { 
-                    title: 'سينمانا', 
-                    desc: 'للمشتركين ايرثلنك و الوطني FTTH', 
-                    meta: '📦 APK', 
-                    link: 'سينماكا.apk', 
-                    class: '', 
-                    icon: '📡', 
+                {
+                    title: 'سينمانا',
+                    desc: 'للمشتركين ايرثلنك و الوطني FTTH',
+                    meta: '📦 APK',
+                    link: 'سينماكا.apk',
+                    class: '',
+                    icon: '📡',
                     tags: ['cinema'],
                     featured: false
                 },
-                { 
-                    title: 'تطبيق سي (C)', 
-                    desc: 'سينمانا لجميع مزودي الإنترنت في العراق', 
-                    meta: '📦 APK', 
-                    link: 'سي.apk', 
-                    class: '', 
-                    icon: '📡', 
+                {
+                    title: 'تطبيق سي (C)',
+                    desc: 'سينمانا لجميع مزودي الإنترنت في العراق',
+                    meta: '📦 APK',
+                    link: 'سي.apk',
+                    class: '',
+                    icon: '📡',
                     tags: ['cinema'],
                     featured: false
                 },
-                { 
-                    title: 'FAST', 
-                    desc: 'قياس سرعة الإنترنت في الشاشة', 
-                    meta: '📦 APK', 
-                    link: 'FAST.apk', 
-                    class: '', 
-                    icon: '⚡', 
+                {
+                    title: 'FAST',
+                    desc: 'قياس سرعة الإنترنت في الشاشة',
+                    meta: '📦 APK',
+                    link: 'FAST.apk',
+                    class: '',
+                    icon: '⚡',
                     tags: [],
                     featured: false
                 },
-                { 
-                    title: 'تطبيق الأنمي', 
-                    desc: 'انقل حسابك من Anime Reeft إلى الشاشة', 
-                    meta: '📦 APK', 
-                    link: 'https://www.mediafire.com/file/x258r3eb9m192xb/app-release-3.13.13.apk/file', 
-                    class: 'mediafire', 
-                    icon: '🎌', 
+                {
+                    title: 'تطبيق الأنمي',
+                    desc: 'انقل حسابك من Anime Reeft إلى الشاشة',
+                    meta: '📦 APK',
+                    link: 'https://www.mediafire.com/file/x258r3eb9m192xb/app-release-3.13.13.apk/file',
+                    class: 'mediafire',
+                    icon: '🎌',
                     tags: ['cinema'],
                     featured: false
                 },
-                { 
-                    title: 'Nado TV', 
-                    desc: 'لجميع أنواع الإنترنت', 
-                    meta: '🔑 22455  📦 APK', 
-                    link: 'https://www.mediafire.com/file/uorfc7x6qlwrv0j/Nado+TV.apk/file', 
-                    class: 'mediafire', 
-                    icon: '📺', 
+                {
+                    title: 'Nado TV',
+                    desc: 'لجميع أنواع الإنترنت',
+                    meta: '🔑 22455  📦 APK',
+                    link: 'https://www.mediafire.com/file/uorfc7x6qlwrv0j/Nado+TV.apk/file',
+                    class: 'mediafire',
+                    icon: '📺',
                     tags: ['tv'],
                     featured: false
                 },
-                { 
-                    title: 'Plasma 4K', 
-                    desc: 'جودة عالية', 
-                    meta: '📦 APK', 
-                    link: 'Plasma%204K.apk', 
-                    class: '', 
-                    icon: '🖥️', 
+                {
+                    title: 'Plasma 4K',
+                    desc: 'جودة عالية',
+                    meta: '📦 APK',
+                    link: 'Plasma%204K.apk',
+                    class: '',
+                    icon: '🖥️',
                     tags: ['tv'],
                     featured: false
                 },
-                { 
-                    title: 'ريزن', 
-                    desc: 'نسخة MediaFire', 
-                    meta: '📦 APK (MediaFire)', 
-                    link: 'https://www.mediafire.com/file/0ngejur5ktnmlbn/ریزن+(1).apk/file', 
-                    class: 'mediafire', 
-                    icon: '🧩', 
+                {
+                    title: 'ريزن',
+                    desc: 'نسخة MediaFire',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/0ngejur5ktnmlbn/ریزن+(1).apk/file',
+                    class: 'mediafire',
+                    icon: '🧩',
                     tags: ['mediafire'],
                     featured: false
                 },
-                { 
-                    title: 'كايدن TV', 
-                    desc: 'نسخة MediaFire', 
-                    meta: '🔑 19  📦 APK (MediaFire)', 
-                    link: 'https://www.mediafire.com/file/q6tupipn0c3niop/كايدن+TV.apk/file', 
-                    class: 'mediafire', 
-                    icon: '📺', 
+                {
+                    title: 'كايدن TV',
+                    desc: 'نسخة MediaFire',
+                    meta: '🔑 19  📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/q6tupipn0c3niop/كايدن+TV.apk/file',
+                    class: 'mediafire',
+                    icon: '📺',
                     tags: ['tv', 'mediafire'],
                     featured: false
                 },
-                { 
-                    title: 'Oscar TV', 
-                    desc: 'نسخة TV | APK', 
-                    meta: '📦 TV | APK', 
-                    link: 'Oscar%20TV%20%281%29.apk', 
-                    class: 'tv', 
-                    icon: '🏆', 
+                {
+                    title: 'Oscar TV',
+                    desc: 'نسخة TV | APK',
+                    meta: '📦 TV | APK',
+                    link: 'Oscar%20TV%20%281%29.apk',
+                    class: 'tv',
+                    icon: '🏆',
                     tags: ['tv'],
                     featured: false,
                     hasPlayer: true,
                     playerLink: 'https://www.mediafire.com/file/iwoforev9tlspxq/TDM+(1).apk/file',
                     playerLabel: 'تحميل المشغل بدون إعلانات مزعجة'
                 },
-                { 
-                    title: 'KT PLUS', 
-                    desc: 'نسخة APK', 
-                    meta: '🔑 6666  📦 APK', 
-                    link: 'KT%20PLUS.apk', 
-                    class: '', 
-                    icon: '📱', 
+                {
+                    title: 'KT PLUS',
+                    desc: 'نسخة APK',
+                    meta: '🔑 6666  📦 APK',
+                    link: 'KT%20PLUS.apk',
+                    class: '',
+                    icon: '📱',
                     tags: [],
                     featured: false
                 },
-                { 
-                    title: 'VPNify', 
-                    desc: 'لتجاوز مشاكل فتح التطبيقات', 
-                    meta: '📦 VPN', 
-                    link: 'https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file', 
-                    class: 'vpn', 
-                    icon: '🛡️', 
+                {
+                    title: 'VPNify',
+                    desc: 'لتجاوز مشاكل فتح التطبيقات',
+                    meta: '📦 VPN',
+                    link: 'https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file',
+                    class: 'vpn',
+                    icon: '🛡️',
                     tags: ['vpn'],
                     featured: false
                 },
-                { 
-                    title: 'Original TV', 
-                    desc: 'نسخة MediaFire', 
-                    meta: '📦 APK (MediaFire)', 
-                    link: 'https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file', 
-                    class: 'mediafire', 
-                    icon: '📺', 
+                {
+                    title: 'Original TV',
+                    desc: 'نسخة MediaFire',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file',
+                    class: 'mediafire',
+                    icon: '📺',
                     tags: ['tv', 'mediafire'],
                     featured: false,
                     hasPlayer: true,
                     playerLink: 'Original%20Player%20%281%29.apk',
                     playerLabel: 'تنزيل مشغل تطبيق أورجينال'
                 },
-                { 
-                    title: 'GENRAL TV', 
-                    desc: 'لا يحتاج مشغل ولا كود', 
-                    meta: '📦 APK', 
-                    link: 'https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file', 
-                    class: 'mediafire', 
-                    icon: '📡', 
+                {
+                    title: 'GENRAL TV',
+                    desc: 'لا يحتاج مشغل ولا كود',
+                    meta: '📦 APK',
+                    link: 'https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file',
+                    class: 'mediafire',
+                    icon: '📡',
                     tags: ['tv'],
                     featured: false
                 },
-                { 
-                    title: 'Nova TV', 
-                    desc: 'نسخة TV | APK', 
-                    meta: '📦 TV | APK', 
-                    link: 'Nova%20tv%20%281%29.apk', 
-                    class: 'tv', 
-                    icon: '📺', 
+                {
+                    title: 'Nova TV',
+                    desc: 'نسخة TV | APK',
+                    meta: '📦 TV | APK',
+                    link: 'Nova%20tv%20%281%29.apk',
+                    class: 'tv',
+                    icon: '📺',
                     tags: ['tv'],
                     featured: false
                 },
-                { 
-                    title: 'كوديا سبورت', 
-                    desc: 'للإنترنت الضعيف والمتوسط | جودة HD', 
-                    meta: '📦 APK', 
-                    link: 'https://www.mediafire.com/file/jn1myb8xii72vk0/كوديا+سبورت.apk/file', 
-                    class: 'mediafire', 
-                    icon: '⚽', 
+                {
+                    title: 'كوديا سبورت',
+                    desc: 'للإنترنت الضعيف والمتوسط | جودة HD',
+                    meta: '📦 APK',
+                    link: 'https://www.mediafire.com/file/jn1myb8xii72vk0/كوديا+سبورت.apk/file',
+                    class: 'mediafire',
+                    icon: '⚽',
                     tags: ['sport'],
                     featured: false
                 },
-                { 
-                    title: 'Prom', 
-                    desc: 'نسخة MediaFire', 
-                    meta: '📦 APK (MediaFire)', 
-                    link: '
+                {
+                    title: 'Prom',
+                    desc: 'نسخة MediaFire',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/aq5yf391mzct2lx/Prom.apk/file',
+                    class: 'mediafire',
+                    icon: '🎞️',
+                    tags: ['mediafire'],
+                    featured: false
+                },
+                {
+                    title: 'LIVE STREAM PREMIUM',
+                    desc: 'نسخة Premium',
+                    meta: '🔑 2027  📦 Premium | APK',
+                    link: ' 
