@@ -12,18 +12,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
+        /* ===== FCB BRANDING COLORS & SYSTEM ===== */
         :root {
-            --bg-main: #07090e;
-            --bg-card: rgba(18, 24, 38, 0.75);
-            --bg-glass: rgba(255, 255, 255, 0.03);
-            --accent-cyan: #00f2fe;
-            --accent-blue: #4facfe;
-            --accent-amber: #f59e0b;
-            --accent-purple: #7d2ae8;
+            --fcb-blue: #004d98;
+            --fcb-blue-dark: #002855;
+            --fcb-red: #a50044;
+            --fcb-red-dark: #70002d;
+            --fcb-gold: #edbb00;
+            --fcb-gold-light: #ffea79;
+            
+            --bg-main: #050814;
+            --bg-card: rgba(10, 18, 38, 0.85);
+            --bg-glass: rgba(237, 187, 0, 0.05);
+            
             --text-main: #f8fafc;
-            --text-sub: #94a3b8;
-            --border-light: rgba(255, 255, 255, 0.08);
-            --border-glow: rgba(0, 242, 254, 0.3);
+            --text-sub: #a1b3ce;
+            --border-light: rgba(237, 187, 0, 0.15);
+            --border-glow: rgba(0, 77, 152, 0.6);
+            
             --radius-lg: 24px;
             --radius-md: 16px;
             --radius-sm: 10px;
@@ -46,7 +52,7 @@
             padding-bottom: 60px;
         }
 
-        /* خلفية متدرجة متحركة */
+        /* خلفية متدرجة بألوان البلوغرانا */
         body::before {
             content: '';
             position: fixed;
@@ -54,48 +60,110 @@
             left: -10%;
             width: 140%;
             height: 140%;
-            background: radial-gradient(circle at 20% 20%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
-                        radial-gradient(circle at 80% 80%, rgba(125, 42, 232, 0.08) 0%, transparent 40%),
-                        radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 50%);
-            z-index: -2;
+            background: radial-gradient(circle at 15% 20%, rgba(0, 77, 152, 0.25) 0%, transparent 45%),
+                        radial-gradient(circle at 85% 80%, rgba(165, 0, 68, 0.25) 0%, transparent 45%),
+                        radial-gradient(circle at 50% 50%, rgba(237, 187, 0, 0.08) 0%, transparent 55%);
+            z-index: -3;
             pointer-events: none;
         }
 
-        /* ===== FCB BACKGROUND LOGO & GLOW ===== */
-        .fcb-bg-logo {
+        /* ===== FCB BACKGROUND LOGO & WAVE LIGHT ===== */
+        .fcb-wrapper {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: min(85vw, 550px);
-            height: min(85vw, 550px);
+            width: min(85vw, 520px);
+            height: min(85vw, 520px);
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+            mask-image: url('https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg');
+            -webkit-mask-image: url('https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg');
+            mask-size: contain;
+            -webkit-mask-size: contain;
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            mask-position: center;
+            -webkit-mask-position: center;
+        }
+
+        .fcb-bg-logo {
+            width: 100%;
+            height: 100%;
             background-image: url('https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg');
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
-            opacity: 0.08;
-            z-index: -1;
-            pointer-events: none;
-            filter: drop-shadow(0 0 15px rgba(218, 18, 62, 0.4));
-            animation: fcbGlowPulse 4s infinite alternate ease-in-out;
+            opacity: 0.12;
+            animation: fcbSuperGlow 4s infinite ease-in-out;
         }
 
-        @keyframes fcbGlowPulse {
+        /* موجة الضوء القادمة من الأعلى إلى الأسفل */
+        .fcb-wrapper::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -20%;
+            width: 140%;
+            height: 80%;
+            background: linear-gradient(
+                180deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.95) 50%,
+                rgba(237, 187, 0, 0.9) 75%,
+                transparent 100%
+            );
+            transform: rotate(-10deg);
+            opacity: 0;
+            animation: fcbWaveDown 4s infinite ease-in-out;
+        }
+
+        /* تحريك الموجة الضوئية */
+        @keyframes fcbWaveDown {
             0% {
-                opacity: 0.05;
-                filter: drop-shadow(0 0 10px rgba(0, 77, 152, 0.3));
-                transform: translate(-50%, -50%) scale(0.98);
+                top: -120%;
+                opacity: 0;
             }
-            50% {
-                opacity: 0.13;
-                filter: drop-shadow(0 0 35px rgba(218, 18, 62, 0.7)) 
-                        drop-shadow(0 0 60px rgba(0, 77, 152, 0.6));
-                transform: translate(-50%, -50%) scale(1.02);
+            15% {
+                opacity: 1;
+            }
+            40% {
+                top: 130%;
+                opacity: 0;
             }
             100% {
-                opacity: 0.06;
-                filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.4));
-                transform: translate(-50%, -50%) scale(1);
+                top: 130%;
+                opacity: 0;
+            }
+        }
+
+        /* الوميض والسطوع القوي للشعار */
+        @keyframes fcbSuperGlow {
+            0%, 35% {
+                opacity: 0.1;
+                filter: brightness(1) drop-shadow(0 0 10px rgba(0, 77, 152, 0.3));
+                transform: scale(0.99);
+            }
+            45% {
+                opacity: 0.55;
+                filter: brightness(2.8) contrast(1.3)
+                        drop-shadow(0 0 50px rgba(255, 255, 255, 1))
+                        drop-shadow(0 0 75px rgba(165, 0, 68, 0.95))
+                        drop-shadow(0 0 110px rgba(0, 77, 152, 0.95));
+                transform: scale(1.03);
+            }
+            65% {
+                opacity: 0.3;
+                filter: brightness(1.8)
+                        drop-shadow(0 0 40px rgba(237, 187, 0, 0.85))
+                        drop-shadow(0 0 65px rgba(165, 0, 68, 0.75));
+                transform: scale(1.01);
+            }
+            85%, 100% {
+                opacity: 0.1;
+                filter: brightness(1) drop-shadow(0 0 10px rgba(0, 77, 152, 0.3));
+                transform: scale(0.99);
             }
         }
 
@@ -104,7 +172,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(7, 9, 14, 0.85);
+            background: rgba(5, 8, 20, 0.88);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-light);
             padding: 16px 0;
@@ -132,14 +200,15 @@
         .logo-box {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            background: linear-gradient(135deg, var(--fcb-blue), var(--fcb-red));
+            border: 1px solid var(--fcb-gold);
             border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 22px;
-            color: #000;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+            color: var(--fcb-gold-light);
+            box-shadow: 0 0 18px rgba(237, 187, 0, 0.3);
         }
 
         .brand-name {
@@ -150,7 +219,7 @@
         }
 
         .brand-name span {
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+            background: linear-gradient(90deg, var(--fcb-gold-light), var(--fcb-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -166,7 +235,7 @@
             align-items: center;
             gap: 8px;
             background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.25);
+            border: 1px solid rgba(16, 185, 129, 0.3);
             padding: 6px 14px;
             border-radius: 50px;
             color: #10b981;
@@ -190,8 +259,9 @@
         }
 
         .tg-btn {
-            background: linear-gradient(135deg, #0088cc, #006699);
-            color: #fff;
+            background: linear-gradient(135deg, var(--fcb-blue), var(--fcb-blue-dark));
+            border: 1px solid rgba(237, 187, 0, 0.4);
+            color: var(--fcb-gold-light);
             padding: 8px 18px;
             border-radius: 50px;
             text-decoration: none;
@@ -201,12 +271,14 @@
             align-items: center;
             gap: 8px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 77, 152, 0.4);
         }
 
         .tg-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.5);
+            background: linear-gradient(135deg, var(--fcb-red), var(--fcb-red-dark));
+            box-shadow: 0 6px 20px rgba(165, 0, 68, 0.5);
+            color: #fff;
         }
 
         /* ===== HERO SECTION ===== */
@@ -221,12 +293,13 @@
             align-items: center;
             gap: 8px;
             background: var(--bg-glass);
-            border: 1px solid var(--border-light);
+            border: 1px solid var(--fcb-gold);
             padding: 6px 18px;
             border-radius: 50px;
             font-size: 0.85rem;
-            color: var(--accent-cyan);
+            color: var(--fcb-gold);
             margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(237, 187, 0, 0.15);
         }
 
         .hero h1 {
@@ -237,7 +310,7 @@
         }
 
         .hero h1 span {
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue), var(--accent-purple));
+            background: linear-gradient(90deg, var(--fcb-gold-light), var(--fcb-gold), #fff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -258,6 +331,7 @@
             padding: 20px;
             border-radius: var(--radius-lg);
             backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         .search-box {
@@ -268,7 +342,7 @@
         .search-box input {
             width: 100%;
             padding: 16px 50px 16px 20px;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border-light);
             border-radius: var(--radius-md);
             color: #fff;
@@ -278,8 +352,8 @@
         }
 
         .search-box input:focus {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+            border-color: var(--fcb-gold);
+            box-shadow: 0 0 15px rgba(237, 187, 0, 0.25);
         }
 
         .search-box i {
@@ -287,7 +361,7 @@
             right: 18px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--text-sub);
+            color: var(--fcb-gold);
             font-size: 1.1rem;
         }
 
@@ -302,7 +376,7 @@
         .filter-tags::-webkit-scrollbar { display: none; }
 
         .tag-btn {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border-light);
             color: var(--text-sub);
             padding: 8px 18px;
@@ -317,14 +391,15 @@
         .tag-btn:hover {
             color: #fff;
             background: rgba(255, 255, 255, 0.08);
+            border-color: var(--fcb-gold);
         }
 
         .tag-btn.active {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-            color: #000;
-            border-color: transparent;
+            background: linear-gradient(135deg, var(--fcb-blue), var(--fcb-red));
+            color: var(--fcb-gold-light);
+            border: 1px solid var(--fcb-gold);
             font-weight: 800;
-            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+            box-shadow: 0 4px 15px rgba(165, 0, 68, 0.4);
         }
 
         /* ===== GRID ===== */
@@ -349,13 +424,13 @@
 
         .app-card:hover {
             transform: translateY(-8px);
-            border-color: var(--border-glow);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 254, 0.1);
+            border-color: var(--fcb-gold);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(237, 187, 0, 0.2);
         }
 
         .app-card.featured {
-            background: linear-gradient(180deg, rgba(245, 158, 11, 0.08), var(--bg-card));
-            border-color: rgba(245, 158, 11, 0.3);
+            background: linear-gradient(180deg, rgba(237, 187, 0, 0.08), var(--bg-card));
+            border-color: rgba(237, 187, 0, 0.4);
         }
 
         .card-head {
@@ -369,14 +444,16 @@
             width: 60px;
             height: 60px;
             border-radius: var(--radius-md);
-            background: rgba(255, 255, 255, 0.05);
+            background: linear-gradient(135deg, var(--fcb-blue-dark), var(--fcb-red-dark));
             border: 1px solid var(--border-light);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 28px;
+            color: var(--fcb-gold);
             overflow: hidden;
             flex-shrink: 0;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
         }
 
         .app-icon-frame img {
@@ -401,7 +478,7 @@
         }
 
         .app-meta-box {
-            background: rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0.35);
             border: 1px solid var(--border-light);
             padding: 8px 12px;
             border-radius: var(--radius-sm);
@@ -415,7 +492,7 @@
         }
 
         .code-badge {
-            background: linear-gradient(135deg, var(--accent-amber), #d97706);
+            background: linear-gradient(135deg, var(--fcb-gold), #d97706);
             color: #000;
             font-weight: 800;
             padding: 3px 8px;
@@ -431,15 +508,16 @@
 
         .code-badge:hover {
             transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(237, 187, 0, 0.5);
         }
 
         .action-btn {
             width: 100%;
             padding: 12px;
             border-radius: var(--radius-md);
-            border: none;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-            color: #000;
+            border: 1px solid rgba(237, 187, 0, 0.3);
+            background: linear-gradient(135deg, var(--fcb-blue), var(--fcb-blue-dark));
+            color: #fff;
             font-weight: 800;
             font-size: 0.9rem;
             cursor: pointer;
@@ -452,16 +530,20 @@
 
         .action-btn:hover {
             opacity: 0.95;
-            box-shadow: 0 4px 20px rgba(0, 242, 254, 0.3);
+            background: linear-gradient(135deg, var(--fcb-red), var(--fcb-red-dark));
+            box-shadow: 0 4px 20px rgba(165, 0, 68, 0.4);
+            color: var(--fcb-gold-light);
         }
 
         .action-btn.btn-mediafire {
             background: linear-gradient(135deg, #ef5b3c, #c83c20);
+            border-color: rgba(255,255,255,0.2);
             color: #fff;
         }
 
         .action-btn.btn-featured {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
+            background: linear-gradient(135deg, var(--fcb-gold), #d97706);
+            border-color: #fff;
             color: #000;
         }
 
@@ -481,7 +563,8 @@
         }
 
         .player-btn:hover {
-            color: #fff;
+            color: var(--fcb-gold-light);
+            border-color: var(--fcb-gold);
             background: rgba(255, 255, 255, 0.08);
         }
 
@@ -489,7 +572,7 @@
         .modal-bg {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(12px);
             z-index: 200;
             display: none;
@@ -502,18 +585,19 @@
 
         .modal-box {
             background: var(--bg-card);
-            border: 1px solid var(--border-glow);
+            border: 1px solid var(--fcb-gold);
             border-radius: var(--radius-lg);
             padding: 30px;
             max-width: 400px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(237, 187, 0, 0.2);
         }
 
         .modal-icon {
             font-size: 40px;
             margin-bottom: 12px;
+            color: var(--fcb-gold);
         }
 
         .modal-btns {
@@ -532,7 +616,7 @@
             text-decoration: none;
         }
 
-        .sub-btn { background: #0088cc; color: #fff; }
+        .sub-btn { background: var(--fcb-blue); color: #fff; border: 1px solid var(--border-light); }
         .direct-btn { background: rgba(255, 255, 255, 0.1); color: #fff; }
 
         .toast-notify {
@@ -540,13 +624,13 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: #10b981;
-            color: #fff;
+            background: linear-gradient(135deg, var(--fcb-gold), #d97706);
+            color: #000;
             padding: 10px 24px;
             border-radius: 50px;
             font-weight: 800;
             font-size: 0.85rem;
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 10px 25px rgba(237, 187, 0, 0.4);
             transition: 0.3s;
             z-index: 300;
             opacity: 0;
@@ -568,7 +652,7 @@
         }
 
         footer a {
-            color: var(--accent-cyan);
+            color: var(--fcb-gold);
             text-decoration: none;
             font-weight: 700;
         }
@@ -581,14 +665,16 @@
 </head>
 <body>
 
-    <!-- FCB BACKDROP LOGO WITH GLOW -->
-    <div class="fcb-bg-logo"></div>
+    <!-- FCB BACKGROUND LOGO WITH WAVE LIGHT EFFECT -->
+    <div class="fcb-wrapper">
+        <div class="fcb-bg-logo"></div>
+    </div>
 
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="container nav-content">
             <a href="#" class="brand-logo">
-                <div class="logo-box"><i class="fas fa-layer-group"></i></div>
+                <div class="logo-box"><i class="fas fa-shield-halved"></i></div>
                 <div class="brand-name">MQJ <span>STORE</span></div>
             </a>
             <div class="nav-actions">
@@ -605,7 +691,7 @@
 
     <!-- HERO -->
     <section class="hero container">
-        <div class="hero-badge"><i class="fas fa-bolt"></i> الإصدار المطور 2026</div>
+        <div class="hero-badge"><i class="fas fa-crown"></i> الإصدار المطور 2026</div>
         <h1>مركز تحميل التطبيقات <span>الحديث والسرِيع</span></h1>
         <p>مكتبة شاملة لأحدث تطبيقات المشاهدة، القنوات المباشرة، الـ VPN والأدوات مجاناً وبروابط مباشرة.</p>
 
@@ -641,7 +727,7 @@
     <!-- MODAL -->
     <div class="modal-bg" id="downloadModal">
         <div class="modal-box">
-            <div class="modal-icon">🚀</div>
+            <div class="modal-icon"><i class="fas fa-paper-plane"></i></div>
             <h3 style="margin-bottom:8px; color:#fff;">الانضمام للقناة الرسمية</h3>
             <p style="color:var(--text-sub); font-size:0.85rem;">اشترك في قناتنا على تلغرام للحصول على تحديثات الأكواد والتطبيقات فور نزلها.</p>
             <div class="modal-btns">
