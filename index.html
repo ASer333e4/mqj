@@ -3,225 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MQJ Store | واجهة جديدة بالكامل</title>
+    <title>MQJ STORE | منصة التطبيقات الذكية</title>
+    
+    <!-- الخطوط وأيقونات FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
-        /* ===== RESET + VARIABLES ===== */
+        :root {
+            --bg-main: #07090e;
+            --bg-card: rgba(18, 24, 38, 0.75);
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --accent-cyan: #00f2fe;
+            --accent-blue: #4facfe;
+            --accent-amber: #f59e0b;
+            --accent-purple: #7d2ae8;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --border-light: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 242, 254, 0.3);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 10px;
+            --font-family: 'Cairo', sans-serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        :root {
-            --bg: #0a0e17;
-            --bg-card: #111a2b;
-            --primary: #f59e0b;
-            --primary-dark: #b45309;
-            --accent: #06b6d4;
-            --text: #f1f5f9;
-            --text-muted: #94a3b8;
-            --border: rgba(255, 255, 255, 0.06);
-            --shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
-            --radius: 20px;
+            font-family: var(--font-family);
         }
 
         body {
-            font-family: 'Segoe UI', 'Tajawal', system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            background-color: var(--bg-main);
+            color: var(--text-main);
             min-height: 100vh;
-            padding: 0 0 40px;
-            background-image: radial-gradient(ellipse at 20% 10%, #1e293b 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 90%, #0f172a 0%, transparent 50%);
+            overflow-x: hidden;
+            position: relative;
+            padding-bottom: 60px;
         }
 
-        /* ===== HEADER ===== */
-        .header {
-            background: rgba(10, 14, 23, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border);
-            padding: 16px 24px;
+        /* خلفية متدرجة متحركة */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%;
+            left: -10%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle at 20% 20%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 80%, rgba(125, 42, 232, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 50%);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* ===== FCB BACKGROUND LOGO & GLOW ===== */
+        .fcb-bg-logo {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(85vw, 550px);
+            height: min(85vw, 550px);
+            background-image: url('https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.08;
+            z-index: -1;
+            pointer-events: none;
+            filter: drop-shadow(0 0 15px rgba(218, 18, 62, 0.4));
+            animation: fcbGlowPulse 4s infinite alternate ease-in-out;
+        }
+
+        @keyframes fcbGlowPulse {
+            0% {
+                opacity: 0.05;
+                filter: drop-shadow(0 0 10px rgba(0, 77, 152, 0.3));
+                transform: translate(-50%, -50%) scale(0.98);
+            }
+            50% {
+                opacity: 0.13;
+                filter: drop-shadow(0 0 35px rgba(218, 18, 62, 0.7)) 
+                        drop-shadow(0 0 60px rgba(0, 77, 152, 0.6));
+                transform: translate(-50%, -50%) scale(1.02);
+            }
+            100% {
+                opacity: 0.06;
+                filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.4));
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
             position: sticky;
             top: 0;
-            z-index: 50;
+            z-index: 100;
+            background: rgba(7, 9, 14, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 16px 0;
         }
 
-        .header-inner {
-            max-width: 1300px;
+        .container {
+            max-width: 1280px;
             margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
         }
 
-        .brand {
+        .brand-logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             text-decoration: none;
-            color: white;
         }
 
-        .brand-icon {
+        .logo-box {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 16px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 26px;
-            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
+            font-size: 22px;
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
         }
 
-        .brand-text h1 {
-            font-size: 1.5rem;
-            font-weight: 800;
+        .brand-name {
+            font-size: 1.4rem;
+            font-weight: 900;
             letter-spacing: -0.5px;
+            color: #fff;
         }
 
-        .brand-text h1 span {
-            color: var(--primary);
+        .brand-name span {
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .brand-text small {
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            display: block;
-            margin-top: 2px;
-        }
-
-        .header-actions {
+        .nav-actions {
             display: flex;
             align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            gap: 14px;
         }
 
-        .online-badge {
+        .live-counter {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            padding: 8px 16px;
-            border-radius: 40px;
-            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            padding: 6px 14px;
+            border-radius: 50px;
+            color: #10b981;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
 
-        .online-dot {
+        .pulse-dot {
             width: 8px;
             height: 8px;
             background: #10b981;
             border-radius: 50%;
-            animation: pulse-dot 2s infinite;
+            box-shadow: 0 0 10px #10b981;
+            animation: pulse 1.8s infinite;
         }
 
-        @keyframes pulse-dot {
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.5;
-                transform: scale(0.8);
-            }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.7; }
         }
 
-        .telegram-btn {
-            background: linear-gradient(135deg, #0088cc, #005f99);
-            padding: 10px 20px;
-            border-radius: 40px;
-            color: white;
+        .tg-btn {
+            background: linear-gradient(135deg, #0088cc, #006699);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
             font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
         }
 
-        .telegram-btn:hover {
+        .tg-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 136, 204, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.5);
         }
 
-        /* ===== HERO ===== */
+        /* ===== HERO SECTION ===== */
         .hero {
-            max-width: 1300px;
-            margin: 30px auto 20px;
-            padding: 40px 32px;
-            border-radius: var(--radius);
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-            border: 1px solid var(--border);
+            padding: 45px 0 25px;
+            text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            top: -200px;
-            right: -100px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.1), transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
         }
 
         .hero-badge {
-            display: inline-block;
-            background: rgba(6, 182, 212, 0.1);
-            border: 1px solid rgba(6, 182, 212, 0.2);
-            padding: 6px 16px;
-            border-radius: 40px;
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 0.8rem;
-            margin-bottom: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-light);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
         }
 
-        .hero h2 {
-            font-size: clamp(1.8rem, 4vw, 3.2rem);
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
             font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 12px;
+            line-height: 1.25;
+            margin-bottom: 15px;
         }
 
-        .hero h2 span {
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue), var(--accent-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            color: var(--text-muted);
-            max-width: 700px;
+            color: var(--text-sub);
+            max-width: 650px;
+            margin: 0 auto;
             font-size: 1rem;
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
-        /* ===== CONTROLS ===== */
-        .controls {
-            max-width: 1300px;
-            margin: 24px auto 0;
-            padding: 20px 24px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
+        /* ===== SEARCH & FILTERS ===== */
+        .controls-wrapper {
+            margin-top: 35px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(10px);
         }
 
         .search-box {
@@ -231,20 +267,19 @@
 
         .search-box input {
             width: 100%;
-            padding: 14px 54px 14px 20px;
-            border-radius: 14px;
-            border: 1px solid var(--border);
-            background: rgba(255, 255, 255, 0.04);
-            color: white;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: 0.25s;
+            padding: 16px 50px 16px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            color: #fff;
+            font-size: 0.95rem;
             outline: none;
+            transition: 0.3s;
         }
 
         .search-box input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.08);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
         }
 
         .search-box i {
@@ -252,552 +287,374 @@
             right: 18px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--text-muted);
+            color: var(--text-sub);
+            font-size: 1.1rem;
         }
 
-        .filters {
+        .filter-tags {
             display: flex;
-            flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 14px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+            scrollbar-width: none;
         }
 
-        .filter-btn {
+        .filter-tags::-webkit-scrollbar { display: none; }
+
+        .tag-btn {
             background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border);
-            color: var(--text-muted);
+            border: 1px solid var(--border-light);
+            color: var(--text-sub);
             padding: 8px 18px;
-            border-radius: 40px;
+            border-radius: 50px;
+            font-size: 0.85rem;
             font-weight: 700;
-            font-size: 0.8rem;
             cursor: pointer;
-            transition: 0.2s;
-            font-family: inherit;
+            white-space: nowrap;
+            transition: 0.25s;
         }
 
-        .filter-btn:hover {
-            color: white;
+        .tag-btn:hover {
+            color: #fff;
             background: rgba(255, 255, 255, 0.08);
         }
 
-        .filter-btn.active {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
+        .tag-btn.active {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #000;
             border-color: transparent;
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.25);
-        }
-
-        .result-info {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .result-info strong {
-            color: var(--primary);
+            font-weight: 800;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
         }
 
         /* ===== GRID ===== */
-        .grid {
-            max-width: 1300px;
-            margin: 28px auto 0;
+        .apps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 22px;
+            margin-top: 30px;
         }
 
-        .card {
+        .app-card {
             background: var(--bg-card);
-            border-radius: var(--radius);
-            padding: 22px 20px 20px;
-            border: 1px solid var(--border);
-            transition: 0.3s ease;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 22px;
             display: flex;
             flex-direction: column;
-            animation: fade-up 0.4s ease both;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
         }
 
-        .card:hover {
-            transform: translateY(-6px);
+        .app-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-glow);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 254, 0.1);
+        }
+
+        .app-card.featured {
+            background: linear-gradient(180deg, rgba(245, 158, 11, 0.08), var(--bg-card));
             border-color: rgba(245, 158, 11, 0.3);
-            box-shadow: var(--shadow);
         }
 
-        .card.featured {
-            border-color: var(--primary);
-            background: linear-gradient(145deg, rgba(245, 158, 11, 0.06), var(--bg-card));
+        .card-head {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 14px;
         }
 
-        .app-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(6, 182, 212, 0.08));
+        .app-icon-frame {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-light);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            margin-bottom: 14px;
-            border: 1px solid var(--border);
-            flex-shrink: 0;
+            font-size: 28px;
             overflow: hidden;
+            flex-shrink: 0;
         }
 
-        .app-icon img {
+        .app-icon-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .card-title {
-            font-size: 1.15rem;
+        .app-info-head h3 {
+            font-size: 1.1rem;
             font-weight: 800;
-            margin-bottom: 6px;
+            color: #fff;
+            line-height: 1.3;
         }
 
-        .card-desc {
-            color: var(--text-muted);
+        .app-desc {
+            color: var(--text-sub);
             font-size: 0.85rem;
-            line-height: 1.7;
+            line-height: 1.6;
+            margin-bottom: 16px;
             flex: 1;
-            margin-bottom: 12px;
         }
 
-        .card-meta {
+        .app-meta-box {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--border-light);
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            color: var(--text-sub);
             display: flex;
             flex-wrap: wrap;
+            gap: 8px;
             align-items: center;
-            gap: 6px;
-            padding: 8px 10px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            margin-bottom: 14px;
-            border: 1px solid var(--border);
+            margin-bottom: 16px;
         }
 
-        .key-copy {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 4px 12px;
-            border-radius: 8px;
+        .code-badge {
+            background: linear-gradient(135deg, var(--accent-amber), #d97706);
+            color: #000;
             font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: 0.15s;
-            font-size: 0.75rem;
             border: none;
-            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.75rem;
+            transition: 0.2s;
         }
 
-        .key-copy:hover {
+        .code-badge:hover {
             transform: scale(1.05);
         }
 
-        .download-btn {
+        .action-btn {
             width: 100%;
-            padding: 14px;
-            border-radius: 14px;
+            padding: 12px;
+            border-radius: var(--radius-md);
             border: none;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #000;
             font-weight: 800;
             font-size: 0.9rem;
             cursor: pointer;
-            transition: 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            font-family: inherit;
-            margin-top: 4px;
+            transition: 0.25s;
         }
 
-        .download-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25);
+        .action-btn:hover {
+            opacity: 0.95;
+            box-shadow: 0 4px 20px rgba(0, 242, 254, 0.3);
         }
 
-        .download-btn.mediafire {
+        .action-btn.btn-mediafire {
             background: linear-gradient(135deg, #ef5b3c, #c83c20);
+            color: #fff;
         }
 
-        .download-btn.vpn {
-            background: linear-gradient(135deg, #10b981, #047857);
+        .action-btn.btn-featured {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000;
         }
 
-        .download-btn.tv {
-            background: linear-gradient(135deg, #7c3aed, #4c1d95);
-        }
-
-        .download-btn.featured-btn {
-            background: linear-gradient(135deg, #f59e0b, #c2410c);
-        }
-
-        .player-link {
-            display: block;
+        .player-btn {
             margin-top: 8px;
-            padding: 10px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border);
-            color: var(--text-muted);
+            display: block;
             text-align: center;
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-light);
+            color: var(--text-sub);
             text-decoration: none;
-            font-weight: 700;
             font-size: 0.8rem;
+            font-weight: 700;
             transition: 0.2s;
         }
 
-        .player-link:hover {
-            color: white;
-            background: rgba(255, 255, 255, 0.06);
+        .player-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
         }
 
-        .no-results {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-muted);
-        }
-
-        .no-results i {
-            font-size: 3.5rem;
-            opacity: 0.3;
-            margin-bottom: 12px;
-        }
-
-        /* ===== MODAL ===== */
-        .modal-overlay {
+        /* ===== MODAL & TOAST ===== */
+        .modal-bg {
             position: fixed;
             inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
             z-index: 200;
             display: none;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
             padding: 20px;
         }
 
-        .modal-overlay.show {
-            display: flex;
-        }
+        .modal-bg.active { display: flex; }
 
-        .modal {
+        .modal-box {
             background: var(--bg-card);
-            border-radius: var(--radius);
-            padding: 32px 28px;
-            max-width: 420px;
+            border: 1px solid var(--border-glow);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            max-width: 400px;
             width: 100%;
-            border: 1px solid var(--border);
             text-align: center;
-            animation: pop-in 0.3s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
         }
 
         .modal-icon {
-            width: 72px;
-            height: 72px;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(6, 182, 212, 0.1));
-            border-radius: 50%;
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .modal-btns {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            margin: 0 auto 16px;
-        }
-
-        .modal h2 {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
-        }
-
-        .modal p {
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .modal-channel {
-            display: inline-block;
-            background: rgba(6, 182, 212, 0.08);
-            border: 1px solid rgba(6, 182, 212, 0.15);
-            padding: 6px 18px;
-            border-radius: 40px;
-            color: var(--accent);
-            font-weight: 700;
-            direction: ltr;
-            margin-bottom: 18px;
-        }
-
-        .modal-actions {
-            display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 10px;
-            justify-content: center;
+            margin-top: 20px;
         }
 
-        .modal-actions button,
-        .modal-actions a {
-            padding: 12px 22px;
-            border-radius: 14px;
-            border: none;
+        .modal-btns a, .modal-btns button {
+            padding: 12px;
+            border-radius: var(--radius-md);
             font-weight: 800;
-            font-family: inherit;
+            border: none;
             cursor: pointer;
-            transition: 0.2s;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
         }
 
-        .modal-subscribe {
-            background: linear-gradient(135deg, #0088cc, #005f99);
-            color: white;
-        }
+        .sub-btn { background: #0088cc; color: #fff; }
+        .direct-btn { background: rgba(255, 255, 255, 0.1); color: #fff; }
 
-        .modal-direct {
-            background: rgba(255, 255, 255, 0.06);
-            color: white;
-            border: 1px solid var(--border);
-        }
-
-        /* ===== TOAST ===== */
-        .toast {
+        .toast-notify {
             position: fixed;
-            bottom: 30px;
+            bottom: 20px;
             left: 50%;
-            transform: translate(-50%, 100px);
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 12px 24px;
-            border-radius: 40px;
-            color: white;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            opacity: 0;
-            transition: 0.4s ease;
+            transform: translateX(-50%) translateY(100px);
+            background: #10b981;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            transition: 0.3s;
             z-index: 300;
-            box-shadow: var(--shadow);
+            opacity: 0;
         }
 
-        .toast.show {
+        .toast-notify.show {
+            transform: translateX(-50%) translateY(0);
             opacity: 1;
-            transform: translate(-50%, 0);
         }
 
         /* ===== FOOTER ===== */
-        .footer {
-            max-width: 1300px;
-            margin: 50px auto 0;
+        footer {
+            margin-top: 60px;
+            border-top: 1px solid var(--border-light);
+            padding-top: 25px;
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            padding: 20px 16px 0;
-            border-top: 1px solid var(--border);
+            color: var(--text-sub);
+            font-size: 0.85rem;
         }
 
-        .footer a {
-            color: var(--primary);
+        footer a {
+            color: var(--accent-cyan);
             text-decoration: none;
             font-weight: 700;
         }
 
-        .back-top {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border: none;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.25s;
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.25);
-            z-index: 40;
-        }
-
-        .back-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fade-up {
-            from {
-                opacity: 0;
-                transform: translateY(18px) scale(0.97);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        @keyframes pop-in {
-            from {
-                opacity: 0;
-                transform: scale(0.9) translateY(12px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 640px) {
-            .header {
-                padding: 12px 16px;
-            }
-            .brand-text h1 {
-                font-size: 1.2rem;
-            }
-            .brand-text small {
-                display: none;
-            }
-            .online-badge {
-                padding: 4px 12px;
-                font-size: 0.7rem;
-            }
-            .telegram-btn {
-                padding: 6px 14px;
-                font-size: 0.75rem;
-            }
-            .hero {
-                padding: 24px 18px;
-            }
-            .controls {
-                padding: 14px 16px;
-            }
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-            .card {
-                padding: 18px 16px;
-            }
-            .modal {
-                padding: 24px 18px;
-            }
-            .modal-actions {
-                flex-direction: column;
-            }
-            .modal-actions button,
-            .modal-actions a {
-                width: 100%;
-                justify-content: center;
-            }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8rem; }
+            .apps-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="header-inner">
-            <a href="#" class="brand">
-                <span class="brand-icon">🚀</span>
-                <div class="brand-text">
-                    <h1>MQJ <span>Store</span></h1>
-                    <small>متجر التطبيقات المجانية</small>
-                </div>
-            </a>
+    <!-- FCB BACKDROP LOGO WITH GLOW -->
+    <div class="fcb-bg-logo"></div>
 
-            <div class="header-actions">
-                <span class="online-badge">
-                    <span class="online-dot"></span>
-                    <span id="liveCount">1</span>
-                </span>
-                <a href="https://t.me/X_9_KK" target="_blank" rel="noopener" class="telegram-btn">
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="brand-logo">
+                <div class="logo-box"><i class="fas fa-layer-group"></i></div>
+                <div class="brand-name">MQJ <span>STORE</span></div>
+            </a>
+            <div class="nav-actions">
+                <div class="live-counter">
+                    <span class="pulse-dot"></span>
+                    <span id="liveCount">1</span> نشط
+                </div>
+                <a href="https://t.me/X_9_KK" target="_blank" class="tg-btn">
                     <i class="fab fa-telegram-plane"></i> القناة
                 </a>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- HERO -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge"><i class="fas fa-bolt"></i> تطبيقات مجانية محدثة</div>
-            <h2>كل التطبيقات <span>في مكان واحد</span></h2>
-            <p>تطبيقات TV، رياضة، سينما، VPN، مشغلات وأكثر. تعمل على الهاتف، التابلت، الكمبيوتر والشاشات الذكية.</p>
+    <section class="hero container">
+        <div class="hero-badge"><i class="fas fa-bolt"></i> الإصدار المطور 2026</div>
+        <h1>مركز تحميل التطبيقات <span>الحديث والسرِيع</span></h1>
+        <p>مكتبة شاملة لأحدث تطبيقات المشاهدة، القنوات المباشرة، الـ VPN والأدوات مجاناً وبروابط مباشرة.</p>
+
+        <!-- CONTROLS -->
+        <div class="controls-wrapper">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input id="searchInput" type="search" placeholder="ابحث عن تطبيق، كود، أو تصنيف..." autocomplete="off">
+            </div>
+            <div class="filter-tags" id="filters">
+                <button class="tag-btn active" data-filter="all">الكل</button>
+                <button class="tag-btn" data-filter="tv">📺 القنوات و TV</button>
+                <button class="tag-btn" data-filter="sport">⚽ الرياضة</button>
+                <button class="tag-btn" data-filter="cinema">🎬 السينما</button>
+                <button class="tag-btn" data-filter="mediafire">📦 MediaFire</button>
+                <button class="tag-btn" data-filter="vpn">🛡️ VPN</button>
+            </div>
         </div>
     </section>
 
-    <!-- CONTROLS -->
-    <div class="controls">
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input id="searchInput" type="search" placeholder="ابحث عن تطبيق أو كود..." autocomplete="off">
-        </div>
-
-        <div class="filters" id="filters">
-            <button class="filter-btn active" data-filter="all">الكل</button>
-            <button class="filter-btn" data-filter="tv">📺 TV</button>
-            <button class="filter-btn" data-filter="mediafire">📦 MediaFire</button>
-            <button class="filter-btn" data-filter="vpn">🛡️ VPN</button>
-            <button class="filter-btn" data-filter="sport">⚽ رياضية</button>
-            <button class="filter-btn" data-filter="cinema">🎬 سينما</button>
-        </div>
-
-        <div class="result-info">
-            عرض <strong id="resultsCount">0</strong> تطبيق
-        </div>
-    </div>
-
-    <!-- GRID -->
-    <div class="grid" id="appsGrid"></div>
+    <!-- MAIN GRID -->
+    <main class="container">
+        <div class="apps-grid" id="appsGrid"></div>
+    </main>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div>
-            <i class="fas fa-rocket"></i> متجر تطبيقات مجانية
-            <span> • </span>
-            <a href="https://t.me/X_9_KK" target="_blank" rel="noopener">@X_9_KK</a>
+    <footer>
+        <div class="container">
+            <p>جميع الحقوق محفوظة © 2026 | تطوير <a href="https://t.me/X_9_KK" target="_blank">MQJ Store</a></p>
         </div>
-        <div style="margin-top:6px;">جميع الحقوق محفوظة © 2026</div>
     </footer>
 
     <!-- MODAL -->
-    <div class="modal-overlay" id="downloadModal">
-        <div class="modal" role="dialog" aria-modal="true">
-            <div class="modal-icon">📢</div>
-            <h2>هل تريد الاشتراك بالقناة؟</h2>
-            <p>انضم إلى قناة MQJ للحصول على أحدث التطبيقات والتحديثات.</p>
-            <div class="modal-channel">@X_9_KK</div>
-            <div class="modal-actions">
-                <a href="https://t.me/X_9_KK" target="_blank" rel="noopener" class="modal-subscribe" id="modalSubscribeBtn">
-                    <i class="fas fa-check-circle"></i> اشتراك
-                </a>
-                <button class="modal-direct" id="modalDirectBtn">
-                    <i class="fas fa-download"></i> تحميل التطبيق
-                </button>
+    <div class="modal-bg" id="downloadModal">
+        <div class="modal-box">
+            <div class="modal-icon">🚀</div>
+            <h3 style="margin-bottom:8px; color:#fff;">الانضمام للقناة الرسمية</h3>
+            <p style="color:var(--text-sub); font-size:0.85rem;">اشترك في قناتنا على تلغرام للحصول على تحديثات الأكواد والتطبيقات فور نزلها.</p>
+            <div class="modal-btns">
+                <a href="https://t.me/X_9_KK" target="_blank" class="sub-btn" id="modalSubscribeBtn"><i class="fab fa-telegram-plane"></i> اشتراك وانتقال للتحميل</a>
+                <button class="direct-btn" id="modalDirectBtn">التحميل المباشر فوراً</button>
             </div>
         </div>
     </div>
 
-    <!-- TOAST -->
-    <div class="toast" id="toast">
-        <i class="fas fa-check-circle"></i>
-        <span id="toastMsg">تم النسخ</span>
-    </div>
+    <!-- TOAST NOTIFY -->
+    <div class="toast-notify" id="toast">تم نسخ الكود بنجاح!</div>
 
-    <!-- BACK TO TOP -->
-    <button class="back-top" id="backTop" aria-label="العودة للأعلى">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- FONTAWESOME + FIREBASE -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- FIREBASE SERVICES -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
@@ -805,7 +662,7 @@
         (function() {
             'use strict';
 
-            // ===== FIREBASE =====
+            // ===== FIREBASE CONFIG =====
             const firebaseConfig = {
                 apiKey: "AIzaSyBx7GqI2AFtLF3UEWiHOvZDXQyAZPMApm4",
                 authDomain: "my-store-6ce96.firebaseapp.com",
@@ -834,378 +691,318 @@
                     const c = snap.numChildren();
                     if (liveEl) liveEl.textContent = c > 0 ? c : 1;
                 });
-            } catch (_) { /* offline */ }
+            } catch (_) {}
 
-            // ===== DATA =====
-            const apps = [{
-                title: 'المتجر الرسمي (MQJ Store)',
-                desc: 'تطبيق أندرويد رسمي للموقع، أسرع وأسهل لتصفح وتحميل التطبيقات.',
-                meta: '📦 APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/sz5sqieahqfxkle/MQJStore_.apk/file',
-                image: 'https://i.imgur.com/8QZQZQZ.png',
-                class: 'mediafire',
-                icon: '🏪',
-                tags: ['all', 'mediafire'],
-                featured: true
-            }, {
-                title: 'تطبيق الريان (Rayan TV)',
-                desc: 'تطبيق الريان للقنوات والبث المباشر.',
-                meta: '🔑 R1..R7  📦 APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/qm95stpeny89s7w/Rayan_TV.apk/file',
-                image: 'https://i.imgur.com/TVRAYAN.png',
-                class: 'mediafire',
-                icon: '📺',
-                tags: ['tv', 'mediafire'],
-                featured: false
-            }, {
-                title: 'تطبيق بغداد (Baghdad TV)',
-                desc: '💎 كود B1 إلى B6 | الأكواد الجديدة: B7✅, B8✅, B9✅, B10✅. غيّر صيغة البث إلى m3u8 أو ts من الإعدادات.',
-                meta: '🔑 B1..B10  📦 APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/1yeoxsppzsxgk0u/1_Baghdad.apk/file',
-                image: 'https://i.imgur.com/BAGHDADTV.png',
-                class: 'mediafire',
-                icon: '🕌',
-                tags: ['tv', 'mediafire'],
-                featured: false
-            }, {
-                title: 'تطبيق المنافس',
-                desc: 'المنافس آخر تحديث.',
-                meta: '🔑 2020  📦 APK',
-                link: 'AL_Monafos.9.3.0_2.apk',
-                image: 'https://i.imgur.com/MONAFOS.png',
-                class: 'tv',
-                icon: '🏆',
-                tags: ['tv', 'sport'],
-                featured: false
-            }, {
-                title: 'تطبيق Cast X Plus',
-                desc: 'تطبيق Cast X Plus للبث والمشاهدة على الشاشة والموبايل.',
-                meta: '🔑 2222  📦 APK',
-                link: 'https://github.com/Mqj20/Mqj20/raw/refs/heads/main/Cast%20X%20Plus.apk',
-                image: '',
-                class: 'tv',
-                icon: '📺',
-                tags: ['tv'],
-                featured: false
-            }, {
-                title: 'King Cinema',
-                desc: 'أفلام، مسلسلات، بث مباشر للمباريات مع King Cinema.',
-                meta: '📦 APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/nrgxvl75bzk6mw0/King_Cinema_1.1.65.apk/file',
-                image: 'https://i.imgur.com/KINGCINEMA.png',
-                class: 'mediafire',
-                icon: '🎬',
-                tags: ['cinema', 'sport', 'mediafire'],
-                featured: false
-            }, {
-                title: 'تطبيق سينمانا',
-                desc: 'فقط للمشتركين في ايرثلنك والوطني FTTH.',
-                meta: '📦 APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/rdbkddtp0trhhmq/سينمانا.apk/file',
-                image: 'https://i.imgur.com/CINEMANA.png',
-                class: 'mediafire',
-                icon: '📡',
-                tags: ['cinema', 'mediafire'],
-                featured: false
-            }, {
-                title: 'تطبيق سي (C)',
-                desc: 'سينمانا لجميع مزودي خدمة الإنترنت في العراق.',
-                meta: '📦 APK',
-                link: 'سي.apk',
-                image: 'https://i.imgur.com/CAPP.png',
-                class: '',
-                icon: '📡',
-                tags: ['cinema'],
-                featured: false
-            }, {
-                title: 'تطبيق FAST',
-                desc: 'لقياس سرعة الإنترنت على الشاشة.',
-                meta: '📦 APK',
-                link: 'FAST.apk',
-                image: 'https://i.imgur.com/FASTAPP.png',
-                class: '',
-                icon: '⚡',
-                tags: [],
-                featured: false
-            }, {
-                title: 'تطبيق الأنمي',
-                desc: 'لعشاق الأنمي. انقل حسابك من Anime Reeft إلى الشاشة.',
-                meta: '📦 APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/x258r3eb9m192xb/app-release-3.13.13.apk/file',
-                image: 'https://i.imgur.com/ANIMEAPP.png',
-                class: 'mediafire',
-                icon: '🎌',
-                tags: ['cinema', 'mediafire'],
-                featured: false
-            }, {
-                title: 'تطبيق Nado TV',
-                desc: 'لجميع أنواع الإنترنت.',
-                meta: '🔑 22455  📦 APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/uorfc7x6qlwrv0j/Nado+TV.apk/file',
-                image: 'https://i.imgur.com/NADOTV.png',
-                class: 'mediafire',
-                icon: '📺',
-                tags: ['tv', 'mediafire'],
-                featured: false
-            }, {
-                title: 'تطبيق Plasma 4K',
-                desc: 'تطبيق Plasma 4K للشاشات.',
-                meta: '📦 APK',
-                link: 'Plasma%204K.apk',
-                image: 'https://i.imgur.com/PLASMA4K.png',
-                class: '',
-                icon: '🖥️',
-                tags: ['tv'],
-                featured: false
-            }, {
-                title: 'تطبيق ريزن',
-                desc: 'الإصدار: APK (MediaFire).',
-                meta: '📦 APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/0ngejur5ktnmlbn/ریزن+(1).apk/file',
-                image: 'https://i.imgur.com/REZON.png',
-                class: 'mediafire',
-                icon: '🧩',
-                tags: ['mediafire'],
-                featured: false
-            }, {
-                title: 'تطبيق كايدن TV',
-                desc: 'تطبيق كايدن TV للشاشات.',
-                meta: '🔑 19  📦 APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/q6tupipn0c3niop/كايدن+TV.apk/file',
-                image: 'https://i.imgur.com/KAIDEN.png',
-                class: 'mediafire',
-                icon: '📺',
-                tags: ['tv', 'mediafire'],
-                featured: false
-            }, {
-                title: 'تطبيق Oscar TV',
-                desc: 'الإصدار: TV | APK.',
-                meta: '📦 TV | APK',
-                link: 'Oscar%20TV%20%281%29.apk',
-                image: 'https://i.imgur.com/OSCAR.png',
-                class: 'tv',
-                icon: '🏆',
-                tags: ['tv'],
-                featured: false,
-                hasPlayer: true,
-                playerLink: 'https://www.mediafire.com/file/iwoforev9tlspxq/TDM+(1).apk/file',
-                playerLabel: 'تحميل المشغل بدون إعلانات مزعجة'
-            }, {
-                title: 'تطبيق KT PLUS',
-                desc: 'تطبيق KT PLUS.',
-                meta: '🔑 6666  📦 APK',
-                link: 'KT%20PLUS.apk',
-                image: 'https://i.imgur.com/KTPLUS.png',
-                class: '',
-                icon: '📱',
-                tags: ['tv'],
-                featured: false
-            }, {
-                title: 'تطبيق vpnify',
-                desc: 'إذا تواجه مشكلة بفتح التطبيقات حمل هذا الـ VPN.',
-                meta: '📦 VPN (MediaFire)',
-                link: 'https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file',
-                image: 'https://i.imgur.com/VPNIFY.png',
-                class: 'vpn',
-                icon: '🛡️',
-                tags: ['vpn'],
-                featured: false
-            }, {
-                title: 'تطبيق Original TV',
-                desc: 'الإصدار: APK (MediaFire).',
-                meta: '📦 APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file',
-                image: 'https://i.imgur.com/ORIGINALTV.png',
-                class: 'mediafire',
-                icon: '📺',
-                tags: ['tv', 'mediafire'],
-                featured: false,
-                hasPlayer: true,
-                playerLink: 'Original%20Player%20%281%29.apk',
-                playerLabel: 'تحميل مشغل تطبيق أورجينال'
-            }, {
-                title: 'تطبيق GENRAL TV',
-                desc: 'لا يحتاج مشغل ولا كود | APK.',
-                meta: '📦 APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file',
-                image: 'https://i.imgur.com/GENRALTV.png',
-                class: 'mediafire',
-                icon: '📡',
-                tags: ['tv'],
-                featured: false
-            }, {
-                title: 'تطبيق Nova TV',
-                desc: 'الإصدار: TV | APK.',
-                meta: '📦 TV | APK',
-                link: 'Nova%20tv%20%281%29.apk',
-                image: 'https://i.imgur.com/NOVATV.png',
-                class: 'tv',
-                icon: '📺',
-                tags: ['tv'],
-                featured: false
-            }, {
-                title: 'تطبيق كوديا سبورت',
-                desc: 'للإنترنت الضعيف والمتوسط | جودة HD.',
-                meta: '📦 APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/jn1myb8xii72vk0/كوديا+سبورت.apk/file',
-                image: 'https://i.imgur.com/KODIA.png',
-                class: 'mediafire',
-                icon: '⚽',
-                tags: ['sport', 'mediafire'],
-                featured: false
-            }, {
-                title: 'تطبيق Prom',
-                desc: 'الإصدار: APK (MediaFire).',
-                meta: '📦 APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/aq5yf391mzct2lx/Prom.apk/file',
-                image: 'https://i.imgur.com/PROM.png',
-                class: 'mediafire',
-                icon: '🎞️',
-                tags: ['mediafire'],
-                featured: false
-            }, {
-                title: 'LIVE STREAM PREMIUM',
-                desc: 'الإصدار Premium | APK.',
-                meta: '🔑 2027  📦 Premium | APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/ihy63nqkju3561o/LIVE_STREAM_PREMIUM.apk/file',
-                image: 'https://i.imgur.com/LIVESTREAM.png',
-                class: 'mediafire',
-                icon: '⚡',
-                tags: ['tv', 'sport', 'mediafire'],
-                featured: false
-            }, {
-                title: 'تطبيق الباشا تي في',
-                desc: 'أفضل تطبيق بالشرق الأوسط حاليًا يعمل على جميع أنواع الإنترنت: SIM، FTTH، أبراج، بجودات SD، HD، UHD و4K حقيقي.',
-                meta: '📦 APK',
-                link: 'ALBASHA_TV_6.0.1.apk',
-                image: 'https://i.imgur.com/ALBASHATV.png',
-                class: 'featured-btn',
-                icon: '👑',
-                tags: ['tv', 'sport'],
-                featured: true
-            }, {
-                title: 'Yacine TV Gold',
-                desc: 'الإصدار: TV | APK.',
-                meta: '📦 TV | APK',
-                link: 'Yacine%20TV%20Gold.apk',
-                image: 'https://i.imgur.com/YACINETV.png',
-                class: 'tv',
-                icon: '⚽',
-                tags: ['tv', 'sport'],
-                featured: false
-            }, {
-                title: 'Alwan Sports',
-                desc: 'تطبيق رياضي للبث والمحتوى الرياضي.',
-                meta: '📦 APK (MediaFire)',
-                link: 'https://www.mediafire.com/file/vyejtivz1mu8g8f/Alwan+Sports.apk/file',
-                image: 'https://i.imgur.com/ALWANSPORTS.png',
-                class: 'mediafire',
-                icon: '⚽',
-                tags: ['sport', 'mediafire'],
-                featured: false
-            }];
+            // ===== APPS DATA ARRAY =====
+            const apps = [
+                {
+                    title: 'المتجر الرسمي (MQJ Store)',
+                    desc: 'تطبيق أندرويد رسمي للموقع، أسرع وأسهل لتصفح وتحميل التطبيقات.',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/sz5sqieahqfxkle/MQJStore_.apk/file',
+                    image: 'https://i.imgur.com/8QZQZQZ.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '🏪',
+                    tags: ['all', 'mediafire'],
+                    featured: true
+                },
+                {
+                    title: 'تطبيق Cast X Plus',
+                    desc: 'تطبيق Cast X Plus الحديث للبث والمشاهدة الشاملة على الشاشات والهواتف الذكية.',
+                    meta: '🔑 2222  📦 APK',
+                    link: 'https://github.com/Mqj20/Mqj20/raw/refs/heads/main/Cast%20X%20Plus.apk',
+                    image: '',
+                    btnClass: '',
+                    icon: '📺',
+                    tags: ['tv'],
+                    featured: true
+                },
+                {
+                    title: 'تطبيق الباشا تي في',
+                    desc: 'أفضل تطبيق بالشرق الأوسط، يعمل على جميع الشبكات وبكل الجودات الضعيفة والعالية.',
+                    meta: '📦 APK',
+                    link: 'ALBASHA_TV_6.0.1.apk',
+                    image: 'https://i.imgur.com/ALBASHATV.png',
+                    btnClass: 'btn-featured',
+                    icon: '👑',
+                    tags: ['tv', 'sport'],
+                    featured: true
+                },
+                {
+                    title: 'تطبيق الريان (Rayan TV)',
+                    desc: 'تطبيق الريان المميز للبث المباشر والقنوات الرياضية والترفيهية.',
+                    meta: '🔑 R1..R7  📦 APK',
+                    link: 'https://www.mediafire.com/file/qm95stpeny89s7w/Rayan_TV.apk/file',
+                    image: 'https://i.imgur.com/TVRAYAN.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '📺',
+                    tags: ['tv', 'mediafire']
+                },
+                {
+                    title: 'تطبيق بغداد (Baghdad TV)',
+                    desc: 'أكواد B1 إلى B10. ينصح بتغيير صيغة البث إلى m3u8 أو ts من الإعدادات.',
+                    meta: '🔑 B1..B10  📦 APK',
+                    link: 'https://www.mediafire.com/file/1yeoxsppzsxgk0u/1_Baghdad.apk/file',
+                    image: 'https://i.imgur.com/BAGHDADTV.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '🕌',
+                    tags: ['tv', 'mediafire']
+                },
+                {
+                    title: 'تطبيق المنافس',
+                    desc: 'تطبيق المنافس الرياضي للأنظمة بآخر تحديث.',
+                    meta: '🔑 2020  📦 APK',
+                    link: 'AL_Monafos.9.3.0_2.apk',
+                    image: 'https://i.imgur.com/MONAFOS.png',
+                    btnClass: '',
+                    icon: '🏆',
+                    tags: ['tv', 'sport']
+                },
+                {
+                    title: 'King Cinema',
+                    desc: 'أفلام، مسلسلات، وبث مباشر للمباريات مع King Cinema.',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/nrgxvl75bzk6mw0/King_Cinema_1.1.65.apk/file',
+                    image: 'https://i.imgur.com/KINGCINEMA.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '🎬',
+                    tags: ['cinema', 'sport', 'mediafire']
+                },
+                {
+                    title: 'تطبيق سينمانا',
+                    desc: 'مخصص للمشتركين داخل شبكة ايرثلنك والوطني FTTH.',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/rdbkddtp0trhhmq/سينمانا.apk/file',
+                    image: 'https://i.imgur.com/CINEMANA.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '📡',
+                    tags: ['cinema', 'mediafire']
+                },
+                {
+                    title: 'تطبيق سي (C)',
+                    desc: 'مشاهدة سينمانا لكافة مزودي خدمات الإنترنت بالعراق.',
+                    meta: '📦 APK',
+                    link: 'سي.apk',
+                    image: 'https://i.imgur.com/CAPP.png',
+                    btnClass: '',
+                    icon: '📡',
+                    tags: ['cinema']
+                },
+                {
+                    title: 'تطبيق FAST',
+                    desc: 'أداة قياس واختبار سرعة الإنترنت المخصصة للشاشات.',
+                    meta: '📦 APK',
+                    link: 'FAST.apk',
+                    image: 'https://i.imgur.com/FASTAPP.png',
+                    btnClass: '',
+                    icon: '⚡',
+                    tags: []
+                },
+                {
+                    title: 'تطبيق الأنمي',
+                    desc: 'منصة لعشاق الأنمي لنقل الحسابات والمتابعة عبر الشاشة.',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/x258r3eb9m192xb/app-release-3.13.13.apk/file',
+                    image: 'https://i.imgur.com/ANIMEAPP.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '🎌',
+                    tags: ['cinema', 'mediafire']
+                },
+                {
+                    title: 'تطبيق Nado TV',
+                    desc: 'تطبيق قنوات خفيف يعمل على كافة سرعات الإنترنت.',
+                    meta: '🔑 22455  📦 APK',
+                    link: 'https://www.mediafire.com/file/uorfc7x6qlwrv0j/Nado+TV.apk/file',
+                    image: 'https://i.imgur.com/NADOTV.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '📺',
+                    tags: ['tv', 'mediafire']
+                },
+                {
+                    title: 'تطبيق Plasma 4K',
+                    desc: 'تطبيق مشاهدة بدقة عالية مخصص للشاشات الذكية.',
+                    meta: '📦 APK',
+                    link: 'Plasma%204K.apk',
+                    image: 'https://i.imgur.com/PLASMA4K.png',
+                    btnClass: '',
+                    icon: '🖥️',
+                    tags: ['tv']
+                },
+                {
+                    title: 'تطبيق ريزن',
+                    desc: 'تطبيق ريزن المطور للترفيه والبث.',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/0ngejur5ktnmlbn/ریزن+(1).apk/file',
+                    image: 'https://i.imgur.com/REZON.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '🧩',
+                    tags: ['mediafire']
+                },
+                {
+                    title: 'تطبيق كايدن TV',
+                    desc: 'تطبيق كايدن للبث والمشاهدة التلفزيونية.',
+                    meta: '🔑 19  📦 APK',
+                    link: 'https://www.mediafire.com/file/q6tupipn0c3niop/كايدن+TV.apk/file',
+                    image: 'https://i.imgur.com/KAIDEN.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '📺',
+                    tags: ['tv', 'mediafire']
+                },
+                {
+                    title: 'تطبيق Oscar TV',
+                    desc: 'تطبيق أوسكار للبث المباشر للشاشات والهواتف.',
+                    meta: '📦 TV | APK',
+                    link: 'Oscar%20TV%20%281%29.apk',
+                    image: 'https://i.imgur.com/OSCAR.png',
+                    btnClass: '',
+                    icon: '🏆',
+                    tags: ['tv'],
+                    hasPlayer: true,
+                    playerLink: 'https://www.mediafire.com/file/iwoforev9tlspxq/TDM+(1).apk/file',
+                    playerLabel: 'تحميل المشغل الخاص بدون إعلانات'
+                },
+                {
+                    title: 'تطبيق KT PLUS',
+                    desc: 'تطبيق المشاهدة KT PLUS لشاشات وأجهزة الأندرويد.',
+                    meta: '🔑 6666  📦 APK',
+                    link: 'KT%20PLUS.apk',
+                    image: 'https://i.imgur.com/KTPLUS.png',
+                    btnClass: '',
+                    icon: '📱',
+                    tags: ['tv']
+                },
+                {
+                    title: 'تطبيق vpnify',
+                    desc: 'تطبيق VPN ممتاز لفك الحظر وتسريع الاتصال بالبث.',
+                    meta: '📦 VPN (MediaFire)',
+                    link: 'https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file',
+                    image: 'https://i.imgur.com/VPNIFY.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '🛡️',
+                    tags: ['vpn']
+                },
+                {
+                    title: 'تطبيق Original TV',
+                    desc: 'تطبيق أورجينال المباشر والقنوات الرياضية.',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file',
+                    image: 'https://i.imgur.com/ORIGINALTV.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '📺',
+                    tags: ['tv', 'mediafire'],
+                    hasPlayer: true,
+                    playerLink: 'Original%20Player%20%281%29.apk',
+                    playerLabel: 'تحميل مشغل أورجينال الرسمي'
+                },
+                {
+                    title: 'تطبيق GENRAL TV',
+                    desc: 'تطبيق القنوات العامة، يعمل مباشرة دون أكواد أو مشغل خارجي.',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file',
+                    image: 'https://i.imgur.com/GENRALTV.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '📡',
+                    tags: ['tv']
+                },
+                {
+                    title: 'تطبيق Nova TV',
+                    desc: 'تطبيق نوفا للبث التلفزيوني والشاشات.',
+                    meta: '📦 TV | APK',
+                    link: 'Nova%20tv%20%281%29.apk',
+                    image: 'https://i.imgur.com/NOVATV.png',
+                    btnClass: '',
+                    icon: '📺',
+                    tags: ['tv']
+                },
+                {
+                    title: 'تطبيق كوديا سبورت',
+                    desc: 'مخصص للإنترنت الضعيف والمتوسط بجودة HD.',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/jn1myb8xii72vk0/كوديا+سبورت.apk/file',
+                    image: 'https://i.imgur.com/KODIA.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '⚽',
+                    tags: ['sport', 'mediafire']
+                },
+                {
+                    title: 'تطبيق Prom',
+                    desc: 'تطبيق المشاهدة أحدث إصدار.',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/aq5yf391mzct2lx/Prom.apk/file',
+                    image: 'https://i.imgur.com/PROM.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '🎞️',
+                    tags: ['mediafire']
+                },
+                {
+                    title: 'LIVE STREAM PREMIUM',
+                    desc: 'تطبيق البث المباشر بريميوم وبدون إعلانات.',
+                    meta: '🔑 2027  📦 Premium',
+                    link: 'https://www.mediafire.com/file/ihy63nqkju3561o/LIVE_STREAM_PREMIUM.apk/file',
+                    image: 'https://i.imgur.com/LIVESTREAM.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '⚡',
+                    tags: ['tv', 'sport', 'mediafire']
+                },
+                {
+                    title: 'Yacine TV Gold',
+                    desc: 'النسخة الذهبية لتطبيق ياسين تي في للرياضة والمباريات.',
+                    meta: '📦 TV | APK',
+                    link: 'Yacine%20TV%20Gold.apk',
+                    image: 'https://i.imgur.com/YACINETV.png',
+                    btnClass: '',
+                    icon: '⚽',
+                    tags: ['tv', 'sport']
+                },
+                {
+                    title: 'Alwan Sports',
+                    desc: 'تطبيق ألوان الرياضي للبث المباشر وتغطية البطولات.',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/vyejtivz1mu8g8f/Alwan+Sports.apk/file',
+                    image: 'https://i.imgur.com/ALWANSPORTS.png',
+                    btnClass: 'btn-mediafire',
+                    icon: '⚽',
+                    tags: ['sport', 'mediafire']
+                }
+            ];
 
-            // ===== DOM REFS =====
+            // ===== DOM ELEMENTS =====
             const grid = document.getElementById('appsGrid');
             const search = document.getElementById('searchInput');
-            const resultCount = document.getElementById('resultsCount');
-            const filters = document.querySelectorAll('.filter-btn');
+            const filters = document.querySelectorAll('.tag-btn');
             const modal = document.getElementById('downloadModal');
             const modalDirect = document.getElementById('modalDirectBtn');
-            const modalSubscribe = document.getElementById('modalSubscribeBtn');
+            const modalSub = document.getElementById('modalSubscribeBtn');
             const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toastMsg');
-            const backTop = document.getElementById('backTop');
 
             let currentFilter = 'all';
             let pendingLink = '';
 
-            // ===== HELPERS =====
-            function normalize(str) {
-                return String(str || '')
-                    .toLowerCase()
-                    .replace(/[أإآ]/g, 'ا')
-                    .replace(/ة/g, 'ه')
-                    .replace(/ى/g, 'ي')
-                    .replace(/ؤ/g, 'و')
-                    .replace(/ئ/g, 'ي')
-                    .replace(/ـ/g, '')
-                    .replace(/[ًٌٍَُِّْ]/g, '')
-                    .trim();
-            }
-
-            function showToast(msg) {
-                toastMsg.textContent = msg || 'تم النسخ';
-                toast.classList.add('show');
-                clearTimeout(window._toastTimer);
-                window._toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
-            }
-
-            function closeModal() {
-                modal.classList.remove('show');
-            }
-
-            // ===== COPY =====
-            function copyCode(e) {
-                const code = this.dataset.code || '';
-                if (!code) return;
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(code)
-                        .then(() => showToast('تم نسخ الكود: ' + code))
-                        .catch(() => fallbackCopy(code));
-                } else {
-                    fallbackCopy(code);
-                }
-            }
-
-            function fallbackCopy(text) {
-                const ta = document.createElement('textarea');
-                ta.value = text;
-                ta.style.cssText = 'position:fixed;opacity:0;';
-                document.body.appendChild(ta);
-                ta.select();
-                try {
-                    document.execCommand('copy');
-                    showToast('تم نسخ الكود: ' + text);
-                } catch (_) { alert('الكود: ' + text); }
-                ta.remove();
-            }
-
-            // ===== RENDER =====
-            function render(items) {
+            // ===== RENDER FUNCTION =====
+            function renderApps(items) {
                 grid.innerHTML = '';
-                resultCount.textContent = items.length;
-
                 if (!items.length) {
-                    grid.innerHTML = `
-                        <div class="no-results">
-                            <i class="fas fa-search-minus"></i>
-                            <h3>لم يتم العثور على التطبيق</h3>
-                            <p style="margin-top:6px;">جرّب اسمًا آخر أو غيّر التصنيف.</p>
-                        </div>
-                    `;
+                    grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:50px; color:var(--text-sub);">
+                        <i class="fas fa-search" style="font-size:2rem; margin-bottom:10px;"></i>
+                        <p>عذراً، لم نجد أي تطبيقات تطابق بحثك.</p>
+                    </div>`;
                     return;
                 }
 
-                items.forEach((app, i) => {
+                items.forEach(app => {
                     const card = document.createElement('article');
-                    card.className = 'card' + (app.featured ? ' featured' : '');
-                    card.style.animationDelay = (i * 0.04) + 's';
+                    card.className = `app-card ${app.featured ? 'featured' : ''}`;
 
-                    const iconHTML = app.image ?
-                        `<div class="app-icon"><img src="${app.image}" alt="${app.title}" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='<span>${app.icon}</span>'"></div>` :
-                        `<div class="app-icon"><span>${app.icon}</span></div>`;
+                    const iconHTML = app.image ? 
+                        `<div class="app-icon-frame"><img src="${app.image}" alt="${app.title}" onerror="this.style.display='none';this.parentElement.innerHTML='${app.icon}'"></div>` :
+                        `<div class="app-icon-frame">${app.icon}</div>`;
 
-                    let metaHTML = `<div class="card-meta">`;
+                    let metaHTML = `<div class="app-meta-box">`;
                     if (app.meta) {
                         app.meta.split('  ').forEach(part => {
                             if (part.includes('🔑')) {
                                 const code = part.replace('🔑', '').trim();
-                                metaHTML += `
-                                    <button class="key-copy" data-code="${code}">
-                                        <i class="fas fa-key"></i> ${code}
-                                    </button>
-                                `;
+                                metaHTML += `<button class="code-badge" data-code="${code}"><i class="fas fa-key"></i> ${code}</button>`;
                             } else {
                                 metaHTML += `<span>${part}</span>`;
                             }
@@ -1213,21 +1010,19 @@
                     }
                     metaHTML += `</div>`;
 
-                    let playerHTML = '';
-                    if (app.hasPlayer) {
-                        playerHTML = `
-                            <a href="${app.playerLink}" target="_blank" rel="noopener" class="player-link">
-                                <i class="fas fa-play-circle"></i> ${app.playerLabel}
-                            </a>
-                        `;
-                    }
+                    let playerHTML = app.hasPlayer ? 
+                        `<a href="${app.playerLink}" target="_blank" class="player-btn"><i class="fas fa-play-circle"></i> ${app.playerLabel}</a>` : '';
 
                     card.innerHTML = `
-                        ${iconHTML}
-                        <h3 class="card-title">${app.title}</h3>
-                        <p class="card-desc">${app.desc}</p>
+                        <div class="card-head">
+                            ${iconHTML}
+                            <div class="app-info-head">
+                                <h3>${app.title}</h3>
+                            </div>
+                        </div>
+                        <p class="app-desc">${app.desc}</p>
                         ${metaHTML}
-                        <button class="download-btn ${app.class || ''} trigger" data-link="${app.link}">
+                        <button class="action-btn ${app.btnClass || ''} download-trigger" data-link="${app.link}">
                             <i class="fas fa-download"></i> تحميل التطبيق
                         </button>
                         ${playerHTML}
@@ -1236,79 +1031,75 @@
                     grid.appendChild(card);
                 });
 
-                // attach events
-                document.querySelectorAll('.key-copy').forEach(el => {
-                    el.addEventListener('click', copyCode);
+                // Attach Copy Code Listeners
+                document.querySelectorAll('.code-badge').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const code = this.dataset.code;
+                        navigator.clipboard.writeText(code).then(() => {
+                            showToast(`تم نسخ الكود: ${code}`);
+                        });
+                    });
                 });
 
-                document.querySelectorAll('.trigger').forEach(btn => {
+                // Attach Download Modal Triggers
+                document.querySelectorAll('.download-trigger').forEach(btn => {
                     btn.addEventListener('click', function() {
-                        pendingLink = this.dataset.link || '';
-                        modal.classList.add('show');
+                        pendingLink = this.dataset.link;
+                        modal.classList.add('active');
                     });
                 });
             }
 
-            // ===== FILTER + SEARCH =====
-            function filterApps() {
-                const q = normalize(search.value);
+            // ===== TOAST DISPLAY =====
+            function showToast(msg) {
+                toast.textContent = msg;
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2500);
+            }
+
+            // ===== FILTERING =====
+            function filterData() {
+                const query = search.value.toLowerCase().trim();
                 const filtered = apps.filter(app => {
-                    const haystack = normalize(app.title + ' ' + app.desc + ' ' + app.meta + ' ' + app.tags.join(' '));
-                    const matchSearch = !q || haystack.includes(q);
+                    const matchSearch = app.title.toLowerCase().includes(query) || 
+                                        app.desc.toLowerCase().includes(query) || 
+                                        app.meta.toLowerCase().includes(query);
                     const matchFilter = currentFilter === 'all' || app.tags.includes(currentFilter);
                     return matchSearch && matchFilter;
                 });
-                render(filtered);
+                renderApps(filtered);
             }
 
-            search.addEventListener('input', filterApps);
+            search.addEventListener('input', filterData);
 
             filters.forEach(btn => {
                 btn.addEventListener('click', function() {
                     filters.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     currentFilter = this.dataset.filter;
-                    filterApps();
+                    filterData();
                 });
             });
 
-            // ===== MODAL =====
-            modalDirect.addEventListener('click', function() {
-                const link = pendingLink;
-                pendingLink = '';
-                closeModal();
-                if (link) setTimeout(() => window.open(link, '_blank', 'noopener'), 150);
+            // ===== MODAL ACTIONS =====
+            modalDirect.addEventListener('click', () => {
+                modal.classList.remove('active');
+                if(pendingLink) window.open(pendingLink, '_blank');
             });
 
-            modalSubscribe.addEventListener('click', function() {
-                const link = pendingLink;
-                pendingLink = '';
-                closeModal();
-                if (link) setTimeout(() => window.open(link, '_blank', 'noopener'), 500);
+            modalSub.addEventListener('click', () => {
+                modal.classList.remove('active');
+                if(pendingLink) setTimeout(() => window.open(pendingLink, '_blank'), 400);
             });
 
-            modal.addEventListener('click', function(e) {
-                if (e.target === this) closeModal();
+            modal.addEventListener('click', (e) => {
+                if(e.target === modal) modal.classList.remove('active');
             });
 
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
-            });
-
-            // ===== BACK TO TOP =====
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 400) backTop.classList.add('show');
-                else backTop.classList.remove('show');
-            }, { passive: true });
-
-            backTop.addEventListener('click', function() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // ===== INIT =====
-            render(apps);
-
+            // ===== INITIAL RENDER =====
+            renderApps(apps);
         })();
     </script>
 </body>
-    </html>
+</html>
