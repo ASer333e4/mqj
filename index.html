@@ -992,4 +992,323 @@
                 playerLabel: 'تحميل المشغل بدون إعلانات مزعجة'
             }, {
                 title: 'تطبيق KT PLUS',
-                desc: 'ت
+                desc: 'تطبيق KT PLUS.',
+                meta: '🔑 6666  📦 APK',
+                link: 'KT%20PLUS.apk',
+                image: 'https://i.imgur.com/KTPLUS.png',
+                class: '',
+                icon: '📱',
+                tags: ['tv'],
+                featured: false
+            }, {
+                title: 'تطبيق vpnify',
+                desc: 'إذا تواجه مشكلة بفتح التطبيقات حمل هذا الـ VPN.',
+                meta: '📦 VPN (MediaFire)',
+                link: 'https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file',
+                image: 'https://i.imgur.com/VPNIFY.png',
+                class: 'vpn',
+                icon: '🛡️',
+                tags: ['vpn'],
+                featured: false
+            }, {
+                title: 'تطبيق Original TV',
+                desc: 'الإصدار: APK (MediaFire).',
+                meta: '📦 APK (MediaFire)',
+                link: 'https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file',
+                image: 'https://i.imgur.com/ORIGINALTV.png',
+                class: 'mediafire',
+                icon: '📺',
+                tags: ['tv', 'mediafire'],
+                featured: false,
+                hasPlayer: true,
+                playerLink: 'Original%20Player%20%281%29.apk',
+                playerLabel: 'تحميل مشغل تطبيق أورجينال'
+            }, {
+                title: 'تطبيق GENRAL TV',
+                desc: 'لا يحتاج مشغل ولا كود | APK.',
+                meta: '📦 APK (MediaFire)',
+                link: 'https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file',
+                image: 'https://i.imgur.com/GENRALTV.png',
+                class: 'mediafire',
+                icon: '📡',
+                tags: ['tv'],
+                featured: false
+            }, {
+                title: 'تطبيق Nova TV',
+                desc: 'الإصدار: TV | APK.',
+                meta: '📦 TV | APK',
+                link: 'Nova%20tv%20%281%29.apk',
+                image: 'https://i.imgur.com/NOVATV.png',
+                class: 'tv',
+                icon: '📺',
+                tags: ['tv'],
+                featured: false
+            }, {
+                title: 'تطبيق كوديا سبورت',
+                desc: 'للإنترنت الضعيف والمتوسط | جودة HD.',
+                meta: '📦 APK (MediaFire)',
+                link: 'https://www.mediafire.com/file/jn1myb8xii72vk0/كوديا+سبورت.apk/file',
+                image: 'https://i.imgur.com/KODIA.png',
+                class: 'mediafire',
+                icon: '⚽',
+                tags: ['sport', 'mediafire'],
+                featured: false
+            }, {
+                title: 'تطبيق Prom',
+                desc: 'الإصدار: APK (MediaFire).',
+                meta: '📦 APK (MediaFire)',
+                link: 'https://www.mediafire.com/file/aq5yf391mzct2lx/Prom.apk/file',
+                image: 'https://i.imgur.com/PROM.png',
+                class: 'mediafire',
+                icon: '🎞️',
+                tags: ['mediafire'],
+                featured: false
+            }, {
+                title: 'LIVE STREAM PREMIUM',
+                desc: 'الإصدار Premium | APK.',
+                meta: '🔑 2027  📦 Premium | APK (MediaFire)',
+                link: 'https://www.mediafire.com/file/ihy63nqkju3561o/LIVE_STREAM_PREMIUM.apk/file',
+                image: 'https://i.imgur.com/LIVESTREAM.png',
+                class: 'mediafire',
+                icon: '⚡',
+                tags: ['tv', 'sport', 'mediafire'],
+                featured: false
+            }, {
+                title: 'تطبيق الباشا تي في',
+                desc: 'أفضل تطبيق بالشرق الأوسط حاليًا يعمل على جميع أنواع الإنترنت: SIM، FTTH، أبراج، بجودات SD، HD، UHD و4K حقيقي.',
+                meta: '📦 APK',
+                link: 'ALBASHA_TV_6.0.1.apk',
+                image: 'https://i.imgur.com/ALBASHATV.png',
+                class: 'featured-btn',
+                icon: '👑',
+                tags: ['tv', 'sport'],
+                featured: true
+            }, {
+                title: 'Yacine TV Gold',
+                desc: 'الإصدار: TV | APK.',
+                meta: '📦 TV | APK',
+                link: 'Yacine%20TV%20Gold.apk',
+                image: 'https://i.imgur.com/YACINETV.png',
+                class: 'tv',
+                icon: '⚽',
+                tags: ['tv', 'sport'],
+                featured: false
+            }, {
+                title: 'Alwan Sports',
+                desc: 'تطبيق رياضي للبث والمحتوى الرياضي.',
+                meta: '📦 APK (MediaFire)',
+                link: 'https://www.mediafire.com/file/vyejtivz1mu8g8f/Alwan+Sports.apk/file',
+                image: 'https://i.imgur.com/ALWANSPORTS.png',
+                class: 'mediafire',
+                icon: '⚽',
+                tags: ['sport', 'mediafire'],
+                featured: false
+            }];
+
+            // ===== DOM REFS =====
+            const grid = document.getElementById('appsGrid');
+            const search = document.getElementById('searchInput');
+            const resultCount = document.getElementById('resultsCount');
+            const filters = document.querySelectorAll('.filter-btn');
+            const modal = document.getElementById('downloadModal');
+            const modalDirect = document.getElementById('modalDirectBtn');
+            const modalSubscribe = document.getElementById('modalSubscribeBtn');
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            const backTop = document.getElementById('backTop');
+
+            let currentFilter = 'all';
+            let pendingLink = '';
+
+            // ===== HELPERS =====
+            function normalize(str) {
+                return String(str || '')
+                    .toLowerCase()
+                    .replace(/[أإآ]/g, 'ا')
+                    .replace(/ة/g, 'ه')
+                    .replace(/ى/g, 'ي')
+                    .replace(/ؤ/g, 'و')
+                    .replace(/ئ/g, 'ي')
+                    .replace(/ـ/g, '')
+                    .replace(/[ًٌٍَُِّْ]/g, '')
+                    .trim();
+            }
+
+            function showToast(msg) {
+                toastMsg.textContent = msg || 'تم النسخ';
+                toast.classList.add('show');
+                clearTimeout(window._toastTimer);
+                window._toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+            }
+
+            function closeModal() {
+                modal.classList.remove('show');
+            }
+
+            // ===== COPY =====
+            function copyCode(e) {
+                const code = this.dataset.code || '';
+                if (!code) return;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(code)
+                        .then(() => showToast('تم نسخ الكود: ' + code))
+                        .catch(() => fallbackCopy(code));
+                } else {
+                    fallbackCopy(code);
+                }
+            }
+
+            function fallbackCopy(text) {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.cssText = 'position:fixed;opacity:0;';
+                document.body.appendChild(ta);
+                ta.select();
+                try {
+                    document.execCommand('copy');
+                    showToast('تم نسخ الكود: ' + text);
+                } catch (_) { alert('الكود: ' + text); }
+                ta.remove();
+            }
+
+            // ===== RENDER =====
+            function render(items) {
+                grid.innerHTML = '';
+                resultCount.textContent = items.length;
+
+                if (!items.length) {
+                    grid.innerHTML = `
+                        <div class="no-results">
+                            <i class="fas fa-search-minus"></i>
+                            <h3>لم يتم العثور على التطبيق</h3>
+                            <p style="margin-top:6px;">جرّب اسمًا آخر أو غيّر التصنيف.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                items.forEach((app, i) => {
+                    const card = document.createElement('article');
+                    card.className = 'card' + (app.featured ? ' featured' : '');
+                    card.style.animationDelay = (i * 0.04) + 's';
+
+                    const iconHTML = app.image ?
+                        `<div class="app-icon"><img src="${app.image}" alt="${app.title}" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='<span>${app.icon}</span>'"></div>` :
+                        `<div class="app-icon"><span>${app.icon}</span></div>`;
+
+                    let metaHTML = `<div class="card-meta">`;
+                    if (app.meta) {
+                        app.meta.split('  ').forEach(part => {
+                            if (part.includes('🔑')) {
+                                const code = part.replace('🔑', '').trim();
+                                metaHTML += `
+                                    <button class="key-copy" data-code="${code}">
+                                        <i class="fas fa-key"></i> ${code}
+                                    </button>
+                                `;
+                            } else {
+                                metaHTML += `<span>${part}</span>`;
+                            }
+                        });
+                    }
+                    metaHTML += `</div>`;
+
+                    let playerHTML = '';
+                    if (app.hasPlayer) {
+                        playerHTML = `
+                            <a href="${app.playerLink}" target="_blank" rel="noopener" class="player-link">
+                                <i class="fas fa-play-circle"></i> ${app.playerLabel}
+                            </a>
+                        `;
+                    }
+
+                    card.innerHTML = `
+                        ${iconHTML}
+                        <h3 class="card-title">${app.title}</h3>
+                        <p class="card-desc">${app.desc}</p>
+                        ${metaHTML}
+                        <button class="download-btn ${app.class || ''} trigger" data-link="${app.link}">
+                            <i class="fas fa-download"></i> تحميل التطبيق
+                        </button>
+                        ${playerHTML}
+                    `;
+
+                    grid.appendChild(card);
+                });
+
+                // attach events
+                document.querySelectorAll('.key-copy').forEach(el => {
+                    el.addEventListener('click', copyCode);
+                });
+
+                document.querySelectorAll('.trigger').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        pendingLink = this.dataset.link || '';
+                        modal.classList.add('show');
+                    });
+                });
+            }
+
+            // ===== FILTER + SEARCH =====
+            function filterApps() {
+                const q = normalize(search.value);
+                const filtered = apps.filter(app => {
+                    const haystack = normalize(app.title + ' ' + app.desc + ' ' + app.meta + ' ' + app.tags.join(' '));
+                    const matchSearch = !q || haystack.includes(q);
+                    const matchFilter = currentFilter === 'all' || app.tags.includes(currentFilter);
+                    return matchSearch && matchFilter;
+                });
+                render(filtered);
+            }
+
+            search.addEventListener('input', filterApps);
+
+            filters.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filters.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.dataset.filter;
+                    filterApps();
+                });
+            });
+
+            // ===== MODAL =====
+            modalDirect.addEventListener('click', function() {
+                const link = pendingLink;
+                pendingLink = '';
+                closeModal();
+                if (link) setTimeout(() => window.open(link, '_blank', 'noopener'), 150);
+            });
+
+            modalSubscribe.addEventListener('click', function() {
+                const link = pendingLink;
+                pendingLink = '';
+                closeModal();
+                if (link) setTimeout(() => window.open(link, '_blank', 'noopener'), 500);
+            });
+
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+            });
+
+            // ===== BACK TO TOP =====
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 400) backTop.classList.add('show');
+                else backTop.classList.remove('show');
+            }, { passive: true });
+
+            backTop.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // ===== INIT =====
+            render(apps);
+
+        })();
+    </script>
+</body>
+    </html>
