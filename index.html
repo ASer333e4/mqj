@@ -126,7 +126,6 @@
             flex-wrap: wrap;
         }
 
-        /* تنسيق عداد المتواجدين حالياً */
         .live-users-badge {
             background: rgba(16, 185, 129, 0.12);
             border: 1px solid rgba(16, 185, 129, 0.3);
@@ -564,12 +563,12 @@
             box-shadow: 0 8px 28px rgba(0, 136, 204, 0.4);
         }
 
-        .btn-modal.later {
+        .btn-modal.download-direct {
             background: rgba(255, 255, 255, 0.07);
             color: var(--text-primary);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .btn-modal.later:hover {
+        .btn-modal.download-direct:hover {
             background: rgba(255, 255, 255, 0.12);
             transform: scale(1.05);
         }
@@ -682,7 +681,6 @@
             </div>
             
             <div class="header-actions">
-                <!-- عداد الزوار المتواجدين الان مباشرة -->
                 <div class="live-users-badge">
                     <span class="pulse-dot"></span>
                     المتواجدون الآن: <span id="liveUsersCount">1</span>
@@ -734,8 +732,8 @@
                 <a href="https://t.me/X_9_KK" target="_blank" rel="noopener" class="btn-modal subscribe" id="modalSubscribeBtn">
                     <i class="fas fa-check-circle"></i> اشتراك
                 </a>
-                <button class="btn-modal later" id="modalLaterBtn">
-                    <i class="fas fa-clock"></i> لاحقًا
+                <button class="btn-modal download-direct" id="modalDirectDownloadBtn">
+                    <i class="fas fa-download"></i> تحميل التطبيق
                 </button>
             </div>
         </div>
@@ -758,7 +756,6 @@
         (function() {
             'use strict';
 
-            // 1. تهيئة الفايربيس وتتبع الزوار البث المباشر
             const firebaseConfig = {
                 apiKey: "AIzaSyBx7GqI2AFtLF3UEWiHOvZDXQyAZPMApm4",
                 authDomain: "my-store-6ce96.firebaseapp.com",
@@ -790,7 +787,6 @@
                 }
             });
 
-            // 2. بيانات التطبيقات
             const appsData = [
                 {
                     title: 'تطبيق بغداد (Baghdad TV)',
@@ -946,7 +942,7 @@
                     featured: false,
                     hasPlayer: true,
                     playerLink: 'Original%20Player%20%281%29.apk',
-                    playerLabel: 'تنزيل مشغل تطبيق أورجينال'
+                    playerLabel: 'تحميل مشغل تطبيق أورجينال'
                 },
                 {
                     title: 'تطبيق GENRAL TV',
@@ -1036,7 +1032,7 @@
             const filterBtns = document.querySelectorAll('.filter-btn');
             const backToTop = document.getElementById('backToTop');
             const downloadModal = document.getElementById('downloadModal');
-            const modalLaterBtn = document.getElementById('modalLaterBtn');
+            const modalDirectDownloadBtn = document.getElementById('modalDirectDownloadBtn');
             const modalSubscribeBtn = document.getElementById('modalSubscribeBtn');
             const toast = document.getElementById('toast');
 
@@ -1088,7 +1084,7 @@
                         <p class="app-desc">${app.desc}</p>
                         ${metaHtml}
                         <button type="button" class="btn-download ${app.class} ${app.featured ? 'featured-btn' : ''} trigger-download" data-link="${app.link}">
-                            <i class="fas fa-download"></i> تنزيل التطبيق
+                            <i class="fas fa-download"></i> تحميل التطبيق
                         </button>
                         ${playerBtnHtml}
                     `;
@@ -1114,7 +1110,6 @@
                 });
             }
 
-            // تنزيل الملف وحسب اختيار الزائر من النافذة
             modalSubscribeBtn.addEventListener('click', () => {
                 downloadModal.classList.remove('active');
                 if (pendingDownloadUrl) {
@@ -1125,7 +1120,7 @@
                 }
             });
 
-            modalLaterBtn.addEventListener('click', () => {
+            modalDirectDownloadBtn.addEventListener('click', () => {
                 downloadModal.classList.remove('active');
                 if (pendingDownloadUrl) {
                     window.open(pendingDownloadUrl, '_blank');
