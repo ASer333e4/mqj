@@ -68,7 +68,6 @@
             100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* الهيدر */
         .header {
             display: flex;
             flex-wrap: wrap;
@@ -141,7 +140,6 @@
             box-shadow: 0 10px 32px rgba(0, 136, 204, 0.45);
         }
 
-        /* شريط البحث والفلاتر */
         .controls {
             margin-bottom: 2rem;
         }
@@ -226,7 +224,6 @@
             font-weight: 700;
         }
 
-        /* شبكة التطبيقات */
         .apps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
@@ -268,6 +265,11 @@
 
         .app-card:hover::before {
             opacity: 1;
+        }
+
+        .app-card.featured {
+            border-color: #ff9900;
+            background: rgba(40, 20, 0, 0.3);
         }
 
         .app-card .app-icon {
@@ -392,7 +394,13 @@
             box-shadow: none;
         }
 
-        /* لا توجد نتائج */
+        .btn-download.featured-btn {
+            background: linear-gradient(135deg, #ff9900, #cc7a00);
+        }
+        .btn-download.featured-btn:hover {
+            box-shadow: 0 10px 28px rgba(255, 153, 0, 0.4);
+        }
+
         .no-results {
             grid-column: 1 / -1;
             text-align: center;
@@ -406,7 +414,6 @@
             opacity: 0.4;
         }
 
-        /* المودال */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -540,7 +547,6 @@
             color: #fff;
         }
 
-        /* إشعار النسخ */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -565,7 +571,6 @@
             opacity: 1;
         }
 
-        /* زر العودة للأعلى */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -594,7 +599,6 @@
             transform: translateY(-4px) scale(1.08);
         }
 
-        /* الفوتر */
         .footer {
             margin-top: 3rem;
             padding-top: 1.6rem;
@@ -615,13 +619,11 @@
             color: #fff;
         }
 
-        /* سكرول بار */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--primary-light); }
 
-        /* استجابة */
         @media (max-width: 640px) {
             body { padding: 0.7rem; }
             .container { padding: 1.3rem 1rem; border-radius: 20px; }
@@ -644,7 +646,6 @@
 <body>
 
     <div class="container">
-        <!-- الهيدر -->
         <header class="header">
             <div class="logo-area">
                 <div class="logo-icon">🚀</div>
@@ -655,13 +656,11 @@
             </a>
         </header>
 
-        <!-- أدوات التحكم -->
         <div class="controls">
             <div class="search-box">
                 <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="ابحث عن تطبيق... (مثال: سينما، VPN، كود...)" autocomplete="off">
+                <input type="text" id="searchInput" placeholder="ابحث عن تطبيق..." autocomplete="off">
             </div>
-
             <div class="filters" id="filters">
                 <button class="filter-btn active" data-filter="all">الكل</button>
                 <button class="filter-btn" data-filter="tv">📺 TV</button>
@@ -670,16 +669,13 @@
                 <button class="filter-btn" data-filter="sport">⚽ رياضية</button>
                 <button class="filter-btn" data-filter="cinema">🎬 سينما</button>
             </div>
-
             <div class="results-count">
                 عرض <span id="resultsCount">0</span> تطبيق
             </div>
         </div>
 
-        <!-- شبكة التطبيقات -->
         <div class="apps-grid" id="appsGrid"></div>
 
-        <!-- الفوتر -->
         <footer class="footer">
             <i class="fas fa-rocket" style="margin-left: 0.4rem;"></i> متجر تطبيقات مجانية
             <span style="margin: 0 0.5rem;">•</span>
@@ -689,7 +685,6 @@
         </footer>
     </div>
 
-    <!-- المودال -->
     <div class="modal-overlay" id="subscribeModal">
         <div class="modal-box">
             <div class="modal-icon">📢</div>
@@ -712,13 +707,11 @@
         </div>
     </div>
 
-    <!-- إشعار النسخ -->
     <div class="toast" id="toast">
         <i class="fas fa-check-circle"></i>
         <span>تم نسخ الكود بنجاح!</span>
     </div>
 
-    <!-- زر العودة للأعلى -->
     <button class="back-to-top" id="backToTop" title="العودة للأعلى">
         <i class="fas fa-arrow-up"></i>
     </button>
@@ -727,174 +720,176 @@
         (function() {
             'use strict';
 
-            // --- بيانات التطبيقات مع روابط التحميل الحقيقية ---
+            // --- بيانات التطبيقات مع روابط التحميل من الكود القديم ---
             const appsData = [
                 { 
                     title: 'King Cinema', 
                     desc: 'أفلام، مسلسلات، بث مباشر للمباريات', 
                     meta: '📦 APK', 
-                    link: 'https://www.mediafire.com/file/king-cinema.apk/file', 
-                    class: '', 
+                    link: 'https://www.mediafire.com/file/nrgxvl75bzk6mw0/King_Cinema_1.1.65.apk/file', 
+                    class: 'mediafire', 
                     icon: '🎬', 
-                    tags: ['cinema', 'sport'] 
+                    tags: ['cinema', 'sport'],
+                    featured: false
                 },
                 { 
                     title: 'سينمانا', 
                     desc: 'للمشتركين ايرثلنك و الوطني FTTH', 
                     meta: '📦 APK', 
-                    link: 'https://www.mediafire.com/file/sinmana-3l.apk/file', 
+                    link: 'سينماكا.apk', 
                     class: '', 
                     icon: '📡', 
-                    tags: ['cinema'] 
+                    tags: ['cinema'],
+                    featured: false
                 },
                 { 
                     title: 'تطبيق سي (C)', 
                     desc: 'سينمانا لجميع مزودي الإنترنت في العراق', 
                     meta: '📦 APK', 
-                    link: 'https://www.mediafire.com/file/sinmana-c.apk/file', 
+                    link: 'سي.apk', 
                     class: '', 
                     icon: '📡', 
-                    tags: ['cinema'] 
+                    tags: ['cinema'],
+                    featured: false
                 },
                 { 
                     title: 'FAST', 
                     desc: 'قياس سرعة الإنترنت في الشاشة', 
                     meta: '📦 APK', 
-                    link: 'https://www.mediafire.com/file/fast-speed.apk/file', 
+                    link: 'FAST.apk', 
                     class: '', 
                     icon: '⚡', 
-                    tags: [] 
+                    tags: [],
+                    featured: false
                 },
                 { 
                     title: 'تطبيق الأنمي', 
                     desc: 'انقل حسابك من Anime Reeft إلى الشاشة', 
                     meta: '📦 APK', 
-                    link: 'https://www.mediafire.com/file/anime-reeft.apk/file', 
-                    class: '', 
+                    link: 'https://www.mediafire.com/file/x258r3eb9m192xb/app-release-3.13.13.apk/file', 
+                    class: 'mediafire', 
                     icon: '🎌', 
-                    tags: ['cinema'] 
+                    tags: ['cinema'],
+                    featured: false
                 },
                 { 
                     title: 'Nado TV', 
                     desc: 'لجميع أنواع الإنترنت', 
                     meta: '🔑 22455  📦 APK', 
-                    link: 'https://www.mediafire.com/file/nado-tv.apk/file', 
-                    class: '', 
+                    link: 'https://www.mediafire.com/file/uorfc7x6qlwrv0j/Nado+TV.apk/file', 
+                    class: 'mediafire', 
                     icon: '📺', 
-                    tags: ['tv'] 
+                    tags: ['tv'],
+                    featured: false
                 },
                 { 
                     title: 'Plasma 4K', 
                     desc: 'جودة عالية', 
                     meta: '📦 APK', 
-                    link: 'https://www.mediafire.com/file/plasma-4k.apk/file', 
+                    link: 'Plasma%204K.apk', 
                     class: '', 
                     icon: '🖥️', 
-                    tags: ['tv'] 
+                    tags: ['tv'],
+                    featured: false
                 },
                 { 
                     title: 'ريزن', 
                     desc: 'نسخة MediaFire', 
                     meta: '📦 APK (MediaFire)', 
-                    link: 'https://www.mediafire.com/file/rezan-app.apk/file', 
+                    link: 'https://www.mediafire.com/file/0ngejur5ktnmlbn/ریزن+(1).apk/file', 
                     class: 'mediafire', 
                     icon: '🧩', 
-                    tags: ['mediafire'] 
+                    tags: ['mediafire'],
+                    featured: false
                 },
                 { 
                     title: 'كايدن TV', 
                     desc: 'نسخة MediaFire', 
                     meta: '🔑 19  📦 APK (MediaFire)', 
-                    link: 'https://www.mediafire.com/file/kaiden-tv.apk/file', 
+                    link: 'https://www.mediafire.com/file/q6tupipn0c3niop/كايدن+TV.apk/file', 
                     class: 'mediafire', 
                     icon: '📺', 
-                    tags: ['tv', 'mediafire'] 
+                    tags: ['tv', 'mediafire'],
+                    featured: false
                 },
                 { 
                     title: 'Oscar TV', 
                     desc: 'نسخة TV | APK', 
                     meta: '📦 TV | APK', 
-                    link: 'https://www.mediafire.com/file/oscar-tv.apk/file', 
+                    link: 'Oscar%20TV%20%281%29.apk', 
                     class: 'tv', 
                     icon: '🏆', 
-                    tags: ['tv'] 
+                    tags: ['tv'],
+                    featured: false,
+                    hasPlayer: true,
+                    playerLink: 'https://www.mediafire.com/file/iwoforev9tlspxq/TDM+(1).apk/file',
+                    playerLabel: 'تحميل المشغل بدون إعلانات مزعجة'
                 },
                 { 
                     title: 'KT PLUS', 
                     desc: 'نسخة APK', 
                     meta: '🔑 6666  📦 APK', 
-                    link: 'https://www.mediafire.com/file/kt-plus.apk/file', 
+                    link: 'KT%20PLUS.apk', 
                     class: '', 
                     icon: '📱', 
-                    tags: [] 
+                    tags: [],
+                    featured: false
                 },
                 { 
                     title: 'VPNify', 
                     desc: 'لتجاوز مشاكل فتح التطبيقات', 
                     meta: '📦 VPN', 
-                    link: 'https://www.mediafire.com/file/vpnify.apk/file', 
+                    link: 'https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file', 
                     class: 'vpn', 
                     icon: '🛡️', 
-                    tags: ['vpn'] 
+                    tags: ['vpn'],
+                    featured: false
                 },
                 { 
                     title: 'Original TV', 
                     desc: 'نسخة MediaFire', 
                     meta: '📦 APK (MediaFire)', 
-                    link: 'https://www.mediafire.com/file/original-tv.apk/file', 
+                    link: 'https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file', 
                     class: 'mediafire', 
                     icon: '📺', 
-                    tags: ['tv', 'mediafire'] 
+                    tags: ['tv', 'mediafire'],
+                    featured: false,
+                    hasPlayer: true,
+                    playerLink: 'Original%20Player%20%281%29.apk',
+                    playerLabel: 'تنزيل مشغل تطبيق أورجينال'
                 },
                 { 
                     title: 'GENRAL TV', 
                     desc: 'لا يحتاج مشغل ولا كود', 
                     meta: '📦 APK', 
-                    link: 'https://www.mediafire.com/file/genral-tv.apk/file', 
-                    class: '', 
+                    link: 'https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file', 
+                    class: 'mediafire', 
                     icon: '📡', 
-                    tags: ['tv'] 
+                    tags: ['tv'],
+                    featured: false
                 },
                 { 
                     title: 'Nova TV', 
                     desc: 'نسخة TV | APK', 
                     meta: '📦 TV | APK', 
-                    link: 'https://www.mediafire.com/file/nova-tv.apk/file', 
+                    link: 'Nova%20tv%20%281%29.apk', 
                     class: 'tv', 
                     icon: '📺', 
-                    tags: ['tv'] 
+                    tags: ['tv'],
+                    featured: false
                 },
                 { 
                     title: 'كوديا سبورت', 
                     desc: 'للإنترنت الضعيف والمتوسط | جودة HD', 
                     meta: '📦 APK', 
-                    link: 'https://www.mediafire.com/file/kodia-sport.apk/file', 
-                    class: '', 
+                    link: 'https://www.mediafire.com/file/jn1myb8xii72vk0/كوديا+سبورت.apk/file', 
+                    class: 'mediafire', 
                     icon: '⚽', 
-                    tags: ['sport'] 
+                    tags: ['sport'],
+                    featured: false
                 },
                 { 
                     title: 'Prom', 
                     desc: 'نسخة MediaFire', 
                     meta: '📦 APK (MediaFire)', 
-                    link: 'https://www.mediafire.com/file/prom-app.apk/file', 
-                    class: 'mediafire', 
-                    icon: '🎞️', 
-                    tags: ['mediafire'] 
-                },
-                { 
-                    title: 'LIVE STREAM PREMIUM', 
-                    desc: 'نسخة Premium', 
-                    meta: '🔑 2027  📦 Premium | APK', 
-                    link: 'https://www.mediafire.com/file/live-stream-premium.apk/file', 
-                    class: '', 
-                    icon: '📺', 
-                    tags: ['tv'] 
-                },
-                { 
-                    title: 'الباشا تي في', 
-                    desc: 'أفضل تطبيق بالشرق الأوسط، SD/HD/UHD 4K', 
-                    meta: '📦 APK', 
-                    link: 'https://www.mediafire.com/file/pasha-tv.apk/file', 
-                    class: '', 
-                    icon: '👑
+                    link: '
