@@ -7,7 +7,7 @@
     <title>🚀 متجر تطبيقات مجانية</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Tanywal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
         *, *::before, *::after {
@@ -117,6 +117,43 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* تنسيق عداد المتواجدين حالياً */
+        .live-users-badge {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10B981;
+            padding: 0.55rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+        }
+
+        .pulse-dot {
+            width: 9px;
+            height: 9px;
+            background-color: #10B981;
+            border-radius: 50%;
+            box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
+            animation: pulseGlow 1.8s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
         .telegram-badge {
@@ -619,7 +656,9 @@
             .container { padding: 1.3rem 1rem; border-radius: 20px; }
             .logo-area .logo-icon { width: 42px; height: 42px; font-size: 1.5rem; }
             .logo-area h1 { font-size: 1.35rem; }
-            .telegram-badge { font-size: 0.8rem; padding: 0.5rem 1.3rem; }
+            .header-actions { width: 100%; justify-content: space-between; }
+            .telegram-badge { font-size: 0.8rem; padding: 0.5rem 1.1rem; }
+            .live-users-badge { font-size: 0.78rem; padding: 0.45rem 0.85rem; }
             .apps-grid { grid-template-columns: 1fr; gap: 1.3rem; }
             .app-card { padding: 1.3rem 1.1rem; }
             .modal-box { padding: 2rem 1.3rem; }
@@ -641,9 +680,18 @@
                 <div class="logo-icon">🚀</div>
                 <h1>متجر <span>التطبيقات</span></h1>
             </div>
-            <a href="https://t.me/X_9_KK" target="_blank" rel="noopener" class="telegram-badge">
-                <i class="fab fa-telegram-plane"></i> انضم للقناة
-            </a>
+            
+            <div class="header-actions">
+                <!-- عداد الزوار المتواجدين الان مباشرة -->
+                <div class="live-users-badge">
+                    <span class="pulse-dot"></span>
+                    المتواجدون الآن: <span id="liveUsersCount">1</span>
+                </div>
+
+                <a href="https://t.me/X_9_KK" target="_blank" rel="noopener" class="telegram-badge">
+                    <i class="fab fa-telegram-plane"></i> انضم للقناة
+                </a>
+            </div>
         </header>
 
         <div class="controls">
@@ -702,10 +750,47 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- مكتبات Firebase اللحظية -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
     <script>
         (function() {
             'use strict';
 
+            // 1. تهيئة الفايربيس وتتبع الزوار البث المباشر
+            const firebaseConfig = {
+                apiKey: "AIzaSyBx7GqI2AFtLF3UEWiHOvZDXQyAZPMApm4",
+                authDomain: "my-store-6ce96.firebaseapp.com",
+                databaseURL: "https://my-store-6ce96-default-rtdb.firebaseio.com",
+                projectId: "my-store-6ce96",
+                storageBucket: "my-store-6ce96.firebasestorage.app",
+                messagingSenderId: "1059623236982",
+                appId: "1:1059623236982:web:f457e405b040083044b657",
+                measurementId: "G-LRG9V8GQSR"
+            };
+
+            firebase.initializeApp(firebaseConfig);
+            const db = firebase.database();
+            const myConnectionsRef = db.ref('online_users').push();
+            const connectedRef = db.ref('.info/connected');
+            const userCountEl = document.getElementById('liveUsersCount');
+
+            connectedRef.on('value', (snap) => {
+                if (snap.val() === true) {
+                    myConnectionsRef.onDisconnect().remove();
+                    myConnectionsRef.set(true);
+                }
+            });
+
+            db.ref('online_users').on('value', (snap) => {
+                const count = snap.numChildren();
+                if (userCountEl) {
+                    userCountEl.textContent = count > 0 ? count : 1;
+                }
+            });
+
+            // 2. بيانات التطبيقات
             const appsData = [
                 {
                     title: 'تطبيق بغداد (Baghdad TV)',
@@ -952,6 +1037,7 @@
             const backToTop = document.getElementById('backToTop');
             const downloadModal = document.getElementById('downloadModal');
             const modalLaterBtn = document.getElementById('modalLaterBtn');
+            const modalSubscribeBtn = document.getElementById('modalSubscribeBtn');
             const toast = document.getElementById('toast');
 
             let currentFilter = 'all';
@@ -1010,7 +1096,6 @@
                     grid.appendChild(card);
                 });
 
-                // نسخ الأكواد
                 document.querySelectorAll('.app-meta .key').forEach(keyEl => {
                     keyEl.addEventListener('click', function(e) {
                         e.stopPropagation();
@@ -1021,7 +1106,6 @@
                     });
                 });
 
-                // تفعيل حدث الضغط على زر التحميل لإظهار نافذة التليجرام
                 document.querySelectorAll('.trigger-download').forEach(btn => {
                     btn.addEventListener('click', function() {
                         pendingDownloadUrl = this.getAttribute('data-link');
@@ -1030,7 +1114,17 @@
                 });
             }
 
-            // عند الضغط على زر "لاحقًا"
+            // تنزيل الملف وحسب اختيار الزائر من النافذة
+            modalSubscribeBtn.addEventListener('click', () => {
+                downloadModal.classList.remove('active');
+                if (pendingDownloadUrl) {
+                    setTimeout(() => {
+                        window.open(pendingDownloadUrl, '_blank');
+                        pendingDownloadUrl = '';
+                    }, 400);
+                }
+            });
+
             modalLaterBtn.addEventListener('click', () => {
                 downloadModal.classList.remove('active');
                 if (pendingDownloadUrl) {
@@ -1039,19 +1133,34 @@
                 }
             });
 
-            // إغلاق النافذة إذا ضغط المستخدم خارج الصندوق
             downloadModal.addEventListener('click', (e) => {
                 if (e.target === downloadModal) {
                     downloadModal.classList.remove('active');
                 }
             });
 
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && downloadModal.classList.contains('active')) {
+                    downloadModal.classList.remove('active');
+                }
+            });
+
+            function normalizeText(text) {
+                return text
+                    .toLowerCase()
+                    .replace(/[أإآ]/g, 'ا')
+                    .replace(/ة/g, 'ه')
+                    .replace(/[ى]/g, 'ي')
+                    .trim();
+            }
+
             function filterApps() {
-                const query = searchInput.value.trim().toLowerCase();
+                const query = normalizeText(searchInput.value);
                 const filtered = appsData.filter(app => {
-                    const matchesSearch = app.title.toLowerCase().includes(query) || app.desc.toLowerCase().includes(query);
+                    const titleMatch = normalizeText(app.title).includes(query);
+                    const descMatch = normalizeText(app.desc).includes(query);
                     const matchesFilter = currentFilter === 'all' || app.tags.includes(currentFilter);
-                    return matchesSearch && matchesFilter;
+                    return (titleMatch || descMatch) && matchesFilter;
                 });
                 renderApps(filtered);
             }
