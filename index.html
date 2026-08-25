@@ -10,10 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-        /* --- إعادة الضبط المتطورة --- */
-        *,
-        *::before,
-        *::after {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -27,7 +24,7 @@
             --accent: #FF6B6B;
             --bg: #0B0E1A;
             --card-bg: rgba(255, 255, 255, 0.04);
-            --card-border: rgba(255, 255, 255, 0.06);
+            --card-border: rgba(255, 255, 255, 0.07);
             --text-primary: #F0F4FF;
             --text-secondary: #A0AEC0;
             --glass: rgba(255, 255, 255, 0.03);
@@ -45,11 +42,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-image: radial-gradient(ellipse at 20% 50%, rgba(108, 60, 225, 0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(0, 212, 255, 0.06) 0%, transparent 50%);
+            background-image: 
+                radial-gradient(ellipse at 20% 50%, rgba(108, 60, 225, 0.1) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(0, 212, 255, 0.07) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(108, 60, 225, 0.05) 0%, transparent 40%);
+            overflow-x: hidden;
         }
 
-        /* --- الحاوية الرئيسية --- */
         .container {
             max-width: 1280px;
             width: 100%;
@@ -61,57 +60,57 @@
             border: 1px solid var(--card-border);
             box-shadow: var(--shadow);
             animation: fadeSlide 0.7s ease-out;
+            position: relative;
         }
 
         @keyframes fadeSlide {
-            0% {
-                opacity: 0;
-                transform: translateY(30px) scale(0.98);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* --- الهيدر الفخم --- */
+        /* الهيدر */
         .header {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             gap: 1.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.9rem;
         }
 
         .logo-area .logo-icon {
-            width: 50px;
-            height: 50px;
+            width: 54px;
+            height: 54px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 16px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 8px 24px rgba(108, 60, 225, 0.3);
+            font-size: 1.9rem;
+            box-shadow: 0 8px 28px rgba(108, 60, 225, 0.35);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 8px 28px rgba(108, 60, 225, 0.35); }
+            50% { box-shadow: 0 8px 35px rgba(108, 60, 225, 0.55); }
         }
 
         .logo-area h1 {
-            font-size: 2rem;
+            font-size: 2.1rem;
             font-weight: 800;
             background: linear-gradient(135deg, #FFFFFF 0%, #A0AEC0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -0.5px;
         }
 
         .logo-area h1 span {
@@ -124,7 +123,7 @@
         .telegram-badge {
             background: linear-gradient(135deg, #0088cc, #005f8a);
             color: #fff;
-            padding: 0.6rem 1.8rem;
+            padding: 0.7rem 1.9rem;
             border-radius: 60px;
             font-weight: 700;
             font-size: 0.95rem;
@@ -133,51 +132,127 @@
             gap: 0.6rem;
             text-decoration: none;
             transition: var(--transition);
-            box-shadow: 0 4px 16px rgba(0, 136, 204, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 18px rgba(0, 136, 204, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .telegram-badge:hover {
-            transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 8px 32px rgba(0, 136, 204, 0.4);
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 10px 32px rgba(0, 136, 204, 0.45);
         }
 
-        .telegram-badge i {
-            font-size: 1.2rem;
+        /* شريط البحث والفلاتر */
+        .controls {
+            margin-bottom: 2rem;
         }
 
-        /* --- شبكة التطبيقات الاحترافية --- */
+        .search-box {
+            position: relative;
+            margin-bottom: 1.2rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem 1.2rem 1rem 3.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 60px;
+            color: var(--text-primary);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 0 0 4px rgba(108, 60, 225, 0.15);
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 1.3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.09);
+            color: #fff;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(108, 60, 225, 0.3);
+        }
+
+        .results-count {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .results-count span {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        /* شبكة التطبيقات */
         .apps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-            gap: 2rem;
-            margin: 2.5rem 0 1.5rem;
+            gap: 1.8rem;
+            margin: 1.5rem 0;
+            min-height: 200px;
         }
 
-        /* --- بطاقة التطبيق الفخمة --- */
         .app-card {
             background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border-radius: var(--radius);
-            padding: 1.8rem 1.5rem 1.5rem;
+            padding: 1.7rem 1.5rem 1.4rem;
             border: 1px solid var(--card-border);
             transition: var(--transition);
             display: flex;
             flex-direction: column;
             position: relative;
             overflow: hidden;
-            cursor: default;
         }
 
         .app-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(108, 60, 225, 0.05), rgba(0, 212, 255, 0.02));
+            inset: 0;
+            background: linear-gradient(135deg, rgba(108, 60, 225, 0.08), rgba(0, 212, 255, 0.03));
             opacity: 0;
             transition: var(--transition);
             border-radius: var(--radius);
@@ -185,10 +260,10 @@
         }
 
         .app-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(108, 60, 225, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-10px);
+            border-color: rgba(108, 60, 225, 0.4);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.07);
         }
 
         .app-card:hover::before {
@@ -196,30 +271,30 @@
         }
 
         .app-card .app-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 16px;
+            width: 58px;
+            height: 58px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, rgba(108, 60, 225, 0.2), rgba(0, 212, 255, 0.1));
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: linear-gradient(135deg, rgba(108, 60, 225, 0.25), rgba(0, 212, 255, 0.12));
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .app-card .app-title {
-            font-size: 1.25rem;
+            font-size: 1.28rem;
             font-weight: 800;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.35rem;
             color: #FFFFFF;
         }
 
         .app-card .app-desc {
-            font-size: 0.85rem;
+            font-size: 0.87rem;
             color: var(--text-secondary);
-            margin-bottom: 0.6rem;
-            line-height: 1.6;
+            margin-bottom: 0.7rem;
+            line-height: 1.65;
             flex-grow: 1;
         }
 
@@ -227,57 +302,57 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 0.4rem 0.8rem;
-            margin: 0.5rem 0 1rem;
-            font-size: 0.75rem;
+            gap: 0.5rem;
+            margin: 0.4rem 0 1.1rem;
+            font-size: 0.78rem;
             background: rgba(255, 255, 255, 0.04);
-            padding: 0.4rem 0.9rem;
+            padding: 0.45rem 0.95rem;
             border-radius: 40px;
             color: var(--text-secondary);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .app-card .app-meta .key {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #fff;
-            padding: 0.1rem 0.7rem;
+            padding: 0.15rem 0.75rem;
             border-radius: 30px;
             font-weight: 700;
-            font-size: 0.7rem;
-            letter-spacing: 0.5px;
+            font-size: 0.72rem;
+            cursor: pointer;
+            transition: var(--transition);
+            user-select: none;
         }
 
-        .app-card .app-meta i {
-            margin-left: 0.3rem;
-            opacity: 0.6;
+        .app-card .app-meta .key:hover {
+            transform: scale(1.08);
+            box-shadow: 0 4px 12px rgba(108, 60, 225, 0.4);
         }
 
         .btn-download {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #fff;
             border: none;
-            padding: 0.8rem 1rem;
+            padding: 0.85rem 1rem;
             border-radius: 60px;
             font-weight: 700;
             font-size: 0.95rem;
             cursor: pointer;
             transition: var(--transition);
             text-align: center;
-            text-decoration: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            margin-top: 0.2rem;
-            border: 1px solid rgba(255, 255, 255, 0.06);
             width: 100%;
             position: relative;
             z-index: 1;
+            font-family: 'Tajawal', sans-serif;
         }
 
         .btn-download:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 24px rgba(108, 60, 225, 0.35);
+            transform: scale(1.03);
+            box-shadow: 0 10px 28px rgba(108, 60, 225, 0.4);
         }
 
         .btn-download:active {
@@ -288,54 +363,60 @@
             background: linear-gradient(135deg, #E54B2B, #C73D1F);
         }
         .btn-download.mediafire:hover {
-            box-shadow: 0 8px 24px rgba(229, 75, 43, 0.35);
+            box-shadow: 0 10px 28px rgba(229, 75, 43, 0.4);
         }
 
         .btn-download.vpn {
             background: linear-gradient(135deg, #10B981, #059669);
         }
         .btn-download.vpn:hover {
-            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+            box-shadow: 0 10px 28px rgba(16, 185, 129, 0.4);
         }
 
         .btn-download.tv {
             background: linear-gradient(135deg, #7C3AED, #6D28D9);
         }
         .btn-download.tv:hover {
-            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
+            box-shadow: 0 10px 28px rgba(124, 58, 237, 0.4);
         }
 
         .btn-download.player {
             background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-secondary);
-            margin-top: 0.5rem;
+            margin-top: 0.55rem;
         }
         .btn-download.player:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.12);
             color: #fff;
             box-shadow: none;
         }
 
-        .btn-download i {
-            font-size: 1rem;
+        /* لا توجد نتائج */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-secondary);
         }
 
-        /* --- المودال الفخم --- */
+        .no-results i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.4;
+        }
+
+        /* المودال */
         .modal-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(18px);
             display: none;
             align-items: center;
             justify-content: center;
             z-index: 999;
-            animation: fadeIn 0.35s ease-out;
+            animation: fadeIn 0.3s ease-out;
         }
 
         .modal-overlay.active {
@@ -343,78 +424,65 @@
         }
 
         @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .modal-box {
-            background: linear-gradient(145deg, rgba(20, 24, 40, 0.95), rgba(11, 14, 26, 0.98));
+            background: linear-gradient(145deg, rgba(20, 24, 40, 0.97), rgba(11, 14, 26, 0.99));
             backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
             max-width: 460px;
             width: 92%;
-            padding: 2.5rem 2rem;
+            padding: 2.6rem 2rem;
             border-radius: 32px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 40px 90px rgba(0, 0, 0, 0.65);
             text-align: center;
             animation: scaleUp 0.35s ease-out;
-            position: relative;
         }
 
         @keyframes scaleUp {
-            0% {
-                transform: scale(0.92) translateY(10px);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1) translateY(0);
-                opacity: 1;
-            }
+            from { transform: scale(0.9) translateY(15px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
         }
 
         .modal-box .modal-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, rgba(108, 60, 225, 0.2), rgba(0, 212, 255, 0.1));
+            width: 84px;
+            height: 84px;
+            background: linear-gradient(135deg, rgba(108, 60, 225, 0.25), rgba(0, 212, 255, 0.12));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.8rem;
-            margin: 0 auto 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 2.9rem;
+            margin: 0 auto 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .modal-box h2 {
-            font-size: 1.6rem;
+            font-size: 1.65rem;
             font-weight: 800;
             margin-bottom: 0.5rem;
-            color: #FFFFFF;
         }
 
         .modal-box p {
             color: var(--text-secondary);
-            font-size: 1rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.02rem;
+            margin-bottom: 0.9rem;
             line-height: 1.7;
         }
 
         .modal-box .channel-name {
-            background: rgba(255, 255, 255, 0.04);
-            padding: 0.6rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.65rem 1.6rem;
             border-radius: 60px;
             font-weight: 700;
             color: #00D4FF;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             display: inline-block;
-            margin: 0.3rem auto 1.4rem;
+            margin: 0.3rem auto 1.5rem;
             direction: ltr;
-            border: 1px solid rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.15);
         }
 
         .modal-actions {
@@ -422,62 +490,117 @@
             flex-wrap: wrap;
             gap: 0.8rem;
             justify-content: center;
-            margin-top: 0.5rem;
         }
 
-        .modal-actions .btn-modal {
-            padding: 0.8rem 2.2rem;
+        .btn-modal {
+            padding: 0.85rem 2.3rem;
             border-radius: 60px;
             font-weight: 700;
             font-size: 1rem;
             border: none;
             cursor: pointer;
             transition: var(--transition);
-            min-width: 130px;
+            min-width: 135px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            font-family: 'Tajawal', sans-serif;
         }
 
         .btn-modal.subscribe {
             background: linear-gradient(135deg, #0088cc, #005f8a);
             color: #fff;
-            box-shadow: 0 4px 16px rgba(0, 136, 204, 0.25);
+            box-shadow: 0 4px 18px rgba(0, 136, 204, 0.3);
         }
         .btn-modal.subscribe:hover {
-            transform: scale(1.04);
-            box-shadow: 0 8px 32px rgba(0, 136, 204, 0.35);
+            transform: scale(1.05);
+            box-shadow: 0 8px 28px rgba(0, 136, 204, 0.4);
         }
 
         .btn-modal.later {
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.07);
             color: var(--text-primary);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .btn-modal.later:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(1.04);
+            background: rgba(255, 255, 255, 0.12);
+            transform: scale(1.05);
         }
 
         .btn-modal.close-modal {
             background: transparent;
             color: var(--text-secondary);
-            font-size: 0.85rem;
-            padding: 0.4rem 1rem;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
             min-width: auto;
+            margin-top: 0.8rem;
         }
         .btn-modal.close-modal:hover {
             color: #fff;
         }
 
-        /* --- الفوتر --- */
+        /* إشعار النسخ */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(108, 60, 225, 0.4);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* زر العودة للأعلى */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(108, 60, 225, 0.4);
+            z-index: 100;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px) scale(1.08);
+        }
+
+        /* الفوتر */
         .footer {
             margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 1.6rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: var(--text-secondary);
         }
 
@@ -492,74 +615,36 @@
             color: #fff;
         }
 
-        /* --- شريط التمرير المخصص --- */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-light);
-        }
+        /* سكرول بار */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-light); }
 
-        /* --- استجابة للشاشات الصغيرة --- */
+        /* استجابة */
         @media (max-width: 640px) {
-            body {
-                padding: 0.8rem;
-            }
-            .container {
-                padding: 1.2rem 1rem;
-                border-radius: 20px;
-            }
-            .logo-area .logo-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1.4rem;
-            }
-            .logo-area h1 {
-                font-size: 1.3rem;
-            }
-            .telegram-badge {
-                font-size: 0.75rem;
-                padding: 0.4rem 1.2rem;
-            }
-            .apps-grid {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-            .app-card {
-                padding: 1.2rem 1rem;
-            }
-            .modal-box {
-                padding: 1.8rem 1.2rem;
-            }
-            .modal-box h2 {
-                font-size: 1.3rem;
-            }
-            .modal-actions .btn-modal {
-                min-width: 100px;
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
-            }
+            body { padding: 0.7rem; }
+            .container { padding: 1.3rem 1rem; border-radius: 20px; }
+            .logo-area .logo-icon { width: 42px; height: 42px; font-size: 1.5rem; }
+            .logo-area h1 { font-size: 1.35rem; }
+            .telegram-badge { font-size: 0.8rem; padding: 0.5rem 1.3rem; }
+            .apps-grid { grid-template-columns: 1fr; gap: 1.3rem; }
+            .app-card { padding: 1.3rem 1.1rem; }
+            .modal-box { padding: 2rem 1.3rem; }
+            .modal-box h2 { font-size: 1.35rem; }
+            .btn-modal { min-width: 110px; padding: 0.7rem 1.3rem; font-size: 0.92rem; }
+            .back-to-top { left: 20px; bottom: 20px; width: 46px; height: 46px; }
         }
 
         @media (min-width: 641px) and (max-width: 1024px) {
-            .apps-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .apps-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-
-        <!-- الهيدر الفخم -->
+        <!-- الهيدر -->
         <header class="header">
             <div class="logo-area">
                 <div class="logo-icon">🚀</div>
@@ -569,6 +654,27 @@
                 <i class="fab fa-telegram-plane"></i> انضم للقناة
             </a>
         </header>
+
+        <!-- أدوات التحكم -->
+        <div class="controls">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="ابحث عن تطبيق... (مثال: سينما، VPN، كود...)" autocomplete="off">
+            </div>
+
+            <div class="filters" id="filters">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="tv">📺 TV</button>
+                <button class="filter-btn" data-filter="mediafire">📦 MediaFire</button>
+                <button class="filter-btn" data-filter="vpn">🛡️ VPN</button>
+                <button class="filter-btn" data-filter="sport">⚽ رياضية</button>
+                <button class="filter-btn" data-filter="cinema">🎬 سينما</button>
+            </div>
+
+            <div class="results-count">
+                عرض <span id="resultsCount">0</span> تطبيق
+            </div>
+        </div>
 
         <!-- شبكة التطبيقات -->
         <div class="apps-grid" id="appsGrid"></div>
@@ -581,10 +687,9 @@
             <span style="margin: 0 0.5rem;">•</span>
             جميع الحقوق محفوظة © 2026
         </footer>
-
     </div>
 
-    <!-- --- المودال (النافذة المنبثقة) --- -->
+    <!-- المودال -->
     <div class="modal-overlay" id="subscribeModal">
         <div class="modal-box">
             <div class="modal-icon">📢</div>
@@ -592,56 +697,81 @@
             <p>احصل على أحدث التطبيقات والتحديثات أولاً بأول</p>
             <div class="channel-name">@X_9_KK</div>
             <div class="modal-actions">
-                <button class="btn-modal subscribe" id="modalSubscribe"><i class="fas fa-check-circle"></i> اشتراك</button>
-                <button class="btn-modal later" id="modalLater"><i class="fas fa-clock"></i> لاحقًا</button>
+                <button class="btn-modal subscribe" id="modalSubscribe">
+                    <i class="fas fa-check-circle"></i> اشتراك
+                </button>
+                <button class="btn-modal later" id="modalLater">
+                    <i class="fas fa-clock"></i> لاحقًا
+                </button>
             </div>
-            <div style="margin-top: 1rem;">
-                <button class="btn-modal close-modal" id="modalClose"><i class="fas fa-times"></i> إلغاء</button>
+            <div>
+                <button class="btn-modal close-modal" id="modalClose">
+                    <i class="fas fa-times"></i> إلغاء
+                </button>
             </div>
         </div>
     </div>
+
+    <!-- إشعار النسخ -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>تم نسخ الكود بنجاح!</span>
+    </div>
+
+    <!-- زر العودة للأعلى -->
+    <button class="back-to-top" id="backToTop" title="العودة للأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
         (function() {
             'use strict';
 
-            // --- بيانات التطبيقات (مع روابط حقيقية) ---
+            // --- بيانات التطبيقات (محفوظة كما هي) ---
             const appsData = [
-                { title: 'King Cinema', desc: 'أفلام، مسلسلات، بث مباشر للمباريات', meta: '📦 APK', link: '#', class: '', icon: '🎬' },
-                { title: 'سينمانا', desc: 'للمشتركين ايرثلنك و الوطني FTTH', meta: '📦 APK', link: '#', class: '', icon: '📡' },
-                { title: 'تطبيق سي (C)', desc: 'سينمانا لجميع مزودي الإنترنت في العراق', meta: '📦 APK', link: '#', class: '', icon: '📡' },
-                { title: 'FAST', desc: 'قياس سرعة الإنترنت في الشاشة', meta: '📦 APK', link: '#', class: '', icon: '⚡' },
-                { title: 'تطبيق الأنمي', desc: 'انقل حسابك من Anime Reeft إلى الشاشة', meta: '📦 APK', link: '#', class: '', icon: '🎌' },
-                { title: 'Nado TV', desc: 'لجميع أنواع الإنترنت', meta: '🔑 22455  📦 APK', link: '#', class: '', icon: '📺' },
-                { title: 'Plasma 4K', desc: 'جودة عالية', meta: '📦 APK', link: '#', class: '', icon: '🖥️' },
-                { title: 'ريزن', desc: 'نسخة MediaFire', meta: '📦 APK (MediaFire)', link: '#', class: 'mediafire', icon: '🧩' },
-                { title: 'كايدن TV', desc: 'نسخة MediaFire', meta: '🔑 19  📦 APK (MediaFire)', link: '#', class: 'mediafire', icon: '📺' },
-                { title: 'Oscar TV', desc: 'نسخة TV | APK', meta: '📦 TV | APK', link: '#', class: 'tv', icon: '🏆' },
-                { title: 'KT PLUS', desc: 'نسخة APK', meta: '🔑 6666  📦 APK', link: '#', class: '', icon: '📱' },
-                { title: 'VPNify', desc: 'لتجاوز مشاكل فتح التطبيقات', meta: '📦 VPN', link: '#', class: 'vpn', icon: '🛡️' },
-                { title: 'Original TV', desc: 'نسخة MediaFire', meta: '📦 APK (MediaFire)', link: '#', class: 'mediafire', icon: '📺' },
-                { title: 'GENRAL TV', desc: 'لا يحتاج مشغل ولا كود', meta: '📦 APK', link: '#', class: '', icon: '📡' },
-                { title: 'Nova TV', desc: 'نسخة TV | APK', meta: '📦 TV | APK', link: '#', class: 'tv', icon: '📺' },
-                { title: 'كوديا سبورت', desc: 'للإنترنت الضعيف والمتوسط | جودة HD', meta: '📦 APK', link: '#', class: '',
-                icon: '⚽' },
-                { title: 'Prom', desc: 'نسخة MediaFire', meta: '📦 APK (MediaFire)', link: '#', class: 'mediafire',
-                icon: '🎞️' },
-                { title: 'LIVE STREAM PREMIUM', desc: 'نسخة Premium', meta: '🔑 2027  📦 Premium | APK', link: '#',
-                    class: '', icon: '📺' },
-                { title: 'الباشا تي في', desc: 'أفضل تطبيق بالشرق الأوسط، SD/HD/UHD 4K', meta: '📦 APK', link: '#',
-                    class: '', icon: '👑' },
-                { title: 'Yacine TV Gold', desc: 'نسخة TV | APK', meta: '📦 TV | APK', link: '#', class: 'tv',
-                icon: '🥇' },
-                { title: 'Alwan Sports', desc: 'نسخة MediaFire', meta: '📦 APK (MediaFire)', link: '#', class: 'mediafire',
-                    icon: '🌈' }
+                { title: 'King Cinema', desc: 'أفلام، مسلسلات، بث مباشر للمباريات', meta: '📦 APK', link: '#', class: '', icon: '🎬', tags: ['cinema', 'sport'] },
+                { title: 'سينمانا', desc: 'للمشتركين ايرثلنك و الوطني FTTH', meta: '📦 APK', link: '#', class: '', icon: '📡', tags: ['cinema'] },
+                { title: 'تطبيق سي (C)', desc: 'سينمانا لجميع مزودي الإنترنت في العراق', meta: '📦 APK', link: '#', class: '', icon: '📡', tags: ['cinema'] },
+                { title: 'FAST', desc: 'قياس سرعة الإنترنت في الشاشة', meta: '📦 APK', link: '#', class: '', icon: '⚡', tags: [] },
+                { title: 'تطبيق الأنمي', desc: 'انقل حسابك من Anime Reeft إلى الشاشة', meta: '📦 APK', link: '#', class: '', icon: '🎌', tags: ['cinema'] },
+                { title: 'Nado TV', desc: 'لجميع أنواع الإنترنت', meta: '🔑 22455  📦 APK', link: '#', class: '', icon: '📺', tags: ['tv'] },
+                { title: 'Plasma 4K', desc: 'جودة عالية', meta: '📦 APK', link: '#', class: '', icon: '🖥️', tags: ['tv'] },
+                { title: 'ريزن', desc: 'نسخة MediaFire', meta: '📦 APK (MediaFire)', link: '#', class: 'mediafire', icon: '🧩', tags: ['mediafire'] },
+                { title: 'كايدن TV', desc: 'نسخة MediaFire', meta: '🔑 19  📦 APK (MediaFire)', link: '#', class: 'mediafire', icon: '📺', tags: ['tv', 'mediafire'] },
+                { title: 'Oscar TV', desc: 'نسخة TV | APK', meta: '📦 TV | APK', link: '#', class: 'tv', icon: '🏆', tags: ['tv'] },
+                { title: 'KT PLUS', desc: 'نسخة APK', meta: '🔑 6666  📦 APK', link: '#', class: '', icon: '📱', tags: [] },
+                { title: 'VPNify', desc: 'لتجاوز مشاكل فتح التطبيقات', meta: '📦 VPN', link: '#', class: 'vpn', icon: '🛡️', tags: ['vpn'] },
+                { title: 'Original TV', desc: 'نسخة MediaFire', meta: '📦 APK (MediaFire)', link: '#', class: 'mediafire', icon: '📺', tags: ['tv', 'mediafire'] },
+                { title: 'GENRAL TV', desc: 'لا يحتاج مشغل ولا كود', meta: '📦 APK', link: '#', class: '', icon: '📡', tags: ['tv'] },
+                { title: 'Nova TV', desc: 'نسخة TV | APK', meta: '📦 TV | APK', link: '#', class: 'tv', icon: '📺', tags: ['tv'] },
+                { title: 'كوديا سبورت', desc: 'للإنترنت الضعيف والمتوسط | جودة HD', meta: '📦 APK', link: '#', class: '', icon: '⚽', tags: ['sport'] },
+                { title: 'Prom', desc: 'نسخة MediaFire', meta: '📦 APK (MediaFire)', link: '#', class: 'mediafire', icon: '🎞️', tags: ['mediafire'] },
+                { title: 'LIVE STREAM PREMIUM', desc: 'نسخة Premium', meta: '🔑 2027  📦 Premium | APK', link: '#', class: '', icon: '📺', tags: ['tv'] },
+                { title: 'الباشا تي في', desc: 'أفضل تطبيق بالشرق الأوسط، SD/HD/UHD 4K', meta: '📦 APK', link: '#', class: '', icon: '👑', tags: ['tv'] },
+                { title: 'Yacine TV Gold', desc: 'نسخة TV | APK', meta: '📦 TV | APK', link: '#', class: 'tv', icon: '🥇', tags: ['tv'] },
+                { title: 'Alwan Sports', desc: 'نسخة MediaFire', meta: '📦 APK (MediaFire)', link: '#', class: 'mediafire', icon: '🌈', tags: ['sport', 'mediafire'] }
             ];
 
-            // --- عناصر المودال ---
+            // عناصر DOM
+            const grid = document.getElementById('appsGrid');
+            const searchInput = document.getElementById('searchInput');
+            const resultsCount = document.getElementById('resultsCount');
+            const filtersContainer = document.getElementById('filters');
             const modalOverlay = document.getElementById('subscribeModal');
-            const modalSubscribeBtn = document.getElementById('modalSubscribe');
-            const modalLaterBtn = document.getElementById('modalLater');
-            const modalCloseBtn = document.getElementById('modalClose');
+            const toast = document.getElementById('toast');
+            const backToTop = document.getElementById('backToTop');
+
+            let currentFilter = localStorage.getItem('appFilter') || 'all';
             let pendingDownloadLink = '#';
+
+            // تفعيل الفلتر المحفوظ
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.filter === currentFilter) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
 
             // --- وظائف المودال ---
             function openModal(link) {
@@ -659,105 +789,184 @@
                 if (pendingDownloadLink && pendingDownloadLink !== '#') {
                     window.open(pendingDownloadLink, '_blank');
                 } else {
-                    alert('⚠️ رابط التحميل سيتم إضافته قريباً.');
+                    showToast('⚠️ رابط التحميل سيتم إضافته قريباً');
                 }
                 closeModal();
             }
 
-            // --- أحداث المودال ---
-            modalSubscribeBtn.addEventListener('click', function() {
+            // أحداث المودال
+            document.getElementById('modalSubscribe').addEventListener('click', () => {
                 window.open('https://t.me/X_9_KK', '_blank');
                 startDownload();
             });
-
-            modalLaterBtn.addEventListener('click', startDownload);
-            modalCloseBtn.addEventListener('click', closeModal);
-
-            modalOverlay.addEventListener('click', function(e) {
+            document.getElementById('modalLater').addEventListener('click', startDownload);
+            document.getElementById('modalClose').addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', e => {
                 if (e.target === modalOverlay) closeModal();
             });
-
-            document.addEventListener('keydown', function(e) {
+            document.addEventListener('keydown', e => {
                 if (e.key === 'Escape' && modalOverlay.classList.contains('active')) closeModal();
             });
 
-            // --- بناء البطاقات ديناميكياً ---
-            const grid = document.getElementById('appsGrid');
-            grid.innerHTML = '';
+            // --- إشعار النسخ ---
+            function showToast(message = 'تم نسخ الكود بنجاح!') {
+                toast.querySelector('span').textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2500);
+            }
 
-            appsData.forEach((app) => {
-                const card = document.createElement('div');
-                card.className = 'app-card';
+            // --- بناء البطاقات ---
+            function renderApps(apps) {
+                grid.innerHTML = '';
+                resultsCount.textContent = apps.length;
 
-                // الأيقونة
-                const iconEl = document.createElement('div');
-                iconEl.className = 'app-icon';
-                iconEl.textContent = app.icon || '📦';
-                card.appendChild(iconEl);
-
-                // العنوان
-                const titleEl = document.createElement('div');
-                titleEl.className = 'app-title';
-                titleEl.textContent = app.title;
-                card.appendChild(titleEl);
-
-                // الوصف
-                const descEl = document.createElement('div');
-                descEl.className = 'app-desc';
-                descEl.textContent = app.desc;
-                card.appendChild(descEl);
-
-                // الميتا
-                const metaEl = document.createElement('div');
-                metaEl.className = 'app-meta';
-                let metaText = app.meta;
-                const keyMatch = metaText.match(/🔑\s*(\d+)/);
-                if (keyMatch) {
-                    const key = keyMatch[1];
-                    metaText = metaText.replace(/🔑\s*\d+/, '🔑 <span class="key">' + key + '</span>');
+                if (apps.length === 0) {
+                    grid.innerHTML = `
+                        <div class="no-results">
+                            <i class="fas fa-search"></i>
+                            <p>لا توجد تطبيقات مطابقة لبحثك</p>
+                        </div>
+                    `;
+                    return;
                 }
-                metaEl.innerHTML = metaText;
-                card.appendChild(metaEl);
 
-                // زر التحميل الرئيسي
-                const btn = document.createElement('button');
-                btn.className = 'btn-download' + (app.class ? ' ' + app.class : '');
-                btn.innerHTML = '<i class="fas fa-download"></i> تنزيل التطبيق';
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openModal(app.link);
+                apps.forEach(app => {
+                    const card = document.createElement('div');
+                    card.className = 'app-card';
+
+                    // الأيقونة
+                    const iconEl = document.createElement('div');
+                    iconEl.className = 'app-icon';
+                    iconEl.textContent = app.icon || '📦';
+                    card.appendChild(iconEl);
+
+                    // العنوان
+                    const titleEl = document.createElement('div');
+                    titleEl.className = 'app-title';
+                    titleEl.textContent = app.title;
+                    card.appendChild(titleEl);
+
+                    // الوصف
+                    const descEl = document.createElement('div');
+                    descEl.className = 'app-desc';
+                    descEl.textContent = app.desc;
+                    card.appendChild(descEl);
+
+                    // الميتا + زر نسخ الكود
+                    const metaEl = document.createElement('div');
+                    metaEl.className = 'app-meta';
+                    let metaText = app.meta;
+                    const keyMatch = metaText.match(/🔑\s*(\d+)/);
+                    if (keyMatch) {
+                        const key = keyMatch[1];
+                        metaText = metaText.replace(/🔑\s*\d+/, `🔑 <span class="key" title="انقر لنسخ الكود" data-key="${key}">${key}</span>`);
+                    }
+                    metaEl.innerHTML = metaText;
+                    card.appendChild(metaEl);
+
+                    // زر التحميل
+                    const btn = document.createElement('button');
+                    btn.className = 'btn-download' + (app.class ? ' ' + app.class : '');
+                    btn.innerHTML = '<i class="fas fa-download"></i> تنزيل التطبيق';
+                    btn.addEventListener('click', e => {
+                        e.preventDefault();
+                        openModal(app.link);
+                    });
+                    card.appendChild(btn);
+
+                    // أزرار إضافية
+                    if (app.title.includes('Oscar TV')) {
+                        const playerBtn = document.createElement('button');
+                        playerBtn.className = 'btn-download player';
+                        playerBtn.innerHTML = '<i class="fas fa-play"></i> تحميل المشغل (بدون إعلانات)';
+                        playerBtn.addEventListener('click', e => {
+                            e.preventDefault();
+                            openModal('#');
+                        });
+                        card.appendChild(playerBtn);
+                    }
+
+                    if (app.title.includes('Original TV')) {
+                        const playerBtn = document.createElement('button');
+                        playerBtn.className = 'btn-download player';
+                        playerBtn.innerHTML = '<i class="fas fa-play"></i> تنزيل مشغل أورجينال';
+                        playerBtn.addEventListener('click', e => {
+                            e.preventDefault();
+                            openModal('#');
+                        });
+                        card.appendChild(playerBtn);
+                    }
+
+                    grid.appendChild(card);
                 });
-                card.appendChild(btn);
 
-                // أزرار إضافية لبعض التطبيقات
-                if (app.title.includes('Oscar TV')) {
-                    const playerBtn = document.createElement('button');
-                    playerBtn.className = 'btn-download player';
-                    playerBtn.innerHTML = '<i class="fas fa-play"></i> تحميل المشغل (بدون إعلانات)';
-                    playerBtn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        openModal('#');
+                // أحداث نسخ الكود
+                document.querySelectorAll('.key').forEach(el => {
+                    el.addEventListener('click', () => {
+                        const key = el.dataset.key;
+                        navigator.clipboard.writeText(key).then(() => {
+                            showToast(`تم نسخ الكود: ${key}`);
+                        }).catch(() => {
+                            showToast('فشل النسخ، انسخ يدوياً');
+                        });
                     });
-                    card.appendChild(playerBtn);
+                });
+            }
+
+            // --- الفلترة والبحث ---
+            function filterAndSearch() {
+                const query = searchInput.value.trim().toLowerCase();
+                let filtered = appsData;
+
+                // فلتر التصنيف
+                if (currentFilter !== 'all') {
+                    filtered = filtered.filter(app => app.tags.includes(currentFilter));
                 }
 
-                if (app.title.includes('Original TV')) {
-                    const playerBtn = document.createElement('button');
-                    playerBtn.className = 'btn-download player';
-                    playerBtn.innerHTML = '<i class="fas fa-play"></i> تنزيل مشغل أورجينال';
-                    playerBtn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        openModal('#');
-                    });
-                    card.appendChild(playerBtn);
+                // البحث
+                if (query) {
+                    filtered = filtered.filter(app => 
+                        app.title.toLowerCase().includes(query) ||
+                        app.desc.toLowerCase().includes(query) ||
+                        app.meta.toLowerCase().includes(query)
+                    );
                 }
 
-                grid.appendChild(card);
+                renderApps(filtered);
+            }
+
+            // أحداث الفلتر
+            filtersContainer.addEventListener('click', e => {
+                if (e.target.classList.contains('filter-btn')) {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    currentFilter = e.target.dataset.filter;
+                    localStorage.setItem('appFilter', currentFilter);
+                    filterAndSearch();
+                }
             });
 
-            console.log('[الخبز] تم تحميل المتجر الفخم بالكامل مع مودال الاشتراك الذكي.');
+            // حدث البحث
+            searchInput.addEventListener('input', filterAndSearch);
+
+            // زر العودة للأعلى
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // التحميل الأولي
+            filterAndSearch();
+
+            console.log('[الخبز] تم تحميل المتجر الفخم المطوّر بالكامل 🚀');
         })();
     </script>
-
 </body>
-                    </html>
+    </html>
