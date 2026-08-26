@@ -767,8 +767,19 @@
                 });
             } catch (_) {}
 
-            // ===== APPS DATA ARRAY =====
-            const apps = [
+            // ===== APPS DATA ARRAY (FALLBACK) =====
+            let apps = [
+                {
+                    title: 'تطبيق Goal Live VIP',
+                    desc: 'تطبيق سلس يعمل بمختلف الجودات حسب الإنترنت وأنت تكون قادر على تغيير الجودات.',
+                    meta: '📦 APK (MediaFire)',
+                    link: 'https://www.mediafire.com/file/tdbijxtqink9bij/Goal+Live+VIP.apk/file',
+                    image: '',
+                    btnClass: 'btn-mediafire',
+                    faIcon: 'fa-solid fa-futbol',
+                    tags: ['tv', 'sport', 'mediafire'],
+                    featured: true
+                },
                 {
                     title: 'المتجر الرسمي (MQJ Store)',
                     desc: 'تطبيق أندرويد رسمي للموقع، أسرع وأسهل لتصفح وتحميل التطبيقات.',
@@ -1066,7 +1077,7 @@
             // ===== RENDER FUNCTION =====
             function renderApps(items) {
                 grid.innerHTML = '';
-                if (!items.length) {
+                if (!items || !items.length) {
                     grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:50px; color:var(--text-sub);">
                         <i class="fas fa-search" style="font-size:2rem; margin-bottom:10px;"></i>
                         <p>عذراً، لم نجد أي تطبيقات تطابق بحثك.</p>
@@ -1105,7 +1116,7 @@
                                 <h3>${app.title}</h3>
                             </div>
                         </div>
-                        <p class="app-desc">${app.desc}</p>
+                        <p class="app-desc">${app.desc || ''}</p>
                         ${metaHTML}
                         <button class="action-btn ${app.btnClass || ''} download-trigger" data-link="${app.link}">
                             <i class="fas fa-download"></i> تحميل التطبيق
@@ -1147,10 +1158,10 @@
             function filterData() {
                 const query = search.value.toLowerCase().trim();
                 const filtered = apps.filter(app => {
-                    const matchSearch = app.title.toLowerCase().includes(query) || 
-                                        app.desc.toLowerCase().includes(query) || 
-                                        app.meta.toLowerCase().includes(query);
-                    const matchFilter = currentFilter === 'all' || app.tags.includes(currentFilter);
+                    const matchSearch = (app.title && app.title.toLowerCase().includes(query)) || 
+                                        (app.desc && app.desc.toLowerCase().includes(query)) || 
+                                        (app.meta && app.meta.toLowerCase().includes(query));
+                    const matchFilter = currentFilter === 'all' || (app.tags && app.tags.includes(currentFilter));
                     return matchSearch && matchFilter;
                 });
                 renderApps(filtered);
@@ -1182,8 +1193,19 @@
                 if(e.target === modal) modal.classList.remove('active');
             });
 
-            // ===== INITIAL RENDER =====
-            renderApps(apps);
+            // ===== FETCH JSON & INITIAL RENDER =====
+            renderApps(apps); // عرض البيانات الحالية أولاً فوراً
+
+            fetch('apps.json')
+                .then(res => res.json())
+                .then(data => {
+                    if (Array.isArray(data) && data.length > 0) {
+                        apps = data; // تحديث مصفوفة البيانات بالملف الخارجي
+                        filterData(); // إعادة عرض القائمة بالتحديثات الجديدة
+                    }
+                })
+                .catch(err => console.log('جاري استخدام البيانات المحلية:', err));
+
         })();
     </script>
 </body>
