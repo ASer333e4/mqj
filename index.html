@@ -3,1006 +3,591 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MQJ STORE | المنصة الاحترافية للشاشات والتطبيقات الذكية 2026</title>
+    <title>MQJ STORE | شعارات ونجوم</title>
     
-    <!-- الخطوط وأيقونات FontAwesome -->
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900;1000&family=Changa:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        /* ==========================================================================
-           1. FCB BRANDING SYSTEM & CORE VARIABLES
-           ========================================================================== */
-        :root {
-            /* FCB Palette */
-            --fcb-blue: #004d98;
-            --fcb-blue-dark: #001e3d;
-            --fcb-blue-deeper: #001026;
-            --fcb-red: #a50044;
-            --fcb-red-dark: #610027;
-            --fcb-gold: #edbb00;
-            --fcb-gold-light: #ffea79;
-            --fcb-gold-glow: rgba(237, 187, 0, 0.6);
-            
-            /* Dark Theme Backgrounds */
-            --bg-main: #02040a;
-            --bg-surface: rgba(8, 14, 30, 0.88);
-            --bg-card: rgba(12, 22, 46, 0.85);
-            --bg-card-hover: rgba(18, 32, 66, 0.95);
-            --bg-glass: rgba(237, 187, 0, 0.04);
-            --bg-glass-heavy: rgba(5, 10, 22, 0.95);
-            
-            /* Typography & Colors */
-            --text-main: #ffffff;
-            --text-sub: #94a3b8;
-            --text-muted: #64748b;
-            --text-gold: #edbb00;
-            
-            /* Borders & Glows */
-            --border-light: rgba(237, 187, 0, 0.18);
-            --border-glow: rgba(0, 77, 152, 0.8);
-            --border-red-glow: rgba(165, 0, 68, 0.8);
-            
-            /* Geometric Specs */
-            --radius-lg: 28px;
-            --radius-md: 18px;
-            --radius-sm: 12px;
-            --radius-xs: 8px;
-            --font-main: 'Cairo', sans-serif;
-            --font-title: 'Changa', sans-serif;
-            
-            /* Transitions */
-            --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        /* ==========================================================================
-           2. GLOBAL RESET & TV ACCESSIBILITY
-           ========================================================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: var(--font-main);
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
         }
 
         body {
-            background-color: var(--bg-main);
-            color: var(--text-main);
+            background: #050814;
+            color: #f8fafc;
             min-height: 100vh;
-            overflow-x: hidden;
+            padding: 0 20px 60px;
             position: relative;
-            padding-bottom: 80px;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-main);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--fcb-blue-dark);
-            border: 1px solid var(--border-light);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--fcb-gold);
-        }
-
-        /* ==========================================================================
-           3. TV REMOTE CONTROL FOCUS ENGINE (محرك تركيز الريموت)
-           ========================================================================== */
-        :focus {
-            outline: none !important;
-        }
-
-        .focusable:focus,
-        button:focus,
-        a:focus,
-        input:focus {
-            outline: 4px solid var(--fcb-gold) !important;
-            outline-offset: 4px !important;
-            box-shadow: 0 0 35px var(--fcb-gold-glow), 0 0 15px rgba(255, 255, 255, 0.9) !important;
-            transform: scale(1.05) !important;
-            z-index: 99 !important;
-            transition: all var(--transition-fast) !important;
-            background-color: var(--fcb-blue-dark) !important;
-        }
-
-        /* ==========================================================================
-           4. DYNAMIC BACKGROUND ARTWORKS (ميسي والبطولات وشعارات البث)
-           ========================================================================== */
+        /* خلفية متدرجة أعمق بألوان البلوغرانا مع لمسات ذهبية */
         body::before {
             content: '';
             position: fixed;
-            top: -25%;
-            left: -15%;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle at 10% 20%, rgba(0, 77, 152, 0.35) 0%, transparent 50%),
-                        radial-gradient(circle at 90% 80%, rgba(165, 0, 68, 0.35) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 50%, rgba(237, 187, 0, 0.1) 0%, transparent 65%);
-            z-index: -4;
-            pointer-events: none;
-        }
-
-        .background-art-wrapper {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: min(92vw, 680px);
-            height: min(92vw, 680px);
+            inset: 0;
+            background: radial-gradient(circle at 10% 20%, rgba(0, 77, 152, 0.25) 0%, transparent 50%),
+                        radial-gradient(circle at 90% 80%, rgba(165, 0, 68, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(237, 187, 0, 0.06) 0%, transparent 60%);
             z-index: -3;
             pointer-events: none;
+        }
+
+        /* ===== شعارات عالمية ===== */
+        .trophy-zone {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
-        }
-
-        /* خلفية ميسي يرفع القميص بالبرنابيو */
-        .messi-art {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://i.imgur.com/8QZQZQZ.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            opacity: 0.14;
-            filter: drop-shadow(0 0 30px rgba(165, 0, 68, 0.5)) contrast(1.1);
-        }
-
-        /* محاكي الشعار المتوهج والنابط للمسابقات والبارصا */
-        .fcb-wrapper {
-            position: absolute;
-            width: 85%;
-            height: 85%;
-            z-index: -1;
-            pointer-events: none;
-            overflow: hidden;
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.8));
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.8));
-        }
-
-        .fcb-bg-logo {
-            width: 100%;
-            height: 100%;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            opacity: 0.22;
-            animation: logoSwitchCycle 40s infinite ease-in-out, fcbSlowWhiteGlow 6s infinite ease-in-out;
-        }
-
-        @keyframes logoSwitchCycle {
-            0%, 18% { background-image: url('https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg'); }
-            19%, 33% { background-image: url('https://upload.wikimedia.org/wikipedia/en/f/f5/UEFA_Champions_League.svg'); }
-            34%, 48% { background-image: url('https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg'); }
-            49%, 63% { background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/13/LaLiga_EA_Sports_2023_Logo.svg'); }
-            64%, 78% { background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e9/Serie_A_logo_2022.svg'); }
-            79%, 90% { background-image: url('https://upload.wikimedia.org/wikipedia/en/d/df/Bundesliga_logo_%282017%29.svg'); }
-            91%, 100% { background-image: url('https://upload.wikimedia.org/wikipedia/en/a/ba/Ligue-1-logo.svg'); }
-        }
-
-        @keyframes fcbSlowWhiteGlow {
-            0%, 30% {
-                opacity: 0.18;
-                filter: brightness(1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
-                transform: scale(0.98);
-            }
-            50% {
-                opacity: 0.85;
-                filter: brightness(1.9) contrast(1.25) drop-shadow(0 0 60px rgba(237, 187, 0, 0.9)) drop-shadow(0 0 100px rgba(0, 77, 152, 0.8));
-                transform: scale(1.04);
-            }
-            75% {
-                opacity: 0.4;
-                filter: brightness(1.3) drop-shadow(0 0 30px rgba(255, 255, 255, 0.6));
-                transform: scale(1.01);
-            }
-            100% {
-                opacity: 0.18;
-                filter: brightness(1);
-                transform: scale(0.98);
-            }
-        }
-
-        /* ==========================================================================
-           5. LEAGUES TOP TICKER BAR (شريط الشعارات العلوي)
-           ========================================================================== */
-        .leagues-bar-container {
-            width: 100%;
-            background: rgba(2, 6, 16, 0.92);
-            border-bottom: 1px solid var(--border-light);
-            padding: 12px 0;
+            align-items: center;
+            gap: 30px 45px;
+            margin: 40px auto 30px;
+            padding: 20px 10px;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(237, 187, 0, 0.2);
+            border-radius: 60px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            max-width: 1100px;
             position: relative;
-            z-index: 101;
-            backdrop-filter: blur(15px);
         }
 
-        .leagues-bar {
+        .trophy-zone::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 60px;
+            padding: 2px;
+            background: linear-gradient(90deg, transparent, var(--fcb-gold, #edbb00), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .league-badge {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 28px;
-            overflow-x: auto;
-            padding: 0 20px;
-            scrollbar-width: none;
+            gap: 6px;
+            transition: all 0.3s ease;
+            cursor: default;
+            filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.15));
         }
 
-        .leagues-bar::-webkit-scrollbar {
-            display: none;
+        .league-badge:hover {
+            transform: scale(1.06);
+            filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.5));
         }
 
-        .league-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 6px 16px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            text-decoration: none;
-            color: var(--text-sub);
-            white-space: nowrap;
+        /* ===== شعار برشلونة الخاص (يضيء) ===== */
+        .badge-barca {
+            position: relative;
+            width: 72px;
+            height: 72px;
         }
-
-        .league-item:hover, .league-item:focus {
-            background: rgba(237, 187, 0, 0.12);
-            border-color: var(--fcb-gold);
-            color: #fff;
-            transform: translateY(-2px);
-        }
-
-        .league-icon {
-            width: 30px;
-            height: 30px;
+        .badge-barca img {
+            width: 100%;
+            height: 100%;
             object-fit: contain;
-            filter: drop-shadow(0 0 6px rgba(237, 187, 0, 0.4));
-            transition: var(--transition-bounce);
+            filter: drop-shadow(0 0 8px rgba(0, 77, 152, 0.6));
+            transition: 0.3s;
+            animation: glowPulse 3.2s infinite alternate;
+        }
+        @keyframes glowPulse {
+            0% { filter: drop-shadow(0 0 6px rgba(0, 77, 152, 0.3)) brightness(1); }
+            70% { filter: drop-shadow(0 0 40px rgba(237, 187, 0, 0.9)) drop-shadow(0 0 70px #edbb00) brightness(1.3); }
+            100% { filter: drop-shadow(0 0 20px rgba(0, 77, 152, 0.7)) brightness(1.1); }
         }
 
-        .league-item:hover .league-icon,
-        .league-item:focus .league-icon {
-            transform: scale(1.25) rotate(5deg);
-            filter: drop-shadow(0 0 12px var(--fcb-gold));
+        /* ===== باقي الشعارات (تضيء بنفس الأسلوب) ===== */
+        .badge-other {
+            width: 70px;
+            height: 70px;
+        }
+        .badge-other img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.2));
+            transition: 0.3s;
+            animation: glowOther 3.6s infinite alternate;
+        }
+        @keyframes glowOther {
+            0% { filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.2)) brightness(0.95); }
+            60% { filter: drop-shadow(0 0 35px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 60px #ffd700) brightness(1.25); }
+            100% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5)) brightness(1.05); }
         }
 
-        .league-title {
-            font-size: 0.85rem;
-            font-weight: 700;
+        /* ===== صورة ميسي ===== */
+        .messi-tribute {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 15px auto 25px;
+            max-width: 700px;
+            border-radius: 40px;
+            overflow: hidden;
+            border: 2px solid rgba(237, 187, 0, 0.25);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 40px rgba(237, 187, 0, 0.15);
+            transition: 0.3s;
+            background: #0a0f1a;
+        }
+        .messi-tribute img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: brightness(1.02) contrast(1.05);
+            transition: 0.4s;
+        }
+        .messi-tribute:hover img {
+            filter: brightness(1.1) contrast(1.1) drop-shadow(0 0 20px rgba(255, 215, 0, 0.2));
         }
 
-        /* ==========================================================================
-           6. NAVIGATION BAR
-           ========================================================================== */
+        /* ===== NAVBAR ===== */
         .navbar {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: var(--bg-surface);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-bottom: 1px solid var(--border-light);
-            padding: 16px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            background: rgba(5, 8, 20, 0.9);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(237, 187, 0, 0.15);
+            padding: 14px 0;
+            margin-bottom: 5px;
         }
-
         .container {
-            max-width: 1320px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 16px;
         }
-
         .nav-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
-
         .brand-logo {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
             text-decoration: none;
-            border-radius: var(--radius-md);
-            padding: 4px;
+        }
+        .logo-box {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, #004d98, #a50044);
+            border: 1px solid #edbb00;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #ffea79;
+            box-shadow: 0 0 20px rgba(237, 187, 0, 0.25);
+        }
+        .brand-name {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #fff;
+        }
+        .brand-name span {
+            background: linear-gradient(90deg, #ffea79, #edbb00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .live-counter {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            padding: 5px 14px;
+            border-radius: 50px;
+            color: #10b981;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #10b981;
+            animation: pulse 1.8s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.7; }
+        }
+        .tg-btn {
+            background: linear-gradient(135deg, #004d98, #002855);
+            border: 1px solid rgba(237, 187, 0, 0.3);
+            color: #ffea79;
+            padding: 7px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 77, 152, 0.4);
+        }
+        .tg-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #a50044, #70002d);
+            box-shadow: 0 6px 20px rgba(165, 0, 68, 0.5);
+            color: #fff;
         }
 
-        .logo-box {
-            width: 52px;
-            height: 52px;
-            background: linear-gradient(135deg, var(--fcb-blue), var(--fcb-red));
-            border: 2px solid var(--fcb-gold);
-            border-radius: var(--radius-md);
+        /* ===== HERO ===== */
+        .hero {
+            text-align: center;
+            padding: 10px 0 5px;
+        }
+        .hero h1 {
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            font-weight: 900;
+        }
+        .hero h1 span {
+            background: linear-gradient(90deg, #ffea79, #edbb00, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            color: #a1b3ce;
+            max-width: 600px;
+            margin: 5px auto 0;
+            font-size: 0.95rem;
+        }
+
+        /* ===== GRID (تطبيقات) ===== */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 22px;
+            margin-top: 30px;
+        }
+        .app-card {
+            background: rgba(10, 18, 38, 0.85);
+            border: 1px solid rgba(237, 187, 0, 0.12);
+            border-radius: 24px;
+            padding: 22px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .app-card:hover {
+            transform: translateY(-6px);
+            border-color: #edbb00;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(237, 187, 0, 0.15);
+        }
+        .card-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 10px;
+        }
+        .app-icon-frame {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #002855, #70002d);
+            border: 1px solid rgba(237, 187, 0, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            color: var(--fcb-gold-light);
-            box-shadow: 0 0 22px rgba(237, 187, 0, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo-box::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent);
-            transform: rotate(45deg);
-            animation: logoShimmer 4s infinite;
-        }
-
-        @keyframes logoShimmer {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            20%, 100% { transform: translateX(100%) rotate(45deg); }
-        }
-
-        .brand-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .brand-name {
-            font-family: var(--font-title);
-            font-size: 1.6rem;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            color: #fff;
-            line-height: 1;
-        }
-
-        .brand-name span {
-            background: linear-gradient(90deg, var(--fcb-gold-light), var(--fcb-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .brand-sub {
-            font-size: 0.72rem;
-            color: var(--text-sub);
-            letter-spacing: 1px;
-            margin-top: 2px;
-            font-weight: 600;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .live-counter {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(16, 185, 129, 0.12);
-            border: 1px solid rgba(16, 185, 129, 0.35);
-            padding: 8px 18px;
-            border-radius: 50px;
-            color: #10b981;
-            font-weight: 800;
-            font-size: 0.9rem;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
-        }
-
-        .pulse-dot {
-            width: 10px;
-            height: 10px;
-            background: #10b981;
-            border-radius: 50%;
-            box-shadow: 0 0 12px #10b981;
-            animation: pulseGlow 1.8s infinite ease-in-out;
-        }
-
-        @keyframes pulseGlow {
-            0%, 100% { transform: scale(0.9); opacity: 0.6; }
-            50% { transform: scale(1.3); opacity: 1; }
-        }
-
-        .tg-btn {
-            background: linear-gradient(135deg, var(--fcb-blue), var(--fcb-blue-dark));
-            border: 1px solid rgba(237, 187, 0, 0.5);
-            color: var(--fcb-gold-light);
-            padding: 10px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: var(--transition-smooth);
-            box-shadow: 0 6px 20px rgba(0, 77, 152, 0.4);
-        }
-
-        .tg-btn:hover {
-            transform: translateY(-3px);
-            background: linear-gradient(135deg, var(--fcb-red), var(--fcb-red-dark));
-            border-color: var(--fcb-gold);
-            box-shadow: 0 8px 25px rgba(165, 0, 68, 0.6);
-            color: #fff;
-        }
-
-        /* ==========================================================================
-           7. HERO SECTION
-           ========================================================================== */
-        .hero {
-            padding: 45px 0 25px;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--bg-glass);
-            border: 1px solid var(--fcb-gold);
-            padding: 8px 24px;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: var(--fcb-gold);
-            margin-bottom: 22px;
-            box-shadow: 0 0 20px rgba(237, 187, 0, 0.2);
-        }
-
-        .hero h1 {
-            font-family: var(--font-title);
-            font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 18px;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-        }
-
-        .hero h1 span {
-            background: linear-gradient(90deg, var(--fcb-gold-light), var(--fcb-gold), #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            color: var(--text-sub);
-            max-width: 720px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            font-weight: 500;
-        }
-
-        /* ==========================================================================
-           8. CONTROLS, SEARCH & FILTER TAGS
-           ========================================================================== */
-        .controls-wrapper {
-            margin-top: 35px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            padding: 24px;
-            border-radius: var(--radius-lg);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-        }
-
-        .search-box {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 18px 55px 18px 24px;
-            background: rgba(2, 6, 16, 0.7);
-            border: 2px solid var(--border-light);
-            border-radius: var(--radius-md);
-            color: #fff;
-            font-size: 1.15rem;
-            outline: none;
-            transition: var(--transition-smooth);
-            font-weight: 600;
-        }
-
-        .search-box input:focus {
-            border-color: var(--fcb-gold);
-            background: rgba(2, 6, 16, 0.9);
-        }
-
-        .search-box i {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--fcb-gold);
-            font-size: 1.3rem;
-        }
-
-        .filter-tags {
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            padding: 6px 2px 12px;
-            scrollbar-width: none;
-        }
-
-        .filter-tags::-webkit-scrollbar {
-            display: none;
-        }
-
-        .tag-btn {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-light);
-            color: var(--text-sub);
-            padding: 12px 26px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 800;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: var(--transition-smooth);
-        }
-
-        .tag-btn:hover {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--fcb-gold);
-        }
-
-        .tag-btn.active {
-            background: linear-gradient(135deg, var(--fcb-blue), var(--fcb-red));
-            color: var(--fcb-gold-light);
-            border: 1px solid var(--fcb-gold);
-            font-weight: 900;
-            box-shadow: 0 6px 20px rgba(165, 0, 68, 0.5);
-        }
-
-        /* ==========================================================================
-           9. MAIN APPS GRID & CARD CARDS DESIGN
-           ========================================================================== */
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 28px;
-            margin-top: 35px;
-        }
-
-        .app-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            transition: var(--transition-smooth);
-            backdrop-filter: blur(15px);
-            overflow: hidden;
-        }
-
-        .app-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--fcb-blue), var(--fcb-gold), var(--fcb-red));
-            opacity: 0;
-            transition: var(--transition-smooth);
-        }
-
-        .app-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--fcb-gold);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(237, 187, 0, 0.25);
-            background: var(--bg-card-hover);
-        }
-
-        .app-card:hover::before {
-            opacity: 1;
-        }
-
-        .app-card.featured {
-            background: linear-gradient(180deg, rgba(237, 187, 0, 0.1), var(--bg-card));
-            border-color: rgba(237, 187, 0, 0.45);
-        }
-
-        .card-head {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            margin-bottom: 16px;
-        }
-
-        .app-icon-frame {
-            width: 68px;
-            height: 68px;
-            border-radius: var(--radius-md);
-            background: linear-gradient(135deg, var(--fcb-blue-dark), var(--fcb-red-dark));
-            border: 2px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            color: var(--fcb-gold);
-            overflow: hidden;
+            color: #edbb00;
             flex-shrink: 0;
-            box-shadow: inset 0 0 12px rgba(0,0,0,0.6);
-            position: relative;
         }
-
         .app-icon-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 16px;
         }
-
         .app-info-head h3 {
-            font-family: var(--font-title);
-            font-size: 1.25rem;
+            font-size: 1.05rem;
             font-weight: 800;
-            color: #fff;
-            line-height: 1.3;
         }
-
         .app-desc {
-            color: var(--text-sub);
-            font-size: 0.95rem;
-            line-height: 1.65;
-            margin-bottom: 18px;
-            flex: 1;
+            color: #a1b3ce;
+            font-size: 0.82rem;
+            line-height: 1.6;
+            margin: 8px 0 12px;
         }
-
         .app-meta-box {
-            background: rgba(2, 6, 16, 0.6);
-            border: 1px solid var(--border-light);
-            padding: 10px 14px;
-            border-radius: var(--radius-sm);
-            font-size: 0.85rem;
-            color: var(--text-sub);
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(237, 187, 0, 0.08);
+            padding: 6px 10px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            color: #a1b3ce;
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            align-items: center;
-            margin-bottom: 18px;
+            gap: 6px;
+            margin-bottom: 14px;
         }
-
         .code-badge {
-            background: linear-gradient(135deg, var(--fcb-gold), #d97706);
+            background: linear-gradient(135deg, #edbb00, #d97706);
             color: #000;
-            font-weight: 900;
-            padding: 6px 14px;
-            border-radius: var(--radius-xs);
+            font-weight: 800;
+            padding: 2px 10px;
+            border-radius: 6px;
             cursor: pointer;
             border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.85rem;
-            transition: var(--transition-bounce);
+            font-size: 0.7rem;
+            transition: 0.2s;
         }
-
         .code-badge:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 12px rgba(237, 187, 0, 0.6);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(237, 187, 0, 0.5);
         }
-
         .action-btn {
             width: 100%;
-            padding: 15px;
-            border-radius: var(--radius-md);
-            border: 1px solid rgba(237, 187, 0, 0.4);
-            background: linear-gradient(135deg, var(--fcb-blue), var(--fcb-blue-dark));
+            padding: 11px;
+            border-radius: 14px;
+            border: 1px solid rgba(237, 187, 0, 0.2);
+            background: linear-gradient(135deg, #004d98, #002855);
             color: #fff;
-            font-weight: 900;
-            font-size: 1.05rem;
+            font-weight: 800;
+            font-size: 0.85rem;
             cursor: pointer;
+            transition: 0.25s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            transition: var(--transition-smooth);
-            text-decoration: none;
+            gap: 8px;
         }
-
         .action-btn:hover {
-            background: linear-gradient(135deg, var(--fcb-red), var(--fcb-red-dark));
-            box-shadow: 0 6px 25px rgba(165, 0, 68, 0.5);
-            color: var(--fcb-gold-light);
+            background: linear-gradient(135deg, #a50044, #70002d);
+            box-shadow: 0 4px 20px rgba(165, 0, 68, 0.4);
+            color: #ffea79;
         }
-
-        .action-btn.btn-mediafire {
+        .btn-mediafire {
             background: linear-gradient(135deg, #ef5b3c, #c83c20);
-            border-color: rgba(255,255,255,0.3);
-            color: #fff;
+            border-color: rgba(255,255,255,0.15);
         }
-
-        .action-btn.btn-featured {
-            background: linear-gradient(135deg, var(--fcb-gold), #d97706);
+        .btn-featured {
+            background: linear-gradient(135deg, #edbb00, #d97706);
             border-color: #fff;
             color: #000;
         }
 
-        .player-btn {
-            margin-top: 12px;
-            display: block;
-            text-align: center;
-            padding: 12px;
-            border-radius: var(--radius-sm);
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-light);
-            color: var(--text-sub);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 800;
-            transition: var(--transition-smooth);
-        }
-
-        .player-btn:hover {
-            color: var(--fcb-gold-light);
-            border-color: var(--fcb-gold);
-            background: rgba(255, 255, 255, 0.12);
-        }
-
-        /* ==========================================================================
-           10. MODAL DIALOG & TOAST NOTIFICATIONS
-           ========================================================================== */
+        /* ===== MODAL & TOAST ===== */
         .modal-bg {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.92);
-            backdrop-filter: blur(15px);
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(12px);
             z-index: 200;
             display: none;
             align-items: center;
             justify-content: center;
             padding: 20px;
         }
-
-        .modal-bg.active {
-            display: flex;
-        }
-
+        .modal-bg.active { display: flex; }
         .modal-box {
-            background: var(--bg-card);
-            border: 2px solid var(--fcb-gold);
-            border-radius: var(--radius-lg);
-            padding: 35px;
-            max-width: 460px;
+            background: rgba(10, 18, 38, 0.95);
+            border: 1px solid #edbb00;
+            border-radius: 24px;
+            padding: 30px;
+            max-width: 400px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 40px rgba(237, 187, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
         }
-
-        .modal-icon {
-            font-size: 50px;
-            margin-bottom: 15px;
-            color: var(--fcb-gold);
-        }
-
         .modal-btns {
             display: flex;
             flex-direction: column;
-            gap: 14px;
-            margin-top: 25px;
+            gap: 10px;
+            margin-top: 20px;
         }
-
         .modal-btns a, .modal-btns button {
-            padding: 16px;
-            border-radius: var(--radius-md);
-            font-weight: 900;
-            font-size: 1.05rem;
+            padding: 12px;
+            border-radius: 16px;
+            font-weight: 800;
             border: none;
             cursor: pointer;
             text-decoration: none;
-            display: block;
         }
-
-        .sub-btn {
-            background: var(--fcb-blue);
-            color: #fff;
-            border: 1px solid var(--border-light);
-        }
-
-        .direct-btn {
-            background: rgba(255, 255, 255, 0.12);
-            color: #fff;
-        }
-
+        .sub-btn { background: #004d98; color: #fff; border: 1px solid rgba(237,187,0,0.3); }
+        .direct-btn { background: rgba(255,255,255,0.08); color: #fff; }
         .toast-notify {
             position: fixed;
-            bottom: 30px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: linear-gradient(135deg, var(--fcb-gold), #d97706);
+            background: linear-gradient(135deg, #edbb00, #d97706);
             color: #000;
-            padding: 14px 35px;
+            padding: 10px 24px;
             border-radius: 50px;
-            font-weight: 900;
-            font-size: 1.05rem;
-            box-shadow: 0 10px 30px rgba(237, 187, 0, 0.5);
-            transition: var(--transition-smooth);
+            font-weight: 800;
+            font-size: 0.85rem;
+            box-shadow: 0 10px 25px rgba(237,187,0,0.4);
+            transition: 0.3s;
             z-index: 300;
             opacity: 0;
         }
-
         .toast-notify.show {
             transform: translateX(-50%) translateY(0);
             opacity: 1;
         }
-
-        /* ==========================================================================
-           11. FOOTER
-           ========================================================================== */
         footer {
-            margin-top: 80px;
-            border-top: 1px solid var(--border-light);
-            padding-top: 30px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(237,187,0,0.1);
+            padding-top: 20px;
             text-align: center;
-            color: var(--text-sub);
-            font-size: 0.95rem;
+            color: #a1b3ce;
+            font-size: 0.8rem;
         }
+        footer a { color: #edbb00; font-weight: 700; text-decoration: none; }
 
-        footer a {
-            color: var(--fcb-gold);
-            text-decoration: none;
-            font-weight: 800;
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2rem; }
-            .apps-grid { grid-template-columns: 1fr; }
-            .leagues-bar { justify-content: flex-start; }
+        @media (max-width: 700px) {
+            .trophy-zone { gap: 18px; border-radius: 30px; padding: 14px 10px; }
+            .badge-barca, .badge-other { width: 56px; height: 56px; }
+            .messi-tribute { max-width: 100%; border-radius: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. TOP LEAGUES & CHAMPIONS TICKER BAR -->
-    <div class="leagues-bar-container">
-        <div class="leagues-bar">
-            <a href="#" class="league-item focusable" tabindex="0">
-                <img class="league-icon" src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="FC Barcelona">
-                <span class="league-title">برشلونة</span>
-            </a>
-            <a href="#" class="league-item focusable" tabindex="0">
-                <img class="league-icon" src="https://upload.wikimedia.org/wikipedia/en/f/f5/UEFA_Champions_League.svg" alt="UEFA Champions League">
-                <span class="league-title">دوري الأبطال</span>
-            </a>
-            <a href="#" class="league-item focusable" tabindex="0">
-                <img class="league-icon" src="https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg" alt="Premier League">
-                <span class="league-title">الدوري الإنجليزي</span>
-            </a>
-            <a href="#" class="league-item focusable" tabindex="0">
-                <img class="league-icon" src="https://upload.wikimedia.org/wikipedia/commons/1/13/LaLiga_EA_Sports_2023_Logo.svg" alt="La Liga">
-                <span class="league-title">الدوري الإسباني</span>
-            </a>
-            <a href="#" class="league-item focusable" tabindex="0">
-                <img class="league-icon" src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Serie_A_logo_2022.svg" alt="Serie A">
-                <span class="league-title">الدوري الإيطالي</span>
-            </a>
-            <a href="#" class="league-item focusable" tabindex="0">
-                <img class="league-icon" src="https://upload.wikimedia.org/wikipedia/en/d/df/Bundesliga_logo_%282017%29.svg" alt="Bundesliga">
-                <span class="league-title">الدوري الألماني</span>
-            </a>
-            <a href="#" class="league-item focusable" tabindex="0">
-                <img class="league-icon" src="https://upload.wikimedia.org/wikipedia/en/a/ba/Ligue-1-logo.svg" alt="Ligue 1">
-                <span class="league-title">الدوري الفرنسي</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- 2. MESSI BACKGROUND ART & FCB ANIMATED SHIELD -->
-    <div class="background-art-wrapper">
-        <div class="messi-art"></div>
-        <div class="fcb-wrapper">
-            <div class="fcb-bg-logo"></div>
-        </div>
-    </div>
-
-    <!-- 3. NAVIGATION BAR -->
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="container nav-content">
-            <a href="#" class="brand-logo focusable" tabindex="0">
+            <a href="#" class="brand-logo">
                 <div class="logo-box"><i class="fas fa-shield-halved"></i></div>
-                <div class="brand-text">
-                    <div class="brand-name">MQJ <span>STORE</span></div>
-                    <div class="brand-sub">TV & SMART DEVICES</div>
-                </div>
+                <div class="brand-name">MQJ <span>STORE</span></div>
             </a>
             <div class="nav-actions">
                 <div class="live-counter">
                     <span class="pulse-dot"></span>
-                    <span id="liveCount">1</span> نشط الآن
+                    <span id="liveCount">1</span> نشط
                 </div>
-                <a href="https://t.me/X_9_KK" target="_blank" class="tg-btn focusable" tabindex="0">
-                    <i class="fab fa-telegram-plane"></i> القناة الرسمية
+                <a href="https://t.me/X_9_KK" target="_blank" class="tg-btn">
+                    <i class="fab fa-telegram-plane"></i> القناة
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- 4. HERO SECTION -->
-    <section class="hero container">
-        <div class="hero-badge"><i class="fas fa-crown"></i> الإصدار المطور 2026 (متوافق مع الشاشات والريموت)</div>
-        <h1>مركز تحميل التطبيقات <span>الحديث والسرِيع</span></h1>
-        <p>مكتبة شاملة لأحدث تطبيقات المشاهدة والقنوات المباشرة، الـ VPN والأدوات مجاناً وبروابط مباشرة لجميع أجهزة Android TV و Smart TV.</p>
-
-        <!-- CONTROLS & FILTERS -->
-        <div class="controls-wrapper">
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input id="searchInput" class="focusable" tabindex="0" type="search" placeholder="ابحث عن تطبيق، كود، أو تصنيف..." autocomplete="off">
+    <!-- ===== شعارات الدوريات الخمس + برشلونة + دوري أبطال أوروبا ===== -->
+    <div class="container">
+        <div class="trophy-zone">
+            <!-- برشلونة (يضيء بشكل مميز) -->
+            <div class="league-badge">
+                <div class="badge-barca">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="برشلونة">
+                </div>
+                <span style="font-size:0.6rem; color:#edbb00; font-weight:800;">برشلونة</span>
             </div>
-            <div class="filter-tags" id="filters">
-                <button class="tag-btn focusable active" tabindex="0" data-filter="all">الكل</button>
-                <button class="tag-btn focusable" tabindex="0" data-filter="tv">📺 القنوات و TV</button>
-                <button class="tag-btn focusable" tabindex="0" data-filter="sport">⚽ الرياضة</button>
-                <button class="tag-btn focusable" tabindex="0" data-filter="cinema">🎬 السينما</button>
-                <button class="tag-btn focusable" tabindex="0" data-filter="mediafire">📦 MediaFire</button>
-                <button class="tag-btn focusable" tabindex="0" data-filter="vpn">🛡️ VPN</button>
+
+            <!-- دوري أبطال أوروبا -->
+            <div class="league-badge">
+                <div class="badge-other">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/UEFA_Champions_League_logo_2021.svg/480px-UEFA_Champions_League_logo_2021.svg.png" alt="دوري الأبطال">
+                </div>
+                <span style="font-size:0.6rem; color:#ffd700; font-weight:800;">UCL</span>
+            </div>
+
+            <!-- الدوري الإسباني -->
+            <div class="league-badge">
+                <div class="badge-other">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/LaLiga_2023_%28Spain%29.svg/640px-LaLiga_2023_%28Spain%29.svg.png" alt="La Liga">
+                </div>
+                <span style="font-size:0.6rem; color:#ffd700; font-weight:800;">La Liga</span>
+            </div>
+
+            <!-- الدوري الإنجليزي -->
+            <div class="league-badge">
+                <div class="badge-other">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Premier_League_Logo.svg/640px-Premier_League_Logo.svg.png" alt="Premier League">
+                </div>
+                <span style="font-size:0.6rem; color:#ffd700; font-weight:800;">PL</span>
+            </div>
+
+            <!-- الدوري الإيطالي -->
+            <div class="league-badge">
+                <div class="badge-other">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Serie_A_logo_2021.svg/640px-Serie_A_logo_2021.svg.png" alt="Serie A">
+                </div>
+                <span style="font-size:0.6rem; color:#ffd700; font-weight:800;">Serie A</span>
+            </div>
+
+            <!-- الدوري الألماني -->
+            <div class="league-badge">
+                <div class="badge-other">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Bundesliga_logo_%282017%29.svg/640px-Bundesliga_logo_%282017%29.svg.png" alt="Bundesliga">
+                </div>
+                <span style="font-size:0.6rem; color:#ffd700; font-weight:800;">Bundes</span>
+            </div>
+
+            <!-- الدوري الفرنسي -->
+            <div class="league-badge">
+                <div class="badge-other">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Ligue_1_Uber_Eats_logo.svg/640px-Ligue_1_Uber_Eats_logo.svg.png" alt="Ligue 1">
+                </div>
+                <span style="font-size:0.6rem; color:#ffd700; font-weight:800;">Ligue 1</span>
             </div>
         </div>
-    </section>
 
-    <!-- 5. MAIN APPS GRID -->
-    <main class="container">
+        <!-- ===== صورة ميسي يرفع القميص ===== -->
+        <div class="messi-tribute">
+            <img src="https://cdn.fcbarcelonanoticias.com/wp-content/uploads/2017/04/messi-bernabeu-celebration-e1492977540910.jpg" alt="ميسي يرفع قميصه في البرنابيو">
+        </div>
+
+        <!-- HERO -->
+        <div class="hero">
+            <h1>مركز تحميل التطبيقات <span>الحديث والسرِيع</span></h1>
+            <p>مكتبة شاملة لأحدث تطبيقات المشاهدة، القنوات المباشرة، الـ VPN والأدوات مجاناً وبروابط مباشرة.</p>
+        </div>
+
+        <!-- GRID (نفس التطبيقات السابقة) -->
         <div class="apps-grid" id="appsGrid"></div>
-    </main>
+    </div>
 
-    <!-- 6. FOOTER -->
     <footer>
         <div class="container">
-            <p>جميع الحقوق محفوظة © 2026 | تطوير منصة <a href="https://t.me/X_9_KK" target="_blank" class="focusable" tabindex="0">MQJ Store</a></p>
+            <p>جميع الحقوق محفوظة © 2026 | تطوير <a href="https://t.me/X_9_KK" target="_blank">MQJ Store</a></p>
         </div>
     </footer>
 
-    <!-- 7. DOWNLOAD MODAL -->
+    <!-- MODAL & TOAST -->
     <div class="modal-bg" id="downloadModal">
         <div class="modal-box">
-            <div class="modal-icon"><i class="fas fa-paper-plane"></i></div>
-            <h3 style="margin-bottom:8px; color:#fff;">الانضمام للقناة الرسمية</h3>
-            <p style="color:var(--text-sub); font-size:0.95rem;">اشترك في قناتنا على تلغرام للحصول على تحديثات الأكواد والتطبيقات فور نزلها.</p>
+            <div class="modal-icon" style="font-size:40px; color:#edbb00; margin-bottom:8px;"><i class="fas fa-paper-plane"></i></div>
+            <h3 style="color:#fff; margin-bottom:6px;">الانضمام للقناة الرسمية</h3>
+            <p style="color:#a1b3ce; font-size:0.85rem;">اشترك في قناتنا على تلغرام للحصول على تحديثات الأكواد والتطبيقات فور نزلها.</p>
             <div class="modal-btns">
-                <a href="https://t.me/X_9_KK" target="_blank" class="sub-btn focusable" tabindex="0" id="modalSubscribeBtn"><i class="fab fa-telegram-plane"></i> اشتراك وانتقال للتحميل</a>
-                <button class="direct-btn focusable" tabindex="0" id="modalDirectBtn">التحميل المباشر فوراً</button>
+                <a href="https://t.me/X_9_KK" target="_blank" class="sub-btn" id="modalSubscribeBtn"><i class="fab fa-telegram-plane"></i> اشتراك وانتقال للتحميل</a>
+                <button class="direct-btn" id="modalDirectBtn">التحميل المباشر فوراً</button>
             </div>
         </div>
     </div>
-
-    <!-- 8. TOAST NOTIFICATION -->
     <div class="toast-notify" id="toast">تم نسخ الكود بنجاح!</div>
 
-    <!-- FIREBASE SERVICES -->
+    <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
     <script>
         (function() {
-            'use strict';
-
-            // ===== FIREBASE CONFIGURATION =====
+            // Config Firebase
             const firebaseConfig = {
                 apiKey: "AIzaSyBx7GqI2AFtLF3UEWiHOvZDXQyAZPMApm4",
                 authDomain: "my-store-6ce96.firebaseapp.com",
@@ -1012,527 +597,125 @@
                 messagingSenderId: "1059623236982",
                 appId: "1:1059623236982:web:f457e405b040083044b657"
             };
-
             try {
                 firebase.initializeApp(firebaseConfig);
                 const db = firebase.database();
                 const connRef = db.ref('online_users').push();
                 const connectedRef = db.ref('.info/connected');
                 const liveEl = document.getElementById('liveCount');
-
                 connectedRef.on('value', snap => {
                     if (snap.val() === true) {
                         connRef.onDisconnect().remove();
                         connRef.set(true);
                     }
                 });
-
                 db.ref('online_users').on('value', snap => {
                     const c = snap.numChildren();
                     if (liveEl) liveEl.textContent = c > 0 ? c : 1;
                 });
             } catch (_) {}
 
-            // ===== LOCAL APPS DATABASE ARRAY =====
-            let apps = [
-                {
-                    title: 'تطبيق Goal Live VIP',
-                    desc: 'تطبيق سلس يعمل بمختلف الجودات حسب الإنترنت وأنت تكون قادر على تغيير الجودات.',
-                    meta: '📦 APK (MediaFire)',
-                    link: 'https://www.mediafire.com/file/tdbijxtqink9bij/Goal+Live+VIP.apk/file',
-                    image: '',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-futbol',
-                    tags: ['tv', 'sport', 'mediafire'],
-                    featured: true
-                },
-                {
-                    title: 'المتجر الرسمي (MQJ Store)',
-                    desc: 'تطبيق أندرويد رسمي للموقع، أسرع وأسهل لتصفح وتحميل التطبيقات.',
-                    meta: '📦 APK (MediaFire)',
-                    link: 'https://www.mediafire.com/file/sz5sqieahqfxkle/MQJStore_.apk/file',
-                    image: 'https://i.imgur.com/8QZQZQZ.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-store',
-                    tags: ['all', 'mediafire'],
-                    featured: true
-                },
-                {
-                    title: 'تطبيق نجم الشاشات',
-                    desc: 'يعمل على أضعف سرعات الإنترنت بجودات SD و HD للبث والمشاهدة على الشاشات.',
-                    meta: '📦 APK (MediaFire)',
-                    link: 'https://www.mediafire.com/file/3l7ct36pdampp28/نجم+الشاشات.apk/file',
-                    image: '',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-star',
-                    tags: ['tv', 'mediafire'],
-                    featured: true
-                },
-                {
-                    title: 'تطبيق Cast X Plus',
-                    desc: 'تطبيق Cast X Plus الحديث للبث والمشاهدة الشاملة على الشاشات والهواتف الذكية.',
-                    meta: '🔑 2222  📦 APK',
-                    link: 'Cast%20X%20Plus.apk',
-                    image: '',
-                    btnClass: '',
-                    faIcon: 'fa-solid fa-tv',
-                    tags: ['tv'],
-                    featured: true
-                },
-                {
-                    title: 'تطبيق الباشا تي في',
-                    desc: 'أفضل تطبيق بالشرق الأوسط، يعمل على جميع الشبكات وبكل الجودات الضعيفة والعالية.',
-                    meta: '📦 APK',
-                    link: 'ALBASHA_TV_6.0.1.apk',
-                    image: 'https://i.imgur.com/ALBASHATV.png',
-                    btnClass: 'btn-featured',
-                    faIcon: 'fa-solid fa-crown',
-                    tags: ['tv', 'sport'],
-                    featured: true
-                },
-                {
-                    title: 'تطبيق الريان (Rayan TV)',
-                    desc: 'تطبيق الريان المميز للبث المباشر والقنوات الرياضية والترفيهية.',
-                    meta: '🔑 R1..R7  📦 APK',
-                    link: 'https://www.mediafire.com/file/qm95stpeny89s7w/Rayan_TV.apk/file',
-                    image: 'https://i.imgur.com/TVRAYAN.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-satellite-dish',
-                    tags: ['tv', 'mediafire']
-                },
-                {
-                    title: 'تطبيق بغداد (Baghdad TV)',
-                    desc: 'أكواد B1 إلى B10. ينصح بتغيير صيغة البث إلى m3u8 أو ts من الإعدادات.',
-                    meta: '🔑 B1..B10  📦 APK',
-                    link: 'https://www.mediafire.com/file/1yeoxsppzsxgk0u/1_Baghdad.apk/file',
-                    image: 'https://i.imgur.com/BAGHDADTV.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-mosque',
-                    tags: ['tv', 'mediafire']
-                },
-                {
-                    title: 'تطبيق المنافس',
-                    desc: 'تطبيق المنافس الرياضي للأنظمة بآخر تحديث.',
-                    meta: '🔑 2020  📦 APK',
-                    link: 'AL_Monafos.9.3.0_2.apk',
-                    image: 'https://i.imgur.com/MONAFOS.png',
-                    btnClass: '',
-                    faIcon: 'fa-solid fa-trophy',
-                    tags: ['tv', 'sport']
-                },
-                {
-                    title: 'King Cinema',
-                    desc: 'أفلام، مسلسلات، وبث مباشر للمباريات مع King Cinema.',
-                    meta: '📦 APK (MediaFire)',
-                    link: 'https://www.mediafire.com/file/nrgxvl75bzk6mw0/King_Cinema_1.1.65.apk/file',
-                    image: 'https://i.imgur.com/KINGCINEMA.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-film',
-                    tags: ['cinema', 'sport', 'mediafire']
-                },
-                {
-                    title: 'تطبيق سينمانا',
-                    desc: 'مخصص للمشتركين داخل شبكة ايرثلنك والوطني FTTH.',
-                    meta: '📦 APK (MediaFire)',
-                    link: 'https://www.mediafire.com/file/rdbkddtp0trhhmq/سينمانا.apk/file',
-                    image: 'https://i.imgur.com/CINEMANA.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-video',
-                    tags: ['cinema', 'mediafire']
-                },
-                {
-                    title: 'تطبيق سي (C)',
-                    desc: 'مشاهدة سينمانا لكافة مزودي خدمات الإنترنت بالعراق.',
-                    meta: '📦 APK',
-                    link: 'سي.apk',
-                    image: 'https://i.imgur.com/CAPP.png',
-                    btnClass: '',
-                    faIcon: 'fa-solid fa-play-circle',
-                    tags: ['cinema']
-                },
-                {
-                    title: 'تطبيق FAST',
-                    desc: 'أداة قياس واختبار سرعة الإنترنت المخصصة للشاشات.',
-                    meta: '📦 APK',
-                    link: 'FAST.apk',
-                    image: 'https://i.imgur.com/FASTAPP.png',
-                    btnClass: '',
-                    faIcon: 'fa-solid fa-bolt',
-                    tags: []
-                },
-                {
-                    title: 'تطبيق الأنمي',
-                    desc: 'منصة لعشاق الأنمي لنقل الحسابات والمتابعة عبر الشاشة.',
-                    meta: '📦 APK (MediaFire)',
-                    link: 'https://www.mediafire.com/file/x258r3eb9m192xb/app-release-3.13.13.apk/file',
-                    image: 'https://i.imgur.com/ANIMEAPP.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-dragon',
-                    tags: ['cinema', 'mediafire']
-                },
-                {
-                    title: 'تطبيق Nado TV',
-                    desc: 'تطبيق قنوات خفيف يعمل على كافة سرعات الإنترنت.',
-                    meta: '🔑 22455  📦 APK',
-                    link: 'https://www.mediafire.com/file/uorfc7x6qlwrv0j/Nado+TV.apk/file',
-                    image: 'https://i.imgur.com/NADOTV.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-desktop',
-                    tags: ['tv', 'mediafire']
-                },
-                {
-                    title: 'تطبيق Plasma 4K',
-                    desc: 'تطبيق مشاهدة بدقة عالية مخصص للشاشات الذكية.',
-                    meta: '📦 APK',
-                    link: 'Plasma%204K.apk',
-                    image: '',
-                    btnClass: '',
-                    faIcon: 'fa-solid fa-display',
-                    tags: ['tv']
-                },
-                {
-                    title: 'تطبيق ريزن',
-                    desc: 'تطبيق ريزن المطور للترفيه والبث.',
-                    meta: '📦 APK (MediaFire)',
-                    link: 'https://www.mediafire.com/file/0ngejur5ktnmlbn/ریزن+(1).apk/file',
-                    image: 'https://i.imgur.com/REZON.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-puzzle-piece',
-                    tags: ['mediafire']
-                },
-                {
-                    title: 'تطبيق كايدن TV',
-                    desc: 'تطبيق كايدن للبث والمشاهدة التلفزيونية.',
-                    meta: '🔑 19  📦 APK',
-                    link: 'https://www.mediafire.com/file/q6tupipn0c3niop/كايدن+TV.apk/file',
-                    image: 'https://i.imgur.com/KAIDEN.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-tv',
-                    tags: ['tv', 'mediafire']
-                },
-                {
-                    title: 'تطبيق Oscar TV',
-                    desc: 'تطبيق أوسكار للبث المباشر للشاشات والهواتف.',
-                    meta: '📦 TV | APK',
-                    link: 'Oscar%20TV%20%281%29.apk',
-                    image: 'https://i.imgur.com/OSCAR.png',
-                    btnClass: '',
-                    faIcon: 'fa-solid fa-award',
-                    tags: ['tv'],
-                    hasPlayer: true,
-                    playerLink: 'https://www.mediafire.com/file/iwoforev9tlspxq/TDM+(1).apk/file',
-                    playerLabel: 'تحميل المشغل الخاص بدون إعلانات'
-                },
-                {
-                    title: 'تطبيق KT PLUS',
-                    desc: 'تطبيق المشاهدة KT PLUS لشاشات وأجهزة الأندرويد.',
-                    meta: '🔑 6666  📦 APK',
-                    link: 'KT%20PLUS.apk',
-                    image: 'https://i.imgur.com/KTPLUS.png',
-                    btnClass: '',
-                    faIcon: 'fa-solid fa-mobile-screen-button',
-                    tags: ['tv']
-                },
-                {
-                    title: 'تطبيق vpnify',
-                    desc: 'تطبيق VPN ممتاز لفك الحظر وتسريع الاتصال بالبث.',
-                    meta: '📦 VPN (MediaFire)',
-                    link: 'https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file',
-                    image: 'https://i.imgur.com/VPNIFY.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-shield-halved',
-                    tags: ['vpn']
-                },
-                {
-                    title: 'تطبيق Original TV',
-                    desc: 'تطبيق أورجينال المباشر والقنوات الرياضية.',
-                    meta: '📦 APK (MediaFire)',
-                    link: 'https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file',
-                    image: 'https://i.imgur.com/ORIGINALTV.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-tv',
-                    tags: ['tv', 'mediafire'],
-                    hasPlayer: true,
-                    playerLink: 'Original%20Player%20%281%29.apk',
-                    playerLabel: 'تحميل مشغل أورجينال الرسمي'
-                },
-                {
-                    title: 'تطبيق GENRAL TV',
-                    desc: 'تطبيق القنوات العامة، يعمل مباشرة دون أكواد أو مشغل خارجي.',
-                    meta: '📦 APK (MediaFire)',
-                    link: 'https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file',
-                    image: 'https://i.imgur.com/GENRALTV.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-satellite',
-                    tags: ['tv']
-                },
-                {
-                    title: 'تطبيق Nova TV',
-                    desc: 'تطبيق نوفا للبث التلفزيوني والشاشات.',
-                    meta: '📦 TV | APK',
-                    link: 'Nova%20tv%20%281%29.apk',
-                    image: 'https://i.imgur.com/NOVATV.png',
-                    btnClass: '',
-                    faIcon: 'fa-solid fa-tv',
-                    tags: ['tv']
-                },
-                {
-                    title: 'تطبيق كوديا سبورت',
-                    desc: 'مخصص للإنترنت الضعيف والمتوسط بجودة HD.',
-                    meta: '📦 APK (MediaFire)',
-                    link: 'https://www.mediafire.com/file/jn1myb8xii72vk0/كوديا+سبورت.apk/file',
-                    image: 'https://i.imgur.com/KODIA.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-futbol',
-                    tags: ['sport', 'mediafire']
-                },
-                {
-                    title: 'تطبيق Prom',
-                    desc: 'تطبيق المشاهدة أحدث إصدار.',
-                    meta: '📦 APK (MediaFire)',
-                    link: 'https://www.mediafire.com/file/aq5yf391mzct2lx/Prom.apk/file',
-                    image: 'https://i.imgur.com/PROM.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-photo-film',
-                    tags: ['mediafire']
-                },
-                {
-                    title: 'LIVE STREAM PREMIUM',
-                    desc: 'تطبيق البث المباشر بريميوم وبدون إعلانات.',
-                    meta: '🔑 2027  📦 Premium',
-                    link: 'https://www.mediafire.com/file/ihy63nqkju3561o/LIVE_STREAM_PREMIUM.apk/file',
-                    image: 'https://i.imgur.com/LIVESTREAM.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-bolt',
-                    tags: ['tv', 'sport', 'mediafire']
-                },
-                {
-                    title: 'Yacine TV Gold',
-                    desc: 'النسخة الذهبية لتطبيق ياسين تي في للرياضة والمباريات.',
-                    meta: '📦 TV | APK',
-                    link: 'Yacine%20TV%20Gold.apk',
-                    image: 'https://i.imgur.com/YACINETV.png',
-                    btnClass: '',
-                    faIcon: 'fa-solid fa-futbol',
-                    tags: ['tv', 'sport']
-                },
-                {
-                    title: 'Alwan Sports',
-                    desc: 'تطبيق ألوان الرياضي للبث المباشر وتغطية البطولات.',
-                    meta: '📦 APK (MediaFire)',
-                    link: 'https://www.mediafire.com/file/vyejtivz1mu8g8f/Alwan+Sports.apk/file',
-                    image: 'https://i.imgur.com/ALWANSPORTS.png',
-                    btnClass: 'btn-mediafire',
-                    faIcon: 'fa-solid fa-futbol',
-                    tags: ['sport', 'mediafire']
-                }
+            // بيانات التطبيقات (نفس القائمة السابقة)
+            const apps = [
+                { title: 'Goal Live VIP', desc: 'تطبيق سلس يعمل بمختلف الجودات حسب الإنترنت.', meta: '📦 APK (MediaFire)', link: 'https://www.mediafire.com/file/tdbijxtqink9bij/Goal+Live+VIP.apk/file', image: '', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-futbol', tags: ['tv','sport','mediafire'], featured: true },
+                { title: 'المتجر الرسمي (MQJ Store)', desc: 'تطبيق أندرويد رسمي للموقع، أسرع وأسهل.', meta: '📦 APK (MediaFire)', link: 'https://www.mediafire.com/file/sz5sqieahqfxkle/MQJStore_.apk/file', image: 'https://i.imgur.com/8QZQZQZ.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-store', tags: ['all','mediafire'], featured: true },
+                { title: 'نجم الشاشات', desc: 'يعمل على أضعف سرعات الإنترنت بجودات SD و HD.', meta: '📦 APK (MediaFire)', link: 'https://www.mediafire.com/file/3l7ct36pdampp28/نجم+الشاشات.apk/file', image: '', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-star', tags: ['tv','mediafire'], featured: true },
+                { title: 'Cast X Plus', desc: 'تطبيق Cast X Plus الحديث للبث والمشاهدة الشاملة.', meta: '🔑 2222  📦 APK', link: 'Cast%20X%20Plus.apk', image: '', btnClass: '', faIcon: 'fa-solid fa-tv', tags: ['tv'], featured: true },
+                { title: 'الباشا تي في', desc: 'أفضل تطبيق بالشرق الأوسط، يعمل على جميع الشبكات.', meta: '📦 APK', link: 'ALBASHA_TV_6.0.1.apk', image: 'https://i.imgur.com/ALBASHATV.png', btnClass: 'btn-featured', faIcon: 'fa-solid fa-crown', tags: ['tv','sport'], featured: true },
+                { title: 'الريان (Rayan TV)', desc: 'تطبيق الريان المميز للبث المباشر والقنوات الرياضية.', meta: '🔑 R1..R7  📦 APK', link: 'https://www.mediafire.com/file/qm95stpeny89s7w/Rayan_TV.apk/file', image: 'https://i.imgur.com/TVRAYAN.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-satellite-dish', tags: ['tv','mediafire'] },
+                { title: 'بغداد (Baghdad TV)', desc: 'أكواد B1 إلى B10. ينصح بتغيير صيغة البث.', meta: '🔑 B1..B10  📦 APK', link: 'https://www.mediafire.com/file/1yeoxsppzsxgk0u/1_Baghdad.apk/file', image: 'https://i.imgur.com/BAGHDADTV.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-mosque', tags: ['tv','mediafire'] },
+                { title: 'المنافس', desc: 'تطبيق المنافس الرياضي للأنظمة بآخر تحديث.', meta: '🔑 2020  📦 APK', link: 'AL_Monafos.9.3.0_2.apk', image: 'https://i.imgur.com/MONAFOS.png', btnClass: '', faIcon: 'fa-solid fa-trophy', tags: ['tv','sport'] },
+                { title: 'King Cinema', desc: 'أفلام، مسلسلات، وبث مباشر للمباريات.', meta: '📦 APK (MediaFire)', link: 'https://www.mediafire.com/file/nrgxvl75bzk6mw0/King_Cinema_1.1.65.apk/file', image: 'https://i.imgur.com/KINGCINEMA.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-film', tags: ['cinema','sport','mediafire'] },
+                { title: 'سينمانا', desc: 'مخصص للمشتركين داخل شبكة ايرثلنك والوطني FTTH.', meta: '📦 APK (MediaFire)', link: 'https://www.mediafire.com/file/rdbkddtp0trhhmq/سينمانا.apk/file', image: 'https://i.imgur.com/CINEMANA.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-video', tags: ['cinema','mediafire'] },
+                { title: 'سي (C)', desc: 'مشاهدة سينمانا لكافة مزودي خدمات الإنترنت.', meta: '📦 APK', link: 'سي.apk', image: 'https://i.imgur.com/CAPP.png', btnClass: '', faIcon: 'fa-solid fa-play-circle', tags: ['cinema'] },
+                { title: 'FAST', desc: 'أداة قياس واختبار سرعة الإنترنت المخصصة للشاشات.', meta: '📦 APK', link: 'FAST.apk', image: 'https://i.imgur.com/FASTAPP.png', btnClass: '', faIcon: 'fa-solid fa-bolt', tags: [] },
+                { title: 'الأنمي', desc: 'منصة لعشاق الأنمي لنقل الحسابات والمتابعة.', meta: '📦 APK (MediaFire)', link: 'https://www.mediafire.com/file/x258r3eb9m192xb/app-release-3.13.13.apk/file', image: 'https://i.imgur.com/ANIMEAPP.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-dragon', tags: ['cinema','mediafire'] },
+                { title: 'Nado TV', desc: 'تطبيق قنوات خفيف يعمل على كافة سرعات الإنترنت.', meta: '🔑 22455  📦 APK', link: 'https://www.mediafire.com/file/uorfc7x6qlwrv0j/Nado+TV.apk/file', image: 'https://i.imgur.com/NADOTV.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-desktop', tags: ['tv','mediafire'] },
+                { title: 'Plasma 4K', desc: 'تطبيق مشاهدة بدقة عالية مخصص للشاشات الذكية.', meta: '📦 APK', link: 'Plasma%204K.apk', image: '', btnClass: '', faIcon: 'fa-solid fa-display', tags: ['tv'] },
+                { title: 'ريزن', desc: 'تطبيق ريزن المطور للترفيه والبث.', meta: '📦 APK (MediaFire)', link: 'https://www.mediafire.com/file/0ngejur5ktnmlbn/ریزن+(1).apk/file', image: 'https://i.imgur.com/REZON.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-puzzle-piece', tags: ['mediafire'] },
+                { title: 'كايدن TV', desc: 'تطبيق كايدن للبث والمشاهدة التلفزيونية.', meta: '🔑 19  📦 APK', link: 'https://www.mediafire.com/file/q6tupipn0c3niop/كايدن+TV.apk/file', image: 'https://i.imgur.com/KAIDEN.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-tv', tags: ['tv','mediafire'] },
+                { title: 'Oscar TV', desc: 'تطبيق أوسكار للبث المباشر للشاشات والهواتف.', meta: '📦 TV | APK', link: 'Oscar%20TV%20%281%29.apk', image: 'https://i.imgur.com/OSCAR.png', btnClass: '', faIcon: 'fa-solid fa-award', tags: ['tv'] },
+                { title: 'KT PLUS', desc: 'تطبيق المشاهدة KT PLUS لشاشات وأجهزة الأندرويد.', meta: '🔑 6666  📦 APK', link: 'KT%20PLUS.apk', image: 'https://i.imgur.com/KTPLUS.png', btnClass: '', faIcon: 'fa-solid fa-mobile-screen-button', tags: ['tv'] },
+                { title: 'vpnify', desc: 'تطبيق VPN ممتاز لفك الحظر وتسريع الاتصال.', meta: '📦 VPN (MediaFire)', link: 'https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file', image: 'https://i.imgur.com/VPNIFY.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-shield-halved', tags: ['vpn'] },
+                { title: 'Original TV', desc: 'تطبيق أورجينال المباشر والقنوات الرياضية.', meta: '📦 APK (MediaFire)', link: 'https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file', image: 'https://i.imgur.com/ORIGINALTV.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-tv', tags: ['tv','mediafire'] },
+                { title: 'GENRAL TV', desc: 'تطبيق القنوات العامة، يعمل مباشرة دون أكواد.', meta: '📦 APK (MediaFire)', link: 'https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file', image: 'https://i.imgur.com/GENRALTV.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-satellite', tags: ['tv'] },
+                { title: 'Nova TV', desc: 'تطبيق نوفا للبث التلفزيوني والشاشات.', meta: '📦 TV | APK', link: 'Nova%20tv%20%281%29.apk', image: 'https://i.imgur.com/NOVATV.png', btnClass: '', faIcon: 'fa-solid fa-tv', tags: ['tv'] },
+                { title: 'كوديا سبورت', desc: 'مخصص للإنترنت الضعيف والمتوسط بجودة HD.', meta: '📦 APK (MediaFire)', link: 'https://www.mediafire.com/file/jn1myb8xii72vk0/كوديا+سبورت.apk/file', image: 'https://i.imgur.com/KODIA.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-futbol', tags: ['sport','mediafire'] },
+                { title: 'Prom', desc: 'تطبيق المشاهدة أحدث إصدار.', meta: '📦 APK (MediaFire)', link: 'https://www.mediafire.com/file/aq5yf391mzct2lx/Prom.apk/file', image: 'https://i.imgur.com/PROM.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-photo-film', tags: ['mediafire'] },
+                { title: 'LIVE STREAM PREMIUM', desc: 'تطبيق البث المباشر بريميوم وبدون إعلانات.', meta: '🔑 2027  📦 Premium', link: 'https://www.mediafire.com/file/ihy63nqkju3561o/LIVE_STREAM_PREMIUM.apk/file', image: 'https://i.imgur.com/LIVESTREAM.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-bolt', tags: ['tv','sport','mediafire'] },
+                { title: 'Yacine TV Gold', desc: 'النسخة الذهبية لتطبيق ياسين تي في للرياضة.', meta: '📦 TV | APK', link: 'Yacine%20TV%20Gold.apk', image: 'https://i.imgur.com/YACINETV.png', btnClass: '', faIcon: 'fa-solid fa-futbol', tags: ['tv','sport'] },
+                { title: 'Alwan Sports', desc: 'تطبيق ألوان الرياضي للبث المباشر وتغطية البطولات.', meta: '📦 APK (MediaFire)', link: 'https://www.mediafire.com/file/vyejtivz1mu8g8f/Alwan+Sports.apk/file', image: 'https://i.imgur.com/ALWANSPORTS.png', btnClass: 'btn-mediafire', faIcon: 'fa-solid fa-futbol', tags: ['sport','mediafire'] }
             ];
 
-            // DOM Elements
+            // === RENDER ===
             const grid = document.getElementById('appsGrid');
-            const search = document.getElementById('searchInput');
-            const filters = document.querySelectorAll('.tag-btn');
             const modal = document.getElementById('downloadModal');
             const modalDirect = document.getElementById('modalDirectBtn');
             const modalSub = document.getElementById('modalSubscribeBtn');
             const toast = document.getElementById('toast');
-
-            let currentFilter = 'all';
             let pendingLink = '';
 
-            // RENDER APPS FUNCTION
             function renderApps(items) {
                 grid.innerHTML = '';
-                if (!items || !items.length) {
-                    grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:60px; color:var(--text-sub);">
-                        <i class="fas fa-search" style="font-size:3rem; margin-bottom:15px; color:var(--fcb-gold);"></i>
-                        <p style="font-size:1.3rem;">عذراً، لم نجد أي تطبيقات تطابق بحثك.</p>
-                    </div>`;
-                    return;
-                }
-
                 items.forEach(app => {
                     const card = document.createElement('article');
                     card.className = `app-card ${app.featured ? 'featured' : ''}`;
-
                     const iconHTML = app.image ? 
                         `<div class="app-icon-frame"><img src="${app.image}" alt="${app.title}" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><i class="${app.faIcon || 'fa-solid fa-mobile-screen'}" style="display:none;"></i></div>` :
                         `<div class="app-icon-frame"><i class="${app.faIcon || 'fa-solid fa-mobile-screen'}"></i></div>`;
-
                     let metaHTML = `<div class="app-meta-box">`;
                     if (app.meta) {
                         app.meta.split('  ').forEach(part => {
                             if (part.includes('🔑')) {
-                                const code = part.replace('🔑', '').trim();
-                                metaHTML += `<button class="code-badge focusable" tabindex="0" data-code="${code}"><i class="fas fa-key"></i> ${code}</button>`;
+                                const code = part.replace('🔑','').trim();
+                                metaHTML += `<button class="code-badge" data-code="${code}"><i class="fas fa-key"></i> ${code}</button>`;
                             } else {
                                 metaHTML += `<span>${part}</span>`;
                             }
                         });
                     }
                     metaHTML += `</div>`;
-
-                    let playerHTML = app.hasPlayer ? 
-                        `<a href="${app.playerLink}" target="_blank" class="player-btn focusable" tabindex="0"><i class="fas fa-play-circle"></i> ${app.playerLabel}</a>` : '';
-
                     card.innerHTML = `
-                        <div class="card-head">
-                            ${iconHTML}
-                            <div class="app-info-head">
-                                <h3>${app.title}</h3>
-                            </div>
-                        </div>
-                        <p class="app-desc">${app.desc || ''}</p>
+                        <div class="card-head">${iconHTML}<div class="app-info-head"><h3>${app.title}</h3></div></div>
+                        <p class="app-desc">${app.desc}</p>
                         ${metaHTML}
-                        <button class="action-btn ${app.btnClass || ''} download-trigger focusable" tabindex="0" data-link="${app.link}">
-                            <i class="fas fa-download"></i> تحميل التطبيق
-                        </button>
-                        ${playerHTML}
+                        <button class="action-btn ${app.btnClass || ''} download-trigger" data-link="${app.link}"><i class="fas fa-download"></i> تحميل التطبيق</button>
                     `;
-
                     grid.appendChild(card);
                 });
-
-                // Attach Code Copy Events
                 document.querySelectorAll('.code-badge').forEach(btn => {
                     btn.addEventListener('click', function(e) {
                         e.stopPropagation();
                         const code = this.dataset.code;
                         navigator.clipboard.writeText(code).then(() => {
-                            showToast(`تم نسخ الكود: ${code}`);
+                            toast.textContent = `تم نسخ الكود: ${code}`;
+                            toast.classList.add('show');
+                            setTimeout(() => toast.classList.remove('show'), 2500);
                         });
                     });
                 });
-
-                // Attach Download Triggers
                 document.querySelectorAll('.download-trigger').forEach(btn => {
                     btn.addEventListener('click', function() {
                         pendingLink = this.dataset.link;
                         modal.classList.add('active');
-                        setTimeout(() => modalSub.focus(), 100);
                     });
                 });
             }
 
-            function showToast(msg) {
-                toast.textContent = msg;
-                toast.classList.add('show');
-                setTimeout(() => toast.classList.remove('show'), 2500);
-            }
-
-            function filterData() {
-                const query = search.value.toLowerCase().trim();
-                const filtered = apps.filter(app => {
-                    const matchSearch = (app.title && app.title.toLowerCase().includes(query)) || 
-                                        (app.desc && app.desc.toLowerCase().includes(query)) || 
-                                        (app.meta && app.meta.toLowerCase().includes(query));
-                    const matchFilter = currentFilter === 'all' || (app.tags && app.tags.includes(currentFilter));
-                    return matchSearch && matchFilter;
-                });
-                renderApps(filtered);
-            }
-
-            search.addEventListener('input', filterData);
-
-            filters.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filters.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    currentFilter = this.dataset.filter;
-                    filterData();
-                });
-            });
-
-            function closeModal() { modal.classList.remove('active'); }
-
-            function triggerDownload(url) {
-                if (!url) return;
-                const a = document.createElement('a');
-                a.href = url;
-                a.target = '_blank';
-                if (url.endsWith('.apk')) a.setAttribute('download', '');
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            }
-
-            modalDirect.addEventListener('click', () => {
-                closeModal();
-                triggerDownload(pendingLink);
-            });
-
-            modalSub.addEventListener('click', () => {
-                closeModal();
-                triggerDownload(pendingLink);
-            });
-
-            modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
-
-            // REMOTE CONTROL SMART NAVIGATION SYSTEM
-            document.addEventListener('keydown', function(e) {
-                const focusables = Array.from(document.querySelectorAll('.focusable, button, a, input'));
-                const currentIndex = focusables.indexOf(document.activeElement);
-
-                if (e.key === 'Escape' || e.keyCode === 10009 || e.keyCode === 27 || e.keyCode === 461) {
-                    if (modal.classList.contains('active')) {
-                        closeModal();
-                        e.preventDefault();
-                        return;
-                    }
-                }
-
-                if (currentIndex === -1 && ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
-                    focusables[0]?.focus();
-                    e.preventDefault();
-                    return;
-                }
-
-                const currentEl = focusables[currentIndex];
-                if (!currentEl) return;
-                const currentRect = currentEl.getBoundingClientRect();
-                let nextEl = null;
-                let minDistance = Infinity;
-
-                focusables.forEach((el, index) => {
-                    if (index === currentIndex) return;
-                    const rect = el.getBoundingClientRect();
-                    let isCandidate = false;
-
-                    if (e.key === 'ArrowRight') isCandidate = rect.left >= currentRect.left;
-                    else if (e.key === 'ArrowLeft') isCandidate = rect.right <= currentRect.right;
-                    else if (e.key === 'ArrowDown') isCandidate = rect.top >= currentRect.top;
-                    else if (e.key === 'ArrowUp') isCandidate = rect.bottom <= currentRect.bottom;
-
-                    if (isCandidate) {
-                        const distX = (rect.left + rect.width / 2) - (currentRect.left + currentRect.width / 2);
-                        const distY = (rect.top + rect.height / 2) - (currentRect.top + currentRect.height / 2);
-                        const distance = Math.sqrt(distX * distX + distY * distY);
-
-                        if (distance < minDistance) {
-                            minDistance = distance;
-                            nextEl = el;
-                        }
-                    }
-                });
-
-                if (nextEl) {
-                    nextEl.focus();
-                    nextEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    e.preventDefault();
-                }
-            });
-
             renderApps(apps);
 
-            fetch('apps.json')
-                .then(res => res.json())
-                .then(data => {
-                    if (Array.isArray(data) && data.length > 0) {
-                        apps = data;
-                        filterData();
-                    }
-                })
-                .catch(err => console.log('بيانات محلية:', err));
+            // Modal actions
+            modalDirect.addEventListener('click', () => {
+                modal.classList.remove('active');
+                if(pendingLink) window.open(pendingLink, '_blank');
+            });
+            modalSub.addEventListener('click', () => {
+                modal.classList.remove('active');
+                if(pendingLink) setTimeout(() => window.open(pendingLink, '_blank'), 400);
+            });
+            modal.addEventListener('click', (e) => {
+                if(e.target === modal) modal.classList.remove('active');
+            });
 
         })();
     </script>
