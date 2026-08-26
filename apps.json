@@ -7,11 +7,22 @@
     "image": "https://i.imgur.com/YACINETV.png",
     "btnClass": "btn-featured",
     "faIcon": "fa-solid fa-tv",
-    "tags": ["tv", "sport"],
+    "tags": ["all", "tv", "sport"],
     "featured": true,
     "hasPlayer": true,
     "playerLink": "https://t.me/X_9_KK",
     "playerLabel": "تحميل مشغل YTV Player PRO الرسمي"
+  },
+  {
+    "title": "تطبيق Plasma 4K",
+    "desc": "تطبيق مشاهدة بدقة عالية مخصص للشاشات الذكية.",
+    "meta": "📦 APK",
+    "link": "https://t.me/X_9_KK",
+    "image": "",
+    "btnClass": "",
+    "faIcon": "fa-solid fa-display",
+    "tags": ["all", "tv"],
+    "featured": true
   },
   {
     "title": "تطبيق كوباني 4k",
@@ -21,7 +32,7 @@
     "image": "",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-display",
-    "tags": ["tv", "mediafire"],
+    "tags": ["all", "tv", "mediafire"],
     "featured": true
   },
   {
@@ -32,7 +43,7 @@
     "image": "",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-futbol",
-    "tags": ["tv", "sport", "mediafire"],
+    "tags": ["all", "tv", "sport", "mediafire"],
     "featured": true
   },
   {
@@ -54,7 +65,7 @@
     "image": "",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-star",
-    "tags": ["tv", "mediafire"],
+    "tags": ["all", "tv", "mediafire"],
     "featured": true
   },
   {
@@ -65,7 +76,7 @@
     "image": "",
     "btnClass": "",
     "faIcon": "fa-solid fa-tv",
-    "tags": ["tv"],
+    "tags": ["all", "tv"],
     "featured": true
   },
   {
@@ -76,7 +87,7 @@
     "image": "https://i.imgur.com/ALBASHATV.png",
     "btnClass": "btn-featured",
     "faIcon": "fa-solid fa-crown",
-    "tags": ["tv", "sport"],
+    "tags": ["all", "tv", "sport"],
     "featured": true
   },
   {
@@ -87,7 +98,7 @@
     "image": "https://i.imgur.com/TVRAYAN.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-satellite-dish",
-    "tags": ["tv", "mediafire"]
+    "tags": ["all", "tv", "mediafire"]
   },
   {
     "title": "تطبيق بغداد (Baghdad TV)",
@@ -97,7 +108,7 @@
     "image": "https://i.imgur.com/BAGHDADTV.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-mosque",
-    "tags": ["tv", "mediafire"]
+    "tags": ["all", "tv", "mediafire"]
   },
   {
     "title": "تطبيق المنافس",
@@ -107,7 +118,7 @@
     "image": "https://i.imgur.com/MONAFOS.png",
     "btnClass": "",
     "faIcon": "fa-solid fa-trophy",
-    "tags": ["tv", "sport"]
+    "tags": ["all", "tv", "sport"]
   },
   {
     "title": "King Cinema",
@@ -117,7 +128,7 @@
     "image": "https://i.imgur.com/KINGCINEMA.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-film",
-    "tags": ["cinema", "sport", "mediafire"]
+    "tags": ["all", "cinema", "sport", "mediafire"]
   },
   {
     "title": "تطبيق سينمانا",
@@ -127,7 +138,7 @@
     "image": "https://i.imgur.com/CINEMANA.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-video",
-    "tags": ["cinema", "mediafire"]
+    "tags": ["all", "cinema", "mediafire"]
   },
   {
     "title": "تطبيق سي (C)",
@@ -137,17 +148,17 @@
     "image": "https://i.imgur.com/CAPP.png",
     "btnClass": "",
     "faIcon": "fa-solid fa-play-circle",
-    "tags": ["cinema"]
+    "tags": ["all", "cinema"]
   },
   {
     "title": "تطبيق FAST",
-    "desc": "أداة قياس واختبار سرعة الإنترنت المخصصة للشاشات.",
+    "desc": "أداة قياس وااختبار سرعة الإنترنت المخصصة للشاشات.",
     "meta": "📦 APK",
     "link": "https://t.me/X_9_KK",
     "image": "https://i.imgur.com/FASTAPP.png",
     "btnClass": "",
     "faIcon": "fa-solid fa-bolt",
-    "tags": []
+    "tags": ["all"]
   },
   {
     "title": "تطبيق الأنمي",
@@ -157,7 +168,7 @@
     "image": "https://i.imgur.com/ANIMEAPP.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-dragon",
-    "tags": ["cinema", "mediafire"]
+    "tags": ["all", "cinema", "mediafire"]
   },
   {
     "title": "تطبيق Nado TV",
@@ -167,17 +178,7 @@
     "image": "https://i.imgur.com/NADOTV.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-desktop",
-    "tags": ["tv", "mediafire"]
-  },
-  {
-    "title": "تطبيق Plasma 4K",
-    "desc": "تطبيق مشاهدة بدقة عالية مخصص للشاشات الذكية.",
-    "meta": "📦 APK",
-    "link": "https://t.me/X_9_KK",
-    "image": "",
-    "btnClass": "",
-    "faIcon": "fa-solid fa-display",
-    "tags": ["tv"]
+    "tags": ["all", "tv", "mediafire"]
   },
   {
     "title": "تطبيق ريزن",
@@ -187,7 +188,7 @@
     "image": "https://i.imgur.com/REZON.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-puzzle-piece",
-    "tags": ["mediafire"]
+    "tags": ["all", "mediafire"]
   },
   {
     "title": "تطبيق كايدن TV",
@@ -197,7 +198,7 @@
     "image": "https://i.imgur.com/KAIDEN.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-tv",
-    "tags": ["tv", "mediafire"]
+    "tags": ["all", "tv", "mediafire"]
   },
   {
     "title": "تطبيق Oscar TV",
@@ -207,7 +208,7 @@
     "image": "https://i.imgur.com/OSCAR.png",
     "btnClass": "",
     "faIcon": "fa-solid fa-award",
-    "tags": ["tv"],
+    "tags": ["all", "tv"],
     "hasPlayer": true,
     "playerLink": "https://www.mediafire.com/file/iwoforev9tlspxq/TDM+(1).apk/file",
     "playerLabel": "تحميل المشغل الخاص بدون إعلانات"
@@ -220,17 +221,17 @@
     "image": "https://i.imgur.com/KTPLUS.png",
     "btnClass": "",
     "faIcon": "fa-solid fa-mobile-screen-button",
-    "tags": ["tv"]
+    "tags": ["all", "tv"]
   },
   {
     "title": "تطبيق vpnify",
-    desc: "تطبيق VPN ممتاز لفك الحظر وتسريع الاتصال بالبث.",
+    "desc": "تطبيق VPN ممتاز لفك الحظر وتسريع الاتصال بالبث.",
     "meta": "📦 VPN (MediaFire)",
     "link": "https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file",
     "image": "https://i.imgur.com/VPNIFY.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-shield-halved",
-    "tags": ["vpn"]
+    "tags": ["all", "vpn"]
   },
   {
     "title": "تطبيق Original TV",
@@ -240,7 +241,7 @@
     "image": "https://i.imgur.com/ORIGINALTV.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-tv",
-    "tags": ["tv", "mediafire"],
+    "tags": ["all", "tv", "mediafire"],
     "hasPlayer": true,
     "playerLink": "https://t.me/X_9_KK",
     "playerLabel": "تحميل مشغل أورجينال الرسمي"
@@ -253,7 +254,7 @@
     "image": "https://i.imgur.com/GENRALTV.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-satellite",
-    "tags": ["tv"]
+    "tags": ["all", "tv"]
   },
   {
     "title": "تطبيق Nova TV",
@@ -263,7 +264,7 @@
     "image": "https://i.imgur.com/NOVATV.png",
     "btnClass": "",
     "faIcon": "fa-solid fa-tv",
-    "tags": ["tv"]
+    "tags": ["all", "tv"]
   },
   {
     "title": "تطبيق كوديا سبورت",
@@ -273,7 +274,7 @@
     "image": "https://i.imgur.com/KODIA.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-futbol",
-    "tags": ["sport", "mediafire"]
+    "tags": ["all", "sport", "mediafire"]
   },
   {
     "title": "تطبيق Prom",
@@ -283,7 +284,7 @@
     "image": "https://i.imgur.com/PROM.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-photo-film",
-    "tags": ["mediafire"]
+    "tags": ["all", "mediafire"]
   },
   {
     "title": "LIVE STREAM PREMIUM",
@@ -293,7 +294,7 @@
     "image": "https://i.imgur.com/LIVESTREAM.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-bolt",
-    "tags": ["tv", "sport", "mediafire"]
+    "tags": ["all", "tv", "sport", "mediafire"]
   },
   {
     "title": "Yacine TV Gold",
@@ -303,7 +304,7 @@
     "image": "https://i.imgur.com/YACINETV.png",
     "btnClass": "",
     "faIcon": "fa-solid fa-futbol",
-    "tags": ["tv", "sport"]
+    "tags": ["all", "tv", "sport"]
   },
   {
     "title": "Alwan Sports",
@@ -313,6 +314,6 @@
     "image": "https://i.imgur.com/ALWANSPORTS.png",
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-futbol",
-    "tags": ["sport", "mediafire"]
+    "tags": ["all", "sport", "mediafire"]
   }
 ]
