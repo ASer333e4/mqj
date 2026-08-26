@@ -123,7 +123,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: -9; pointer-event
 footer { margin-top: 60px; padding-top: 25px; border-top: 1px solid var(--border-light); color: var(--text-sub); text-align: center; font-size: 0.82rem; }
 footer a { color: var(--fcb-gold); font-weight: 900; }
 
-.classico-showcase { position:relative; margin-top:28px; margin-bottom:24px; padding:28px 22px; overflow:hidden; border:1px solid rgba(255,255,255,.12); border-radius:30px; background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.055),transparent 38%),linear-gradient(135deg,rgba(0,77,152,.18),rgba(165,0,68,.18)); box-shadow:0 20px 55px rgba(0,0,0,.38); }
+.clasico-showcase { position:relative; margin-top:28px; margin-bottom:24px; padding:28px 22px; overflow:hidden; border:1px solid rgba(255,255,255,.12); border-radius:30px; background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.055),transparent 38%),linear-gradient(135deg,rgba(0,77,152,.18),rgba(165,0,68,.18)); box-shadow:0 20px 55px rgba(0,0,0,.38); }
 .clasico-head { position:relative; z-index:2; text-align:center; margin-bottom:18px; }
 .clasico-head h2 { font-size:clamp(1.45rem,4vw,2.1rem); font-weight:900; }
 .clasico-head p { margin-top:5px; color:var(--text-sub); font-size:.78rem; }
@@ -196,7 +196,8 @@ footer a { color: var(--fcb-gold); font-weight: 900; }
                 </div>
                 <div class="vs-badge">VS</div>
                 <div class="clasico-team clasico-team-real">
-                    <img class="clasico-logo" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Real_Madrid_CF.svg" alt="Real Madrid">
+                    <!-- تم تعديل رابط ريال مدريد إلى رابط SVG مباشر يعمل 100% -->
+                    <img class="clasico-logo" src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg" alt="Real Madrid">
                     <div class="clasico-name">ريال مدريد</div>
                     <div class="clasico-tag">Real Madrid CF</div>
                 </div>
@@ -213,8 +214,9 @@ footer a { color: var(--fcb-gold); font-weight: 900; }
                 </div>
                 <div class="classico-vs">VS</div>
                 <div class="classico-team-cd right">
-                    <img class="clasico-logo" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Real_Madrid_CF.svg" alt="ريال مدريد">
-                    <span class="classico-team-name">ريال مدريد</span>
+                    <!-- تم تعديل رابط ريال مدريد هنا أيضاً -->
+                    <img class="clasico-logo" src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg" alt="ريال مدريد">
+                    <span class="clasico-team-name">ريال مدريد</span>
                 </div>
             </div>
             <div class="countdown-grid">
@@ -253,7 +255,7 @@ footer a { color: var(--fcb-gold); font-weight: 900; }
         </div>
     </footer>
 
-    <!-- MODAL (نافذة التحميل تحتوي على شريط الدوريات الخمس المضيء) -->
+    <!-- MODAL -->
     <div class="modal-bg" id="downloadModal" aria-hidden="true">
         <div class="modal-box" role="dialog" aria-modal="true">
             <button class="modal-close" id="modalClose" type="button"><i class="fas fa-xmark"></i></button>
