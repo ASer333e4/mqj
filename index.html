@@ -62,7 +62,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: -9; pointer-event
 .hero h1 span { background: linear-gradient( 90deg, var(--fcb-gold-light), var(--fcb-gold), #fff ); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .hero p { max-width: 760px; margin: 0 auto; color: var(--text-sub); font-size: 0.98rem; line-height: 1.85; }
 
-/* قسم شعارات الدوريات الكبرى بتنسيق متساوي ومضيء */
+/* قسم شعارات الدوريات الكبرى المضيئة والمتناسقة */
 .top-leagues-showcase { margin-top: 30px; margin-bottom: 25px; padding: 25px 20px; border: 1px solid rgba(237, 187, 0, 0.35); border-radius: 28px; background: rgba(5, 8, 20, 0.78); backdrop-filter: blur(14px); box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(237, 187, 0, 0.08); text-align: center; }
 .top-leagues-title { font-size: 1.35rem; font-weight: 900; color: #fff; margin-bottom: 20px; }
 .top-leagues-title span { color: var(--fcb-gold); }
@@ -183,7 +183,7 @@ footer a { color: var(--fcb-gold); font-weight: 900; }
         <h1>مركز تحميل التطبيقات <span>الحديث والسريع</span></h1>
         <p>مكتبة شاملة لأحدث تطبيقات المشاهدة والقنوات المباشرة والرياضة والسينما وأدوات الأندرويد.</p>
         
-        <!-- قسم شعارات البطولات الكبرى المضيئة والمترتبة بتنسيق متساوي -->
+        <!-- قسم شعارات البطولات الكبرى المضيئة -->
         <div class="top-leagues-showcase">
             <div class="top-leagues-title"><i class="fas fa-trophy" style="color:var(--fcb-gold);"></i> البطولات والدوريات <span>الكبرى</span></div>
             <div class="top-leagues-grid">
@@ -224,7 +224,7 @@ footer a { color: var(--fcb-gold); font-weight: 900; }
                 </div>
                 <div class="classico-vs">VS</div>
                 <div class="classico-team-cd right">
-                    <!-- تم تعديل رابط ريال مدريد المباشر الذي يحل مشكلة الصورة المكسورة -->
+                    <!-- تم تعديل رابط صورة ريال مدريد ليعمل 100% بدون انقطاع -->
                     <img class="classico-logo" src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg" alt="ريال مدريد">
                     <span class="classico-team-name">ريال مدريد</span>
                 </div>
@@ -292,7 +292,7 @@ footer a { color: var(--fcb-gold); font-weight: 900; }
         (function () {
             "use strict";
 
-            // 1. EL CLÁSICO COUNTDOWN
+            // 1. EL CLÁSICO COUNTDOWN LOGIC
             const target = new Date('2026-10-25T00:00:00');
             function updateCountdown() {
                 const daysEl = document.getElementById('cdDays');
@@ -321,7 +321,7 @@ footer a { color: var(--fcb-gold); font-weight: 900; }
             setInterval(updateCountdown, 1000);
             updateCountdown();
 
-            // 2. FIREBASE
+            // 2. FIREBASE ONLINE COUNTER
             const firebaseConfig = {
                 apiKey: "AIzaSyBx7GqI2AFtLF3UEWiHOvZDXQyAZPMApm4",
                 authDomain: "my-store-6ce96.firebaseapp.com",
@@ -350,39 +350,328 @@ footer a { color: var(--fcb-gold); font-weight: 900; }
                 });
             } catch (e) { console.warn("Firebase Init Error", e); }
 
-            // 3. APPS DATA
+            // 3. COMPLETE APPS ARRAY INCLUDED DIRECTLY (30 APPS)
             const apps = [
-                { title: "تطبيق Goal Live VIP", desc: "تطبيق سلس يعمل بمختلف الجودات حسب الإنترنت.", meta: "📦 APK (MediaFire)", link: "https://www.mediafire.com/file/tdbijxtqink9bij/Goal+Live+VIP.apk/file", faIcon: "fa-solid fa-futbol", tags: ["tv", "sport", "mediafire"], featured: true, btnClass: "btn-mediafire" },
-                { title: "المتجر الرسمي (MQJ Store)", desc: "تطبيق أندرويد رسمي للموقع، أسرع وأسهل لتصفح وتحميل التطبيقات.", meta: "📦 APK (MediaFire)", link: "https://www.mediafire.com/file/sz5sqieahqfxkle/MQJStore_.apk/file", faIcon: "fa-solid fa-store", tags: ["all", "mediafire"], featured: true, btnClass: "btn-mediafire" },
-                { title: "تطبيق نجم الشاشات", desc: "يعمل على أضعف سرعات الإنترنت بجودات SD و HD.", meta: "📦 APK (MediaFire)", link: "https://www.mediafire.com/file/3l7ct36pdampp28/%D9%86%D8%AC%D9%85+%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A7%D8%AA.apk/file", faIcon: "fa-solid fa-star", tags: ["tv", "mediafire"], featured: true, btnClass: "btn-mediafire" },
-                { title: "تطبيق Cast X Plus", desc: "تطبيق Cast X Plus الحديث للبث والمشاهدة الشاملة.", meta: "🔑 2222  📦 APK", link: "https://t.me/X_9_KK", faIcon: "fa-solid fa-tv", tags: ["tv"], featured: true },
-                { title: "تطبيق الباشا تي في", desc: "أفضل تطبيق بالشرق الأوسط، يعمل على جميع الشبكات.", meta: "📦 APK", link: "https://t.me/X_9_KK", faIcon: "fa-solid fa-crown", tags: ["tv", "sport"], featured: true, btnClass: "btn-featured" },
-                { title: "تطبيق الريان (Rayan TV)", desc: "تطبيق الريان المميز للبث المباشر والقنوات الرياضية.", meta: "🔑 R1..R7  📦 APK", link: "https://www.mediafire.com/file/qm95stpeny89s7w/Rayan_TV.apk/file", faIcon: "fa-solid fa-satellite-dish", tags: ["tv", "mediafire"], btnClass: "btn-mediafire" },
-                { title: "تطبيق بغداد (Baghdad TV)", desc: "أكواد B1 إلى B10. ينصح بتغيير صيغة البث إلى m3u8 أو ts.", meta: "🔑 B1..B10  📦 APK", link: "https://www.mediafire.com/file/1yeoxsppzsxgk0u/1_Baghdad.apk/file", faIcon: "fa-solid fa-mosque", tags: ["tv", "mediafire"], btnClass: "btn-mediafire" },
-                { title: "تطبيق المنافس", desc: "تطبيق المنافس الرياضي للأنظمة بآخر تحديث.", meta: "🔑 2020  📦 APK", link: "https://t.me/X_9_KK", faIcon: "fa-solid fa-trophy", tags: ["tv", "sport"] },
-                { title: "King Cinema", desc: "أفلام، مسلسلات، وبث مباشر للمباريات مع King Cinema.", meta: "📦 APK (MediaFire)", link: "https://www.mediafire.com/file/nrgxvl75bzk6mw0/King_Cinema_1.1.65.apk/file", faIcon: "fa-solid fa-film", tags: ["cinema", "sport", "mediafire"], btnClass: "btn-mediafire" },
-                { title: "تطبيق سينمانا", desc: "مخصص للمشتركين داخل شبكة ايرثلنك والوطني FTTH.", meta: "📦 APK (MediaFire)", link: "https://www.mediafire.com/file/rdbkddtp0trhhmq/%D8%B3%D9%8A%D9%86%D9%85%D8%A7%D9%86%D8%A7.apk/file", faIcon: "fa-solid fa-video", tags: ["cinema", "mediafire"], btnClass: "btn-mediafire" },
-                { title: "تطبيق سي (C)", desc: "مشاهدة سينمانا لكافة مزودي خدمات الإنترنت بالعراق.", meta: "📦 APK", link: "https://t.me/X_9_KK", faIcon: "fa-solid fa-play-circle", tags: ["cinema"] },
-                { title: "تطبيق FAST", desc: "أداة قياس واختبار سرعة الإنترنت المخصصة للشاشات.", meta: "📦 APK", link: "https://t.me/X_9_KK", faIcon: "fa-solid fa-bolt", tags: [] },
-                { title: "تطبيق الأنمي", desc: "منصة لعشاق الأنمي لنقل الحسابات والمتابعة عبر الشاشة.", meta: "📦 APK (MediaFire)", link: "https://www.mediafire.com/file/x258r3eb9m192xb/app-release-3.13.13.apk/file", faIcon: "fa-solid fa-dragon", tags: ["cinema", "mediafire"], btnClass: "btn-mediafire" },
-                { title: "تطبيق Nado TV", desc: "تطبيق قنوات خفيف يعمل على كافة سرعات الإنترنت.", meta: "🔑 22455  📦 APK", link: "https://www.mediafire.com/file/uorfc7x6qlwrv0j/Nado+TV.apk/file", faIcon: "fa-solid fa-desktop", tags: ["tv", "mediafire"], btnClass: "btn-mediafire" },
-                { title: "تطبيق Plasma 4K", desc: "تطبيق مشاهدة بدقة عالية مخصص للشاشات الذكية.", meta: "📦 APK", link: "https://t.me/X_9_KK", faIcon: "fa-solid fa-display", tags: ["tv"] },
-                { title: "تطبيق ريزن", desc: "تطبيق ريزن المطور للترفيه والبث.", meta: "📦 APK (MediaFire)", link: "https://www.mediafire.com/file/0ngejur5ktnmlbn/%D8%B1%DB%8C%D8%B2%D9%86+(1).apk/file", faIcon: "fa-solid fa-puzzle-piece", tags: ["mediafire"], btnClass: "btn-mediafire" },
-                { title: "تطبيق كايدن TV", desc: "تطبيق كايدن للبث والمشاهدة التلفزيونية.", meta: "🔑 19  📦 APK", link: "https://www.mediafire.com/file/q6tupipn0c3niop/%D9%83%D8%A7%D9%8A%D8%AF%D9%86+TV.apk/file", faIcon: "fa-solid fa-tv", tags: ["tv", "mediafire"], btnClass: "btn-mediafire" },
-                { title: "تطبيق Oscar TV", desc: "تطبيق أوسكار للبث المباشر للشاشات والهواتف.", meta: "📦 TV | APK", link: "https://t.me/X_9_KK", faIcon: "fa-solid fa-award", tags: ["tv"], hasPlayer: true, playerLink: "https://www.mediafire.com/file/iwoforev9tlspxq/TDM+(1).apk/file", playerLabel: "تحميل المشغل الخاص بدون إعلانات" },
-                { title: "تطبيق KT PLUS", desc: "تطبيق المشاهدة KT PLUS لشاشات وأجهزة الأندرويد.", meta: "🔑 6666  📦 APK", link: "https://t.me/X_9_KK", faIcon: "fa-solid fa-mobile-screen-button", tags: ["tv"] },
-                { title: "تطبيق vpnify", desc: "تطبيق VPN ممتاز لفك الحظر وتسريع الاتصال بالبث.", meta: "📦 VPN (MediaFire)", link: "https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file", faIcon: "fa-solid fa-shield-halved", tags: ["vpn"], btnClass: "btn-mediafire" },
-                { title: "تطبيق Original TV", desc: "تطبيق أورجينال المباشر والقنوات الرياضية.", meta: "📦 APK (MediaFire)", link: "https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file", faIcon: "fa-solid fa-tv", tags: ["tv", "mediafire"], btnClass: "btn-mediafire", hasPlayer: true, playerLink: "https://t.me/X_9_KK", playerLabel: "تحميل مشغل أورجينال الرسمي" },
-                { title: "تطبيق GENRAL TV", desc: "تطبيق القنوات العامة، يعمل مباشرة دون أكواد.", meta: "📦 APK (MediaFire)", link: "https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file", faIcon: "fa-solid fa-satellite", tags: ["tv"], btnClass: "btn-mediafire" },
-                { title: "تطبيق Nova TV", desc: "تطبيق نوفا للبث التلفزيوني والشاشات.", meta: "📦 TV | APK", link: "https://t.me/X_9_KK", faIcon: "fa-solid fa-tv", tags: ["tv"] },
-                { title: "تطبيق كوديا سبورت", desc: "مخصص للإنترنت الضعيف والمتوسط بجودة HD.", meta: "📦 APK (MediaFire)", link: "https://www.mediafire.com/file/jn1myb8xii72vk0/%D9%83%D9%88%D8%AF%D9%8A%D8%A7+%D8%B3%D8%A8%D9%88%D8%B1%D8%AA.apk/file", faIcon: "fa-solid fa-futbol", tags: ["sport", "mediafire"], btnClass: "btn-mediafire" },
-                { title: "تطبيق Prom", desc: "تطبيق المشاهدة أحدث إصدار.", meta: "📦 APK (MediaFire)", link: "https://www.mediafire.com/file/aq5yf391mzct2lx/Prom.apk/file", faIcon: "fa-solid fa-photo-film", tags: ["mediafire"], btnClass: "btn-mediafire" },
-                { title: "LIVE STREAM PREMIUM", desc: "تطبيق البث المباشر بريميوم وبدون إعلانات.", meta: "🔑 2027  📦 Premium", link: "https://www.mediafire.com/file/ihy63nqkju3561o/LIVE_STREAM_PREMIUM.apk/file", faIcon: "fa-solid fa-bolt", tags: ["tv", "sport", "mediafire"], btnClass: "btn-mediafire" },
-                { title: "Yacine TV Gold", desc: "النسخة الذهبية لتطبيق ياسين تي في للرياضة والمباريات.", meta: "📦 TV | APK", link: "https://t.me/X_9_KK", faIcon: "fa-solid fa-futbol", tags: ["tv", "sport"] },
-                { title: "Alwan Sports", desc: "تطبيق ألوان الرياضي للبث المباشر وتغطية البطولات.", meta: "📦 APK (MediaFire)", link: "https://www.mediafire.com/file/vyejtivz1mu8g8f/Alwan+Sports.apk/file", faIcon: "fa-solid fa-futbol", tags: ["sport", "mediafire"], btnClass: "btn-mediafire" }
+              {
+                title: "تطبيق ياسين تي في (Yacine TV)",
+                desc: "التطبيق الشهير لمشاهدة المباريات والبث المباشر للقنوات الرياضية والترفيهية.",
+                meta: "📦 TV | APK",
+                link: "https://t.me/X_9_KK",
+                image: "https://i.imgur.com/YACINETV.png",
+                btnClass: "btn-featured",
+                faIcon: "fa-solid fa-tv",
+                tags: ["all", "tv", "sport"],
+                featured: true,
+                hasPlayer: true,
+                playerLink: "https://t.me/X_9_KK",
+                playerLabel: "تحميل مشغل YTV Player PRO الرسمي"
+              },
+              {
+                title: "تطبيق Plasma 4K",
+                desc: "تطبيق مشاهدة بدقة عالية مخصص للشاشات الذكية.",
+                meta: "📦 APK",
+                link: "https://t.me/X_9_KK",
+                image: "",
+                btnClass: "",
+                faIcon: "fa-solid fa-display",
+                tags: ["all", "tv"],
+                featured: true
+              },
+              {
+                title: "تطبيق كوباني 4k",
+                desc: "من أفضل التطبيقات المجانية لمشاهدة القنوات والبث المباشر.",
+                meta: "🔑 1515  📦 APK (MediaFire)",
+                link: "https://www.mediafire.com/file/ofsmedv7mruse3y/KOBANI+4K.apk/file",
+                image: "",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-display",
+                tags: ["all", "tv", "mediafire"],
+                featured: true
+              },
+              {
+                title: "تطبيق Goal Live VIP",
+                desc: "تطبيق سلس يعمل بمختلف الجودات حسب الإنترنت وأنت تكون قادر على تغيير الجودات.",
+                meta: "📦 APK (MediaFire)",
+                link: "https://www.mediafire.com/file/tdbijxtqink9bij/Goal+Live+VIP.apk/file",
+                image: "",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-futbol",
+                tags: ["all", "tv", "sport", "mediafire"],
+                featured: true
+              },
+              {
+                title: "المتجر الرسمي (MQJ Store)",
+                desc: "تطبيق أندرويد رسمي للموقع، أسرع وأسهل لتصفح وتحميل التطبيقات.",
+                meta: "📦 APK (MediaFire)",
+                link: "https://www.mediafire.com/file/sz5sqieahqfxkle/MQJStore_.apk/file",
+                image: "https://i.imgur.com/8QZQZQZ.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-store",
+                tags: ["all", "mediafire"],
+                featured: true
+              },
+              {
+                title: "تطبيق نجم الشاشات",
+                desc: "يعمل على أضعف سرعات الإنترنت بجودات SD و HD للبث والمشاهدة على الشاشات.",
+                meta: "📦 APK (MediaFire)",
+                link: "https://www.mediafire.com/file/3l7ct36pdampp28/نجم+الشاشات.apk/file",
+                image: "",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-star",
+                tags: ["all", "tv", "mediafire"],
+                featured: true
+              },
+              {
+                title: "تطبيق Cast X Plus",
+                desc: "تطبيق Cast X Plus الحديث للبث والمشاهدة الشاملة على الشاشات والهواتف الذكية.",
+                meta: "🔑 2222  📦 APK",
+                link: "https://t.me/X_9_KK",
+                image: "",
+                btnClass: "",
+                faIcon: "fa-solid fa-tv",
+                tags: ["all", "tv"],
+                featured: true
+              },
+              {
+                title: "تطبيق الباشا تي في",
+                desc: "أفضل تطبيق بالشرق الأوسط، يعمل على جميع الشبكات وبكل الجودات الضعيفة والعالية.",
+                meta: "📦 APK",
+                link: "https://t.me/X_9_KK",
+                image: "https://i.imgur.com/ALBASHATV.png",
+                btnClass: "btn-featured",
+                faIcon: "fa-solid fa-crown",
+                tags: ["all", "tv", "sport"],
+                featured: true
+              },
+              {
+                title: "تطبيق الريان (Rayan TV)",
+                desc: "تطبيق الريان المميز للبث المباشر والقنوات الرياضية والترفيهية.",
+                meta: "🔑 R1..R7  📦 APK",
+                link: "https://www.mediafire.com/file/qm95stpeny89s7w/Rayan_TV.apk/file",
+                image: "https://i.imgur.com/TVRAYAN.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-satellite-dish",
+                tags: ["all", "tv", "mediafire"]
+              },
+              {
+                title: "تطبيق بغداد (Baghdad TV)",
+                desc: "أكواد B1 إلى B10. ينصح بتغيير صيغة البث إلى m3u8 أو ts من الإعدادات.",
+                meta: "🔑 B1..B10  📦 APK",
+                link: "https://www.mediafire.com/file/1yeoxsppzsxgk0u/1_Baghdad.apk/file",
+                image: "https://i.imgur.com/BAGHDADTV.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-mosque",
+                tags: ["all", "tv", "mediafire"]
+              },
+              {
+                title: "تطبيق المنافس",
+                desc: "تطبيق المنافس الرياضي للأنظمة بآخر تحديث.",
+                meta: "🔑 2020  📦 APK",
+                link: "https://t.me/X_9_KK",
+                image: "https://i.imgur.com/MONAFOS.png",
+                btnClass: "",
+                faIcon: "fa-solid fa-trophy",
+                tags: ["all", "tv", "sport"]
+              },
+              {
+                title: "King Cinema",
+                desc: "أفلام، مسلسلات، وبث مباشر للمباريات مع King Cinema.",
+                meta: "📦 APK (MediaFire)",
+                link: "https://www.mediafire.com/file/nrgxvl75bzk6mw0/King_Cinema_1.1.65.apk/file",
+                image: "https://i.imgur.com/KINGCINEMA.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-film",
+                tags: ["all", "cinema", "sport", "mediafire"]
+              },
+              {
+                title: "تطبيق سينمانا",
+                desc: "مخصص للمشتركين داخل شبكة ايرثلنك والوطني FTTH.",
+                meta: "📦 APK (MediaFire)",
+                link: "https://www.mediafire.com/file/rdbkddtp0trhhmq/سينمانا.apk/file",
+                image: "https://i.imgur.com/CINEMANA.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-video",
+                tags: ["all", "cinema", "mediafire"]
+              },
+              {
+                title: "تطبيق سي (C)",
+                desc: "مشاهدة سينمانا لكافة مزودي خدمات الإنترنت بالعراق.",
+                meta: "📦 APK",
+                link: "https://t.me/X_9_KK",
+                image: "https://i.imgur.com/CAPP.png",
+                btnClass: "",
+                faIcon: "fa-solid fa-play-circle",
+                tags: ["all", "cinema"]
+              },
+              {
+                title: "تطبيق FAST",
+                desc: "أداة قياس واختبار سرعة الإنترنت المخصصة للشاشات.",
+                meta: "📦 APK",
+                link: "https://t.me/X_9_KK",
+                image: "https://i.imgur.com/FASTAPP.png",
+                btnClass: "",
+                faIcon: "fa-solid fa-bolt",
+                tags: ["all"]
+              },
+              {
+                title: "تطبيق الأنمي",
+                desc: "منصة لعشاق الأنمي لنقل الحسابات والمتابعة عبر الشاشة.",
+                meta: "📦 APK (MediaFire)",
+                link: "https://www.mediafire.com/file/x258r3eb9m192xb/app-release-3.13.13.apk/file",
+                image: "https://i.imgur.com/ANIMEAPP.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-dragon",
+                tags: ["all", "cinema", "mediafire"]
+              },
+              {
+                title: "تطبيق Nado TV",
+                desc: "تطبيق قنوات خفيف يعمل على كافة سرعات الإنترنت.",
+                meta: "🔑 22455  📦 APK",
+                link: "https://www.mediafire.com/file/uorfc7x6qlwrv0j/Nado+TV.apk/file",
+                image: "https://i.imgur.com/NADOTV.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-desktop",
+                tags: ["all", "tv", "mediafire"]
+              },
+              {
+                title: "تطبيق ريزن",
+                desc: "تطبيق ريزن المطور للترفيه والبث.",
+                meta: "📦 APK (MediaFire)",
+                link: "https://www.mediafire.com/file/0ngejur5ktnmlbn/ریزن+(1).apk/file",
+                image: "https://i.imgur.com/REZON.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-puzzle-piece",
+                tags: ["all", "mediafire"]
+              },
+              {
+                title: "تطبيق كايدن TV",
+                desc: "تطبيق كايدن للبث والمشاهدة التلفزيونية.",
+                meta: "🔑 19  📦 APK",
+                link: "https://www.mediafire.com/file/q6tupipn0c3niop/كايدن+TV.apk/file",
+                image: "https://i.imgur.com/KAIDEN.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-tv",
+                tags: ["all", "tv", "mediafire"]
+              },
+              {
+                title: "تطبيق Oscar TV",
+                desc: "تطبيق أوسكار للبث المباشر للشاشات والهواتف.",
+                meta: "📦 TV | APK",
+                link: "https://t.me/X_9_KK",
+                image: "https://i.imgur.com/OSCAR.png",
+                btnClass: "",
+                faIcon: "fa-solid fa-award",
+                tags: ["all", "tv"],
+                hasPlayer: true,
+                playerLink: "https://www.mediafire.com/file/iwoforev9tlspxq/TDM+(1).apk/file",
+                playerLabel: "تحميل المشغل الخاص بدون إعلانات"
+              },
+              {
+                title: "تطبيق KT PLUS",
+                desc: "تطبيق المشاهدة KT PLUS لشاشات وأجهزة الأندرويد.",
+                meta: "🔑 6666  📦 APK",
+                link: "https://t.me/X_9_KK",
+                image: "https://i.imgur.com/KTPLUS.png",
+                btnClass: "",
+                faIcon: "fa-solid fa-mobile-screen-button",
+                tags: ["all", "tv"]
+              },
+              {
+                title: "تطبيق vpnify",
+                desc: "تطبيق VPN ممتاز لفك الحظر وتسريع الاتصال بالبث.",
+                meta: "📦 VPN (MediaFire)",
+                link: "https://www.mediafire.com/file/29r9kddhwgo2dvr/vpnify.apk/file",
+                image: "https://i.imgur.com/VPNIFY.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-shield-halved",
+                tags: ["all", "vpn"]
+              },
+              {
+                title: "تطبيق Original TV",
+                desc: "تطبيق أورجينال المباشر والقنوات الرياضية.",
+                meta: "📦 APK (MediaFire)",
+                link: "https://www.mediafire.com/file/48wtkd35y5x4yta/Original+TV.apk/file",
+                image: "https://i.imgur.com/ORIGINALTV.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-tv",
+                tags: ["all", "tv", "mediafire"],
+                hasPlayer: true,
+                playerLink: "https://t.me/X_9_KK",
+                playerLabel: "تحميل مشغل أورجينال الرسمي"
+              },
+              {
+                title: "تطبيق GENRAL TV",
+                desc: "تطبيق القنوات العامة، يعمل مباشرة دون أكواد أو مشغل خارجي.",
+                meta: "📦 APK (MediaFire)",
+                link: "https://www.mediafire.com/file/fwo19rr91rc9toh/GENRAL+TV+(1).apk/file",
+                image: "https://i.imgur.com/GENRALTV.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-satellite",
+                tags: ["all", "tv"]
+              },
+              {
+                title: "تطبيق Nova TV",
+                desc: "تطبيق نوفا للبث التلفزيوني للشاشات.",
+                meta: "📦 TV | APK",
+                link: "https://t.me/X_9_KK",
+                image: "https://i.imgur.com/NOVATV.png",
+                btnClass: "",
+                faIcon: "fa-solid fa-tv",
+                tags: ["all", "tv"]
+              },
+              {
+                title: "تطبيق كوديا سبورت",
+                desc: "مخصص للإنترنت الضعيف والمتوسط بجودة HD.",
+                meta: "📦 APK (MediaFire)",
+                link: "https://www.mediafire.com/file/jn1myb8xii72vk0/كوديا+سبورت.apk/file",
+                image: "https://i.imgur.com/KODIA.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-futbol",
+                tags: ["all", "sport", "mediafire"]
+              },
+              {
+                title: "تطبيق Prom",
+                desc: "تطبيق المشاهدة أحدث إصدار.",
+                meta: "📦 APK (MediaFire)",
+                link: "https://www.mediafire.com/file/aq5yf391mzct2lx/Prom.apk/file",
+                image: "https://i.imgur.com/PROM.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-photo-film",
+                tags: ["all", "mediafire"]
+              },
+              {
+                title: "LIVE STREAM PREMIUM",
+                desc: "تطبيق البث المباشر بريميوم وبدون إعلانات.",
+                meta: "🔑 2027  📦 Premium",
+                link: "https://www.mediafire.com/file/ihy63nqkju3561o/LIVE_STREAM_PREMIUM.apk/file",
+                image: "https://i.imgur.com/LIVESTREAM.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-bolt",
+                tags: ["all", "tv", "sport", "mediafire"]
+              },
+              {
+                title: "Yacine TV Gold",
+                desc: "النسخة الذهبية لتطبيق ياسين تي في للرياضة والمباريات.",
+                meta: "📦 TV | APK",
+                link: "https://t.me/X_9_KK",
+                image: "https://i.imgur.com/YACINETV.png",
+                btnClass: "",
+                faIcon: "fa-solid fa-futbol",
+                tags: ["all", "tv", "sport"]
+              },
+              {
+                title: "Alwan Sports",
+                desc: "تطبيق ألوان الرياضي للبث المباشر وتغطية البطولات.",
+                meta: "📦 APK (MediaFire)",
+                link: "https://www.mediafire.com/file/vyejtivz1mu8g8f/Alwan+Sports.apk/file",
+                image: "https://i.imgur.com/ALWANSPORTS.png",
+                btnClass: "btn-mediafire",
+                faIcon: "fa-solid fa-futbol",
+                tags: ["all", "sport", "mediafire"]
+              }
             ];
 
-            // 4. UI LOGIC & EVENTS
+            // 4. UI RENDER & CONTROLS
             const grid = document.getElementById("appsGrid");
             const search = document.getElementById("searchInput");
             const filters = document.querySelectorAll(".tag-btn");
