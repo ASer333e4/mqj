@@ -1,7 +1,13 @@
 [
   {
-    "name": "اسم تطبيقك التجريبي",
-    "url": "رابط الميديافاير هنا"
+    "title": "تطبيق كوباني 4k",
+    "desc": "من أفضل التطبيقات المجانية لمشاهدة القنوات والبث المباشر.",
+    "meta": "🔑 1515  📦 APK (MediaFire)",
+    "link": "https://www.mediafire.com/file/ofsmedv7mruse3y/KOBANI+4K.apk/file",
+    "image": "",
+    "btnClass": "btn-mediafire",
+    "faIcon": "fa-solid fa-display",
+    "tags": ["tv", "mediafire"],
+    "featured": true
   }
 ]
-
