@@ -1,5 +1,19 @@
 [
   {
+    "title": "تطبيق ياسين تي في (Yacine TV)",
+    "desc": "التطبيق الشهير لمشاهدة المباريات والبث المباشر للقنوات الرياضية والترفيهية.",
+    "meta": "📦 TV | APK",
+    "link": "Yassine_TV.apk",
+    "image": "https://i.imgur.com/YACINETV.png",
+    "btnClass": "btn-featured",
+    "faIcon": "fa-solid fa-tv",
+    "tags": ["tv", "sport"],
+    "featured": true,
+    "hasPlayer": true,
+    "playerLink": "YTV PRO.apk",
+    "playerLabel": "تحميل مشغل YTV Player PRO الرسمي"
+  },
+  {
     "title": "تطبيق كوباني 4k",
     "desc": "من أفضل التطبيقات المجانية لمشاهدة القنوات والبث المباشر.",
     "meta": "🔑 1515  📦 APK (MediaFire)",
@@ -243,7 +257,7 @@
   },
   {
     "title": "تطبيق Nova TV",
-    "desc": "تطبيق نوفا للبث التلفزيوني والشاشات.",
+    "desc": "تطبيق نوفا للبث التلفزيوني للشاشات.",
     "meta": "📦 TV | APK",
     "link": "Nova%20tv%20%281%29.apk",
     "image": "https://i.imgur.com/NOVATV.png",
@@ -280,16 +294,6 @@
     "btnClass": "btn-mediafire",
     "faIcon": "fa-solid fa-bolt",
     "tags": ["tv", "sport", "mediafire"]
-  },
-  {
-    "title": "Yacine TV Gold",
-    "desc": "النسخة الذهبية لتطبيق ياسين تي في للرياضة والمباريات.",
-    "meta": "📦 TV | APK",
-    "link": "Yacine%20TV%20Gold.apk",
-    "image": "https://i.imgur.com/YACINETV.png",
-    "btnClass": "",
-    "faIcon": "fa-solid fa-futbol",
-    "tags": ["tv", "sport"]
   },
   {
     "title": "Alwan Sports",
